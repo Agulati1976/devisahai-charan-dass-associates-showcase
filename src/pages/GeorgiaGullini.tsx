@@ -8,11 +8,11 @@ interface ContextType {
 }
 
 const advantages = [
-  "Powerful structure with crisp shape retention",
-  "High-performance wrinkle resistance",
-  "Rich, long-lasting colour finish",
-  "Durable and low-maintenance fabric",
-  "Built for corporate, executive, and institutional excellence",
+  { title: "Powerful structure with crisp shape retention", desc: "Holds its shape from boardroom to beyond — delivering a sharp, commanding silhouette throughout the day." },
+  { title: "High-performance wrinkle resistance", desc: "Superior crease resistance ensures you look sharp, confident, and in control at all times." },
+  { title: "Rich, long-lasting colour finish", desc: "Deep, vibrant colour depth that stays true wash after wash, maintaining a premium appearance." },
+  { title: "Durable and low-maintenance fabric", desc: "Engineered for uncompromising durability with minimal upkeep — ready to perform every day." },
+  { title: "Built for corporate, executive, and institutional excellence", desc: "Designed for leaders who demand presence and performance in professional environments." },
 ];
 
 const GeorgiaGullini = () => {
@@ -49,9 +49,12 @@ const GeorgiaGullini = () => {
             <h2 className="text-3xl font-extrabold text-primary mb-6">Key Advantages</h2>
             <div className="space-y-3">
               {advantages.map((a) => (
-                <div key={a} className="flex items-center gap-3 bg-brand-gray-50 border border-brand-gray-200 rounded-lg p-4">
-                  <CheckCircle2 className="w-5 h-5 text-destructive flex-shrink-0" />
-                  <span className="text-sm font-semibold text-foreground">{a}</span>
+                <div key={a.title} className="flex items-start gap-3 bg-brand-gray-50 border border-brand-gray-200 rounded-lg p-4">
+                  <CheckCircle2 className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-sm font-semibold text-foreground">{a.title}</span>
+                    <p className="text-xs text-muted-foreground mt-1">{a.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
