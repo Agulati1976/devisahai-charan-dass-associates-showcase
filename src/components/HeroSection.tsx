@@ -1,16 +1,9 @@
-import { FileText, ArrowRight, TrendingUp, TrendingDown } from "lucide-react";
+import { useState } from "react";
+import { FileText, ArrowRight, Send, Building2, User, Phone, Mail, Package, MapPin } from "lucide-react";
 
 interface HeroProps {
   onOpenRFQ: (product: string, grade: string, cat: string) => void;
 }
-
-const ticker = [
-  { prod: "Repol PP", grade: "H110MA · Homopolymer", price: "₹93.50/kg", change: "+0.8%", up: true },
-  { prod: "Relene HDPE", grade: "50064 · Film Grade", price: "₹102.00/kg", change: "-0.3%", up: false },
-  { prod: "Reon PVC", grade: "S6508 · Suspension", price: "₹88.25/kg", change: "+1.2%", up: true },
-  { prod: "Relpet G5801", grade: "Bottle Grade · PET", price: "₹98.75/kg", change: "+0.5%", up: true },
-  { prod: "Vimal Gifting", grade: "Poly Viscose · 37\" wide", price: "₹220/mtr", change: "-0.2%", up: false },
-];
 
 const stats = [
   { value: "52+", label: "Years of Legacy" },
@@ -19,81 +12,144 @@ const stats = [
   { value: "#1", label: "Largest DCA – Textiles" },
 ];
 
-const HeroSection = ({ onOpenRFQ }: HeroProps) => (
-  <section className="relative overflow-hidden min-h-[520px] flex items-center py-16 px-6"
-    style={{ background: "linear-gradient(120deg, hsl(0 0% 100%) 0%, hsl(224 60% 95%) 45%, hsl(224 100% 30%) 100%)" }}
-  >
-    <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 80% 50%, hsl(224 100% 30% / 0.12) 0%, transparent 65%)" }} />
-    <div className="relative z-10 max-w-[1200px] mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
-      {/* Left */}
-      <div>
-        <div className="inline-flex items-center gap-2 bg-primary/8 border border-primary/18 text-primary text-xs font-semibold px-3.5 py-1.5 rounded-full mb-5">
-          <span className="w-2 h-2 bg-destructive rounded-full" />
-          Authorised Del Credere Agent – Reliance Industries Ltd.
-        </div>
-        <h1 className="text-4xl md:text-5xl font-extrabold leading-[1.15] text-primary mb-4 text-balance">
-          Partnering with <span className="text-destructive">Reliance Industries</span> since 1972
-        </h1>
-        <p className="text-base text-brand-gray-700 leading-relaxed mb-8 max-w-[480px]">
-          India's leading B2B distributor of Reliance Polymers & Textiles. Priority supply access, real-time price intelligence, and pan-India logistics — trusted by 500+ industrial buyers.
-        </p>
-        <div className="flex gap-4 flex-wrap items-center">
-          <button
-            onClick={() => onOpenRFQ("General Enquiry", "All Products", "General")}
-            className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:bg-brand-red-dark hover:-translate-y-0.5 transition-all"
-          >
-            <FileText className="w-4 h-4" /> Get a Quote
-          </button>
-          <a href="#polymers" className="inline-flex items-center gap-2 border-2 border-primary text-primary font-semibold px-6 py-3 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all">
-            Explore Products <ArrowRight className="w-4 h-4" />
-          </a>
-        </div>
-        <div className="flex gap-8 mt-10 flex-wrap">
-          {stats.map((s) => (
-            <div key={s.label}>
-              <strong className="block text-2xl font-extrabold text-primary">{s.value}</strong>
-              <span className="text-xs text-brand-gray-500 font-medium">{s.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+const HeroSection = ({ onOpenRFQ }: HeroProps) => {
+  const [formData, setFormData] = useState({
+    name: "", company: "", mobile: "", email: "", product: "", location: "", message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
 
-      {/* Right - Live Ticker */}
-      <div className="hidden lg:block bg-primary/6 border border-primary/14 rounded-2xl p-6 backdrop-blur-sm">
-        <div className="flex justify-between items-center mb-4">
-          <h4 className="text-sm font-bold text-primary">Live Commodity Board</h4>
-          <span className="bg-green-100 text-green-600 text-[0.7rem] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
-            <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" /> LIVE
-          </span>
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 4000);
+    setFormData({ name: "", company: "", mobile: "", email: "", product: "", location: "", message: "" });
+  };
+
+  return (
+    <section className="relative overflow-hidden min-h-[560px] flex items-center py-16 px-6">
+      {/* Background layers */}
+      <div className="absolute inset-0 bg-primary" />
+      <div className="absolute inset-0 opacity-[0.07]" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+      }} />
+      <div className="absolute inset-0" style={{
+        background: "radial-gradient(ellipse at 20% 50%, hsl(224 100% 45% / 0.5) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, hsl(0 85% 55% / 0.15) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, hsl(224 100% 25% / 0.6) 0%, transparent 50%)",
+      }} />
+      {/* Floating shapes */}
+      <div className="absolute top-16 left-[10%] w-72 h-72 rounded-full bg-white/[0.03] blur-2xl" />
+      <div className="absolute bottom-10 right-[15%] w-96 h-96 rounded-full bg-white/[0.04] blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-white/[0.06]" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full border border-white/[0.04]" />
+
+      <div className="relative z-10 max-w-[1200px] mx-auto w-full grid lg:grid-cols-[1fr_420px] gap-12 items-center">
+        {/* Left Content */}
+        <div>
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs font-semibold px-3.5 py-1.5 rounded-full mb-5">
+            <span className="w-2 h-2 bg-destructive rounded-full animate-pulse" />
+            Authorised Del Credere Agent – Reliance Industries Ltd.
+          </div>
+          <h1 className="text-4xl md:text-5xl font-extrabold leading-[1.15] text-white mb-4 text-balance">
+            Partnering with <span className="text-destructive">Reliance Industries</span> since 1972
+          </h1>
+          <p className="text-base text-white/70 leading-relaxed mb-8 max-w-[480px]">
+            India's leading B2B distributor of Reliance Polymers & Textiles. Priority supply access, real-time price intelligence, and pan-India logistics — trusted by 500+ industrial buyers.
+          </p>
+          <div className="flex gap-4 flex-wrap items-center">
+            <button
+              onClick={() => onOpenRFQ("General Enquiry", "All Products", "General")}
+              className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:brightness-110 hover:-translate-y-0.5 transition-all"
+            >
+              <FileText className="w-4 h-4" /> Get a Quote
+            </button>
+            <a href="#polymers" className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/10 transition-all">
+              Explore Products <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+          <div className="flex gap-8 mt-10 flex-wrap">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <strong className="block text-2xl font-extrabold text-white">{s.value}</strong>
+                <span className="text-xs text-white/60 font-medium">{s.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="space-y-2">
-          {ticker.map((t, i) => (
-            <div key={i} className="flex justify-between items-center bg-background border border-brand-gray-200 rounded-lg px-3.5 py-2.5 text-sm">
-              <div>
-                <div className="font-semibold text-foreground">{t.prod}</div>
-                <div className="text-xs text-brand-gray-500">{t.grade}</div>
-              </div>
-              <div className="text-right">
-                <div className="font-bold text-primary">{t.price}</div>
-                <span className={`text-[0.72rem] font-semibold px-1.5 py-0.5 rounded inline-flex items-center gap-1 ${t.up ? "bg-green-100 text-green-600" : "bg-red-100 text-red-600"}`}>
-                  {t.up ? <TrendingUp className="w-3 h-3" /> : <TrendingDown className="w-3 h-3" />}
-                  {t.change}
-                </span>
-              </div>
+
+        {/* Right - Quick RFQ Form */}
+        <div className="bg-white/[0.08] backdrop-blur-md border border-white/15 rounded-2xl p-6 shadow-2xl shadow-black/20">
+          <div className="flex items-center gap-2 mb-5">
+            <div className="w-9 h-9 rounded-lg bg-destructive/90 flex items-center justify-center">
+              <FileText className="w-4 h-4 text-white" />
             </div>
-          ))}
-        </div>
-        <div className="text-center mt-4">
-          <button
-            onClick={() => onOpenRFQ("General Enquiry", "All Products", "General")}
-            className="text-xs font-bold bg-destructive text-destructive-foreground px-4 py-2 rounded-md hover:bg-brand-red-dark transition-colors"
-          >
-            View All Price Trends →
-          </button>
+            <div>
+              <h4 className="text-sm font-bold text-white">Quick RFQ</h4>
+              <p className="text-[0.7rem] text-white/60">Get pricing within 2 hours</p>
+            </div>
+          </div>
+
+          {!submitted ? (
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <div className="relative">
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+                <input name="name" value={formData.name} onChange={handleChange} required placeholder="Your Name *" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder:text-white/40 outline-none focus:border-white/40 transition-colors" />
+              </div>
+              <div className="relative">
+                <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+                <input name="company" value={formData.company} onChange={handleChange} required placeholder="Company Name *" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder:text-white/40 outline-none focus:border-white/40 transition-colors" />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+                  <input name="mobile" value={formData.mobile} onChange={handleChange} required type="tel" placeholder="Mobile *" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder:text-white/40 outline-none focus:border-white/40 transition-colors" />
+                </div>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+                  <input name="email" value={formData.email} onChange={handleChange} required type="email" placeholder="Email *" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder:text-white/40 outline-none focus:border-white/40 transition-colors" />
+                </div>
+              </div>
+              <div className="relative">
+                <Package className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+                <select name="product" value={formData.product} onChange={handleChange} required className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm appearance-none outline-none focus:border-white/40 transition-colors [&>option]:text-foreground [&>option]:bg-background">
+                  <option value="">Select Product *</option>
+                  <option>Polypropylene (PP)</option>
+                  <option>Polyethylene (PE)</option>
+                  <option>PVC</option>
+                  <option>PET – Bottle Grade</option>
+                  <option>Vimal Suitings</option>
+                  <option>Georgia Gullini</option>
+                  <option>Uniform Fabrics</option>
+                  <option>Polyester Suiting</option>
+                  <option>Vimal Gifting</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div className="relative">
+                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+                <input name="location" value={formData.location} onChange={handleChange} placeholder="Delivery Location" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder:text-white/40 outline-none focus:border-white/40 transition-colors" />
+              </div>
+              <textarea name="message" value={formData.message} onChange={handleChange} rows={2} placeholder="Additional requirements..." className="w-full px-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder:text-white/40 outline-none focus:border-white/40 transition-colors resize-none" />
+              <button type="submit" className="w-full bg-destructive text-destructive-foreground font-bold py-3 rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-lg shadow-destructive/30">
+                <Send className="w-4 h-4" /> Submit RFQ
+              </button>
+              <p className="text-[0.65rem] text-white/40 text-center">Your data is confidential & used only for quotation</p>
+            </form>
+          ) : (
+            <div className="text-center py-8">
+              <div className="w-14 h-14 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-3">
+                <svg className="w-7 h-7 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
+              </div>
+              <h4 className="text-white font-bold text-lg">RFQ Submitted!</h4>
+              <p className="text-white/60 text-sm mt-1">We'll get back within 2 hours</p>
+            </div>
+          )}
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default HeroSection;
