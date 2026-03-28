@@ -8,11 +8,11 @@ interface ContextType {
 }
 
 const advantages = [
-  "Powerful structure with crisp shape retention",
-  "High-performance wrinkle resistance",
-  "Rich, long-lasting colour finish",
-  "Durable and low-maintenance fabric",
-  "Built for corporate, executive, and institutional excellence",
+  { title: "Powerful structure with crisp shape retention", desc: "Holds its shape from boardroom to beyond — delivering a sharp, commanding silhouette throughout the day." },
+  { title: "High-performance wrinkle resistance", desc: "Superior crease resistance ensures you look sharp, confident, and in control at all times." },
+  { title: "Rich, long-lasting colour finish", desc: "Deep, vibrant colour depth that stays true wash after wash, maintaining a premium appearance." },
+  { title: "Durable and low-maintenance fabric", desc: "Engineered for uncompromising durability with minimal upkeep — ready to perform every day." },
+  { title: "Built for corporate, executive, and institutional excellence", desc: "Designed for leaders who demand presence and performance in professional environments." },
 ];
 
 const GeorgiaGullini = () => {
