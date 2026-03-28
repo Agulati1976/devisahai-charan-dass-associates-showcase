@@ -1,4 +1,5 @@
 import { Mail, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => (
   <footer className="bg-brand-gray-900 text-primary-foreground/75 text-sm">
@@ -24,7 +25,7 @@ const Footer = () => (
         <h5 className="text-primary-foreground font-bold text-sm mb-4">Polymers</h5>
         <ul className="space-y-2">
           {["Repol® PP", "Relene® HDPE", "Relene® LLDPE", "Reon® PVC", "Relpet® PET", "Relpipe® Pipes"].map((item) => (
-            <li key={item}><a href="#polymers" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">{item}</a></li>
+            <li key={item}><Link to="/products?cat=polymers" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">{item}</Link></li>
           ))}
         </ul>
       </div>
@@ -32,16 +33,17 @@ const Footer = () => (
         <h5 className="text-primary-foreground font-bold text-sm mb-4">Textiles</h5>
         <ul className="space-y-2">
           {["Only Vimal® Gifting", "Georgia Gullini®", "Uniform Fabrics", "Performance Fabrics", "Worsted Suitings"].map((item) => (
-            <li key={item}><a href="#textiles" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">{item}</a></li>
+            <li key={item}><Link to="/products?cat=textiles" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">{item}</Link></li>
           ))}
         </ul>
       </div>
       <div>
         <h5 className="text-primary-foreground font-bold text-sm mb-4">Quick Links</h5>
         <ul className="space-y-2">
-          {["About Us", "RFQ Portal", "Market Prices", "Download Brochure", "Careers", "Contact Us"].map((item) => (
-            <li key={item}><a href="#" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">{item}</a></li>
-          ))}
+          <li><Link to="/about" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">About Us</Link></li>
+          <li><Link to="/products" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">All Products</Link></li>
+          <li><Link to="/reliance" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">Reliance</Link></li>
+          <li><Link to="/contact" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">Contact Us</Link></li>
         </ul>
       </div>
     </div>
