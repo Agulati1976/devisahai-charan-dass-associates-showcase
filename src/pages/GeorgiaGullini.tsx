@@ -49,9 +49,12 @@ const GeorgiaGullini = () => {
             <h2 className="text-3xl font-extrabold text-primary mb-6">Key Advantages</h2>
             <div className="space-y-3">
               {advantages.map((a) => (
-                <div key={a} className="flex items-center gap-3 bg-brand-gray-50 border border-brand-gray-200 rounded-lg p-4">
-                  <CheckCircle2 className="w-5 h-5 text-destructive flex-shrink-0" />
-                  <span className="text-sm font-semibold text-foreground">{a}</span>
+                <div key={a.title} className="flex items-start gap-3 bg-brand-gray-50 border border-brand-gray-200 rounded-lg p-4">
+                  <CheckCircle2 className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-sm font-semibold text-foreground">{a.title}</span>
+                    <p className="text-xs text-muted-foreground mt-1">{a.desc}</p>
+                  </div>
                 </div>
               ))}
             </div>
