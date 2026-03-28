@@ -1,16 +1,54 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState, useCallback } from "react";
+import Topbar from "@/components/Topbar";
+import Navbar from "@/components/Navbar";
+import MarqueeBanner from "@/components/MarqueeBanner";
+import HeroSection from "@/components/HeroSection";
+import TrustBar from "@/components/TrustBar";
+import PolymersSection from "@/components/PolymersSection";
+import TextilesSection from "@/components/TextilesSection";
+import IndustriesSection from "@/components/IndustriesSection";
+import WhyUsSection from "@/components/WhyUsSection";
+import CTASection from "@/components/CTASection";
+import Footer from "@/components/Footer";
+import RFQDrawer from "@/components/RFQDrawer";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [rfqData, setRfqData] = useState({ product: "", grade: "", category: "" });
+
+  const openRFQ = useCallback((product: string, grade: string, category: string) => {
+    setRfqData({ product, grade, category });
+    setDrawerOpen(true);
+    document.body.style.overflow = "hidden";
+  }, []);
+
+  const closeRFQ = useCallback(() => {
+    setDrawerOpen(false);
+    document.body.style.overflow = "";
+  }, []);
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen">
+      <Topbar />
+      <Navbar onOpenRFQ={openRFQ} />
+      <MarqueeBanner />
+      <HeroSection onOpenRFQ={openRFQ} />
+      <TrustBar />
+      <PolymersSection onOpenRFQ={openRFQ} />
+      <TextilesSection onOpenRFQ={openRFQ} />
+      <IndustriesSection />
+      <WhyUsSection />
+      <CTASection onOpenRFQ={openRFQ} />
+      <Footer />
+      <RFQDrawer
+        open={drawerOpen}
+        onClose={closeRFQ}
+        product={rfqData.product}
+        grade={rfqData.grade}
+        category={rfqData.category}
+      />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
