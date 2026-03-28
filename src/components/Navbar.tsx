@@ -1,18 +1,73 @@
-import { FileText, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { FileText, Menu, X, ChevronDown } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 interface NavbarProps {
   onOpenRFQ: (product: string, grade: string, cat: string) => void;
 }
 
-const navLinks = [
+const polymerLinks = [
+  { label: "Polypropylene (PP)", to: "/products/pp" },
+  { label: "Polyethylene (PE)", to: "/products/pe" },
+  { label: "PVC", to: "/products/pvc" },
+  { label: "PET", to: "/products/pet" },
+];
+
+const textileLinks = [
+  { label: "Vimal Gifting", to: "/textiles/vimal-gifting" },
+  { label: "Vimal Suitings", to: "/textiles/vimal-suitings" },
+  { label: "Uniforms", to: "/textiles/uniforms" },
+  { label: "100% Polyester Suiting", to: "/textiles/polyester-suiting" },
+  { label: "Georgia Gullini", to: "/textiles/georgia-gullini" },
+];
+
+const simpleLinks = [
   { label: "Home", to: "/" },
-  { label: "Products", to: "/products" },
   { label: "About", to: "/about" },
   { label: "Reliance", to: "/reliance" },
   { label: "Contact", to: "/contact" },
 ];
+
+const DropdownMenu = ({ label, links, location }: { label: string; links: { label: string; to: string }[]; location: ReturnType<typeof useLocation> }) => {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const isActive = links.some((l) => location.pathname === l.to);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen(!open)}
+        className={`flex items-center gap-1 text-primary-foreground/90 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-primary-foreground/15 hover:text-primary-foreground ${isActive ? "bg-primary-foreground/20 text-primary-foreground" : ""}`}
+      >
+        {label} <ChevronDown className={`w-3.5 h-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+      {open && (
+        <div className="absolute top-full left-0 mt-1 bg-background border border-brand-gray-200 rounded-lg shadow-xl py-2 min-w-[220px] z-50">
+          {links.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              onClick={() => setOpen(false)}
+              className={`block px-4 py-2.5 text-sm transition-colors hover:bg-secondary ${
+                location.pathname === link.to ? "text-primary font-semibold bg-secondary" : "text-foreground"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const Navbar = ({ onOpenRFQ }: NavbarProps) => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -32,13 +87,25 @@ const Navbar = ({ onOpenRFQ }: NavbarProps) => {
         </Link>
 
         <div className="hidden lg:flex items-center gap-1">
-          {navLinks.map((link) => (
+          <Link
+            to="/"
+            className={`text-primary-foreground/90 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-primary-foreground/15 hover:text-primary-foreground ${location.pathname === "/" ? "bg-primary-foreground/20 text-primary-foreground" : ""}`}
+          >
+            Home
+          </Link>
+          <DropdownMenu label="Polymers" links={polymerLinks} location={location} />
+          <DropdownMenu label="Textiles" links={textileLinks} location={location} />
+          <Link
+            to="/products"
+            className={`text-primary-foreground/90 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-primary-foreground/15 hover:text-primary-foreground ${location.pathname === "/products" ? "bg-primary-foreground/20 text-primary-foreground" : ""}`}
+          >
+            All Products
+          </Link>
+          {simpleLinks.filter(l => l.to !== "/").map((link) => (
             <Link
               key={link.label}
               to={link.to}
-              className={`text-primary-foreground/90 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-primary-foreground/15 hover:text-primary-foreground ${
-                location.pathname === link.to ? "bg-primary-foreground/20 text-primary-foreground" : ""
-              }`}
+              className={`text-primary-foreground/90 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-primary-foreground/15 hover:text-primary-foreground ${location.pathname === link.to ? "bg-primary-foreground/20 text-primary-foreground" : ""}`}
             >
               {link.label}
             </Link>
@@ -63,23 +130,34 @@ const Navbar = ({ onOpenRFQ }: NavbarProps) => {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden bg-primary border-t border-primary-foreground/10 px-6 pb-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              to={link.to}
-              className={`block text-sm py-2.5 transition-colors ${
-                location.pathname === link.to ? "text-primary-foreground font-semibold" : "text-primary-foreground/90 hover:text-primary-foreground"
-              }`}
-              onClick={() => setMobileOpen(false)}
-            >
+        <div className="lg:hidden bg-primary border-t border-primary-foreground/10 px-6 pb-4 max-h-[80vh] overflow-y-auto">
+          <Link to="/" className="block text-sm py-2.5 text-primary-foreground/90 hover:text-primary-foreground" onClick={() => setMobileOpen(false)}>Home</Link>
+          
+          <div className="py-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-primary-foreground/50">Polymers</span>
+            {polymerLinks.map((link) => (
+              <Link key={link.to} to={link.to} className={`block text-sm py-2 pl-3 transition-colors ${location.pathname === link.to ? "text-primary-foreground font-semibold" : "text-primary-foreground/80 hover:text-primary-foreground"}`} onClick={() => setMobileOpen(false)}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="py-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-primary-foreground/50">Textiles</span>
+            {textileLinks.map((link) => (
+              <Link key={link.to} to={link.to} className={`block text-sm py-2 pl-3 transition-colors ${location.pathname === link.to ? "text-primary-foreground font-semibold" : "text-primary-foreground/80 hover:text-primary-foreground"}`} onClick={() => setMobileOpen(false)}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          <Link to="/products" className="block text-sm py-2.5 text-primary-foreground/90 hover:text-primary-foreground" onClick={() => setMobileOpen(false)}>All Products</Link>
+          {simpleLinks.filter(l => l.to !== "/").map((link) => (
+            <Link key={link.label} to={link.to} className={`block text-sm py-2.5 transition-colors ${location.pathname === link.to ? "text-primary-foreground font-semibold" : "text-primary-foreground/90 hover:text-primary-foreground"}`} onClick={() => setMobileOpen(false)}>
               {link.label}
             </Link>
           ))}
-          <button
-            onClick={() => { onOpenRFQ("General Enquiry", "All Products", "General"); setMobileOpen(false); }}
-            className="mt-2 w-full flex items-center justify-center gap-2 bg-destructive text-destructive-foreground text-sm font-semibold px-5 py-2.5 rounded-md"
-          >
+          <button onClick={() => { onOpenRFQ("General Enquiry", "All Products", "General"); setMobileOpen(false); }} className="mt-2 w-full flex items-center justify-center gap-2 bg-destructive text-destructive-foreground text-sm font-semibold px-5 py-2.5 rounded-md">
             <FileText className="w-4 h-4" /> Request for Quotation
           </button>
         </div>

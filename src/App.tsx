@@ -13,6 +13,11 @@ import PPProduct from "./pages/PPProduct";
 import PEProduct from "./pages/PEProduct";
 import PVCProduct from "./pages/PVCProduct";
 import PETProduct from "./pages/PETProduct";
+import VimalGifting from "./pages/VimalGifting";
+import VimalSuitings from "./pages/VimalSuitings";
+import Uniforms from "./pages/Uniforms";
+import PolyesterSuiting from "./pages/PolyesterSuiting";
+import GeorgiaGullini from "./pages/GeorgiaGullini";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +37,11 @@ const App = () => (
             <Route path="/products/pe" element={<PEProduct />} />
             <Route path="/products/pvc" element={<PVCProduct />} />
             <Route path="/products/pet" element={<PETProduct />} />
+            <Route path="/textiles/vimal-gifting" element={<VimalGifting />} />
+            <Route path="/textiles/vimal-suitings" element={<VimalSuitings />} />
+            <Route path="/textiles/uniforms" element={<Uniforms />} />
+            <Route path="/textiles/polyester-suiting" element={<PolyesterSuiting />} />
+            <Route path="/textiles/georgia-gullini" element={<GeorgiaGullini />} />
             <Route path="/reliance" element={<Reliance />} />
             <Route path="/contact" element={<Contact />} />
           </Route>
