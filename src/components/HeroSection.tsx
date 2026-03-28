@@ -86,34 +86,34 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
               <FileText className="w-4 h-4 text-white" />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-white">Quick RFQ</h4>
-              <p className="text-[0.7rem] text-white/60">Get pricing within 2 hours</p>
+              <h4 className="text-sm font-bold text-foreground">Quick RFQ</h4>
+              <p className="text-[0.7rem] text-muted-foreground">Get pricing within 2 hours</p>
             </div>
           </div>
 
           {!submitted ? (
             <form onSubmit={handleSubmit} className="space-y-3">
               <div className="relative">
-                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
-                <input name="name" value={formData.name} onChange={handleChange} required placeholder="Your Name *" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder:text-white/40 outline-none focus:border-white/40 transition-colors" />
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                <input name="name" value={formData.name} onChange={handleChange} required placeholder="Your Name *" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-muted/50 border border-border text-foreground text-sm placeholder:text-muted-foreground/60 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors" />
               </div>
               <div className="relative">
-                <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
-                <input name="company" value={formData.company} onChange={handleChange} required placeholder="Company Name *" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder:text-white/40 outline-none focus:border-white/40 transition-colors" />
+                <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                <input name="company" value={formData.company} onChange={handleChange} required placeholder="Company Name *" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-muted/50 border border-border text-foreground text-sm placeholder:text-muted-foreground/60 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors" />
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div className="relative">
-                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
-                  <input name="mobile" value={formData.mobile} onChange={handleChange} required type="tel" placeholder="Mobile *" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder:text-white/40 outline-none focus:border-white/40 transition-colors" />
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                  <input name="mobile" value={formData.mobile} onChange={handleChange} required type="tel" placeholder="Mobile *" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-muted/50 border border-border text-foreground text-sm placeholder:text-muted-foreground/60 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors" />
                 </div>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
-                  <input name="email" value={formData.email} onChange={handleChange} required type="email" placeholder="Email *" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder:text-white/40 outline-none focus:border-white/40 transition-colors" />
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                  <input name="email" value={formData.email} onChange={handleChange} required type="email" placeholder="Email *" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-muted/50 border border-border text-foreground text-sm placeholder:text-muted-foreground/60 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors" />
                 </div>
               </div>
               <div className="relative">
-                <Package className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
-                <select name="product" value={formData.product} onChange={handleChange} required className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm appearance-none outline-none focus:border-white/40 transition-colors [&>option]:text-foreground [&>option]:bg-background">
+                <Package className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                <select name="product" value={formData.product} onChange={handleChange} required className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-muted/50 border border-border text-foreground text-sm appearance-none outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors">
                   <option value="">Select Product *</option>
                   <option>Polypropylene (PP)</option>
                   <option>Polyethylene (PE)</option>
@@ -128,22 +128,22 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
                 </select>
               </div>
               <div className="relative">
-                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
-                <input name="location" value={formData.location} onChange={handleChange} placeholder="Delivery Location" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder:text-white/40 outline-none focus:border-white/40 transition-colors" />
+                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                <input name="location" value={formData.location} onChange={handleChange} placeholder="Delivery Location" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-muted/50 border border-border text-foreground text-sm placeholder:text-muted-foreground/60 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors" />
               </div>
-              <textarea name="message" value={formData.message} onChange={handleChange} rows={2} placeholder="Additional requirements..." className="w-full px-3 py-2.5 rounded-lg bg-white/10 border border-white/15 text-white text-sm placeholder:text-white/40 outline-none focus:border-white/40 transition-colors resize-none" />
+              <textarea name="message" value={formData.message} onChange={handleChange} rows={2} placeholder="Additional requirements..." className="w-full px-3 py-2.5 rounded-lg bg-muted/50 border border-border text-foreground text-sm placeholder:text-muted-foreground/60 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors resize-none" />
               <button type="submit" className="w-full bg-destructive text-destructive-foreground font-bold py-3 rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-lg shadow-destructive/30">
                 <Send className="w-4 h-4" /> Submit RFQ
               </button>
-              <p className="text-[0.65rem] text-white/40 text-center">Your data is confidential & used only for quotation</p>
+              <p className="text-[0.65rem] text-muted-foreground text-center">Your data is confidential & used only for quotation</p>
             </form>
           ) : (
             <div className="text-center py-8">
-              <div className="w-14 h-14 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-3">
-                <svg className="w-7 h-7 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
+              <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3">
+                <svg className="w-7 h-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
               </div>
-              <h4 className="text-white font-bold text-lg">RFQ Submitted!</h4>
-              <p className="text-white/60 text-sm mt-1">We'll get back within 2 hours</p>
+              <h4 className="text-foreground font-bold text-lg">RFQ Submitted!</h4>
+              <p className="text-muted-foreground text-sm mt-1">We'll get back within 2 hours</p>
             </div>
           )}
         </div>
