@@ -87,9 +87,6 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
           border: "1.5px solid rgba(255,255,255,0.7)",
           boxShadow: "0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(255,255,255,0.3), 0 0 0 1px rgba(255,255,255,0.15)",
         }}>
-          <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
-            background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.5) 45%, rgba(255,255,255,0.15) 50%, transparent 55%)",
-          }} />
           <div className="flex items-center gap-2 mb-5">
             <div className="w-9 h-9 rounded-lg bg-destructive/90 flex items-center justify-center">
               <FileText className="w-4 h-4 text-white" />
