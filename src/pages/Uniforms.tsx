@@ -65,8 +65,29 @@ const Uniforms = () => {
         </div>
       </section>
 
+      {/* Product Images */}
       <section className="bg-brand-gray-50 py-16">
         <div className="max-w-[1200px] mx-auto px-6">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-2">Gallery</span>
+          <h2 className="text-3xl font-extrabold text-primary mb-8">Uniform Fabric Samples</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+            {[
+              { src: "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3b1c27f5d6fc1547bd1b136438775952dc5fa45d.jpg", label: "Corporate Uniform Fabric" },
+              { src: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&auto=format", label: "School Uniform Fabric" },
+              { src: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&auto=format", label: "Industrial Workwear" },
+              { src: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format", label: "Healthcare Fabrics" },
+            ].map((img) => (
+              <div key={img.label} className="group rounded-xl overflow-hidden border border-brand-gray-200 bg-background">
+                <div className="h-44 overflow-hidden">
+                  <img src={img.src} alt={img.label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                </div>
+                <div className="p-3">
+                  <p className="text-sm font-semibold text-foreground">{img.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-2">Collection</span>
           <h2 className="text-3xl font-extrabold text-primary mb-8">Our Uniform Collection</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

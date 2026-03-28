@@ -69,7 +69,31 @@ const VimalGifting = () => {
         </div>
       </section>
 
+      {/* Product Images */}
       <section className="bg-brand-gray-50 py-16">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-2">Gallery</span>
+          <h2 className="text-3xl font-extrabold text-primary mb-8">Our Gifting Range</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {[
+              { src: "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/77982e55d48a51c5729a6bd9c5e642bda6d0711b.jpg", label: "Premium Suiting Gift Sets" },
+              { src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format", label: "Corporate Fabric Bundles" },
+              { src: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format", label: "Festive Gift Hampers" },
+            ].map((img) => (
+              <div key={img.label} className="group rounded-xl overflow-hidden border border-brand-gray-200 bg-background">
+                <div className="h-52 overflow-hidden">
+                  <img src={img.src} alt={img.label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                </div>
+                <div className="p-4">
+                  <p className="text-sm font-semibold text-foreground">{img.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
         <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
