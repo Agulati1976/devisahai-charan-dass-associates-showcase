@@ -80,7 +80,17 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
         </div>
 
         {/* Right - Quick RFQ Form */}
-        <div className="bg-gradient-to-br from-white via-white/95 to-blue-50 backdrop-blur-md border border-white/80 rounded-2xl p-6 shadow-2xl shadow-black/15">
+        <div className="relative rounded-2xl p-6 shadow-2xl overflow-hidden" style={{
+          background: "linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.25) 50%, rgba(255,255,255,0.45) 100%)",
+          backdropFilter: "blur(20px) saturate(1.8)",
+          WebkitBackdropFilter: "blur(20px) saturate(1.8)",
+          border: "1.5px solid rgba(255,255,255,0.5)",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.6), inset 0 -1px 0 rgba(255,255,255,0.15), 0 0 0 1px rgba(255,255,255,0.08)",
+        }}>
+          {/* Glass shimmer overlay */}
+          <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{
+            background: "linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.4) 45%, rgba(255,255,255,0.1) 50%, transparent 55%)",
+          }} />
           <div className="flex items-center gap-2 mb-5">
             <div className="w-9 h-9 rounded-lg bg-destructive/90 flex items-center justify-center">
               <FileText className="w-4 h-4 text-white" />
