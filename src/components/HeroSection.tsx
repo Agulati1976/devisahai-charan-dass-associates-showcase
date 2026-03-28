@@ -80,7 +80,7 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
         </div>
 
         {/* Right - Quick RFQ Form */}
-        <div className="bg-white/[0.08] backdrop-blur-md border border-white/15 rounded-2xl p-6 shadow-2xl shadow-black/20">
+        <div className="bg-gradient-to-br from-white via-white/95 to-blue-50 backdrop-blur-md border border-white/80 rounded-2xl p-6 shadow-2xl shadow-black/15">
           <div className="flex items-center gap-2 mb-5">
             <div className="w-9 h-9 rounded-lg bg-destructive/90 flex items-center justify-center">
               <FileText className="w-4 h-4 text-white" />
