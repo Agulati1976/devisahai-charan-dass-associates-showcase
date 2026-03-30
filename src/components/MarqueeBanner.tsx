@@ -1,21 +1,21 @@
-import { Award, Zap, Globe, CreditCard, BarChart3, Users } from "lucide-react";
-
 const items = [
-  { icon: Award, text: "India's #1 Textile DCA" },
-  { icon: Zap, text: "Priority Supply Access" },
-  { icon: Globe, text: "Pan-India Delivery" },
-  { icon: CreditCard, text: "Competitive Credit Terms" },
-  { icon: BarChart3, text: "Real-Time Price Intelligence" },
-  { icon: Users, text: "Dedicated Account Manager" },
+  "Authorised Del Credere Agent of Reliance Industries Limited",
+  "Trusted Partner for Polymers & Textiles Since 1972",
+  "Pan-India Supply Chain for PP, PE, PVC & PET Resins",
+  "Premium Vimal Suitings & Corporate Gifting Solutions",
+  "Reliable. Consistent. Industry-Leading Quality.",
+  "Your Single Source for Reliance Polymer & Textile Products",
+  "Committed to Excellence in Every Delivery",
+  "Empowering Industries with World-Class Raw Materials",
 ];
 
 const MarqueeBanner = () => (
   <div className="bg-primary overflow-hidden py-2.5">
-    <div className="flex justify-center items-center gap-8 flex-wrap px-6">
-      {items.map((item, i) => (
-        <span key={i} className="text-xs font-medium text-primary-foreground/85 flex items-center gap-2 whitespace-nowrap">
-          <item.icon className="w-3.5 h-3.5 text-primary-foreground/60" />
-          {item.text}
+    <div className="flex gap-12 animate-marquee whitespace-nowrap">
+      {[...items, ...items].map((item, i) => (
+        <span key={i} className="text-xs font-medium text-primary-foreground/90 flex items-center gap-3">
+          <span className="w-1 h-1 bg-primary-foreground/60 rounded-full flex-shrink-0" />
+          {item}
         </span>
       ))}
     </div>
