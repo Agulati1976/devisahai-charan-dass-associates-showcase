@@ -45,7 +45,7 @@ const DropdownMenu = ({ label, links, location }: { label: string; links: { labe
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className={`flex items-center gap-1 text-primary-foreground/90 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-primary-foreground/15 hover:text-primary-foreground ${isActive ? "bg-primary-foreground/20 text-primary-foreground" : ""}`}
+        className={`flex items-center gap-1 text-foreground/80 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-secondary hover:text-primary ${isActive ? "bg-secondary text-primary font-semibold" : ""}`}
       >
         {label} <ChevronDown className={`w-3.5 h-3.5 transition-transform ${open ? "rotate-180" : ""}`} />
       </button>
@@ -74,22 +74,22 @@ const Navbar = ({ onOpenRFQ }: NavbarProps) => {
   const location = useLocation();
 
   return (
-    <nav className="bg-primary sticky top-0 z-50 shadow-lg shadow-primary/25">
+    <nav className="bg-background sticky top-0 z-50 shadow-md border-b border-border">
       <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 py-4 no-underline">
-          <div className="w-10 h-10 rounded-lg bg-primary-foreground flex items-center justify-center font-extrabold text-primary text-sm tracking-tighter">
+          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center font-extrabold text-primary-foreground text-sm tracking-tighter">
             DC
           </div>
-          <div className="text-primary-foreground">
+          <div className="text-foreground">
             <strong className="block text-sm font-bold leading-tight">Devisahai Charan Dass</strong>
-            <span className="text-[0.7rem] opacity-75 font-normal">Authorised DCA – Reliance Industries Ltd.</span>
+            <span className="text-[0.7rem] text-muted-foreground font-normal">Authorised DCA – Reliance Industries Ltd.</span>
           </div>
         </Link>
 
         <div className="hidden lg:flex items-center gap-1">
           <Link
             to="/"
-            className={`text-primary-foreground/90 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-primary-foreground/15 hover:text-primary-foreground ${location.pathname === "/" ? "bg-primary-foreground/20 text-primary-foreground" : ""}`}
+            className={`text-foreground/80 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-secondary hover:text-primary ${location.pathname === "/" ? "bg-secondary text-primary font-semibold" : ""}`}
           >
             Home
           </Link>
@@ -97,7 +97,7 @@ const Navbar = ({ onOpenRFQ }: NavbarProps) => {
           <DropdownMenu label="Textiles" links={textileLinks} location={location} />
           <Link
             to="/products"
-            className={`text-primary-foreground/90 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-primary-foreground/15 hover:text-primary-foreground ${location.pathname === "/products" ? "bg-primary-foreground/20 text-primary-foreground" : ""}`}
+            className={`text-foreground/80 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-secondary hover:text-primary ${location.pathname === "/products" ? "bg-secondary text-primary font-semibold" : ""}`}
           >
             All Products
           </Link>
@@ -105,7 +105,7 @@ const Navbar = ({ onOpenRFQ }: NavbarProps) => {
             <Link
               key={link.label}
               to={link.to}
-              className={`text-primary-foreground/90 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-primary-foreground/15 hover:text-primary-foreground ${location.pathname === link.to ? "bg-primary-foreground/20 text-primary-foreground" : ""}`}
+              className={`text-foreground/80 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-secondary hover:text-primary ${location.pathname === link.to ? "bg-secondary text-primary font-semibold" : ""}`}
             >
               {link.label}
             </Link>
@@ -120,8 +120,8 @@ const Navbar = ({ onOpenRFQ }: NavbarProps) => {
             <FileText className="w-4 h-4" />
             Request for Quotation
           </button>
-          <button
-            className="lg:hidden text-primary-foreground p-2"
+           <button
+            className="lg:hidden text-foreground p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -130,30 +130,30 @@ const Navbar = ({ onOpenRFQ }: NavbarProps) => {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden bg-primary border-t border-primary-foreground/10 px-6 pb-4 max-h-[80vh] overflow-y-auto">
-          <Link to="/" className="block text-sm py-2.5 text-primary-foreground/90 hover:text-primary-foreground" onClick={() => setMobileOpen(false)}>Home</Link>
+        <div className="lg:hidden bg-background border-t border-border px-6 pb-4 max-h-[80vh] overflow-y-auto">
+          <Link to="/" className="block text-sm py-2.5 text-foreground/80 hover:text-primary" onClick={() => setMobileOpen(false)}>Home</Link>
           
           <div className="py-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-primary-foreground/50">Polymers</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Polymers</span>
             {polymerLinks.map((link) => (
-              <Link key={link.to} to={link.to} className={`block text-sm py-2 pl-3 transition-colors ${location.pathname === link.to ? "text-primary-foreground font-semibold" : "text-primary-foreground/80 hover:text-primary-foreground"}`} onClick={() => setMobileOpen(false)}>
+              <Link key={link.to} to={link.to} className={`block text-sm py-2 pl-3 transition-colors ${location.pathname === link.to ? "text-primary font-semibold" : "text-foreground/80 hover:text-primary"}`} onClick={() => setMobileOpen(false)}>
                 {link.label}
               </Link>
             ))}
           </div>
 
           <div className="py-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-primary-foreground/50">Textiles</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Textiles</span>
             {textileLinks.map((link) => (
-              <Link key={link.to} to={link.to} className={`block text-sm py-2 pl-3 transition-colors ${location.pathname === link.to ? "text-primary-foreground font-semibold" : "text-primary-foreground/80 hover:text-primary-foreground"}`} onClick={() => setMobileOpen(false)}>
+              <Link key={link.to} to={link.to} className={`block text-sm py-2 pl-3 transition-colors ${location.pathname === link.to ? "text-primary font-semibold" : "text-foreground/80 hover:text-primary"}`} onClick={() => setMobileOpen(false)}>
                 {link.label}
               </Link>
             ))}
           </div>
 
-          <Link to="/products" className="block text-sm py-2.5 text-primary-foreground/90 hover:text-primary-foreground" onClick={() => setMobileOpen(false)}>All Products</Link>
+          <Link to="/products" className="block text-sm py-2.5 text-foreground/80 hover:text-primary" onClick={() => setMobileOpen(false)}>All Products</Link>
           {simpleLinks.filter(l => l.to !== "/").map((link) => (
-            <Link key={link.label} to={link.to} className={`block text-sm py-2.5 transition-colors ${location.pathname === link.to ? "text-primary-foreground font-semibold" : "text-primary-foreground/90 hover:text-primary-foreground"}`} onClick={() => setMobileOpen(false)}>
+            <Link key={link.label} to={link.to} className={`block text-sm py-2.5 transition-colors ${location.pathname === link.to ? "text-primary font-semibold" : "text-foreground/80 hover:text-primary"}`} onClick={() => setMobileOpen(false)}>
               {link.label}
             </Link>
           ))}
