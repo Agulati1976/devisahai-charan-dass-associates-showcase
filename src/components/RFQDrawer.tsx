@@ -204,7 +204,7 @@ const RFQDrawer = ({ open, onClose, product, grade, category }: RFQDrawerProps) 
             <div className="w-[72px] h-[72px] rounded-full bg-green-100 flex items-center justify-center">
               <CheckCircle2 className="w-8 h-8 text-green-600" />
             </div>
-            <h3 className="text-xl font-extrabold text-foreground">RFQ Submitted!</h3>
+            <h3 className="text-xl font-extrabold text-foreground">Enquiry Submitted!</h3>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
               Your quotation request has been received. Our team will contact you within <strong>2 business hours</strong> with pricing and availability.
             </p>
