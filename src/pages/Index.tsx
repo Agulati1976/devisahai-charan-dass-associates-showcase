@@ -4,6 +4,7 @@ import TrustBar from "@/components/TrustBar";
 import PolymersSection from "@/components/PolymersSection";
 import TextilesSection from "@/components/TextilesSection";
 import WhyUsSection from "@/components/WhyUsSection";
+import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
 import { useOutletContext } from "react-router-dom";
 
@@ -22,6 +23,7 @@ const Index = () => {
       <PolymersSection />
       <TextilesSection />
       <WhyUsSection />
+      <FAQSection />
       <CTASection onOpenRFQ={openRFQ} />
     </>
   );

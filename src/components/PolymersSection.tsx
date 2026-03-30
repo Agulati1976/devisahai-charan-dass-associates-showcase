@@ -1,12 +1,16 @@
 import { ArrowRight, FlaskConical } from "lucide-react";
 import { Link } from "react-router-dom";
+import ppImg from "@/assets/pp.jpeg";
+import peImg from "@/assets/pe.jpeg";
+import pvcImg from "@/assets/pvc.jpeg";
+import petImg from "@/assets/pet.jpg";
 
 const polymers = [
-  { name: "Polypropylene (PP) — Repol®", to: "/products/pp" },
-  { name: "Polyethylene HDPE — Relene®", to: "/products/pe" },
-  { name: "Polyethylene LLDPE / LDPE — Relene®", to: "/products/pe" },
-  { name: "PVC — Reon®", to: "/products/pvc" },
-  { name: "PET Bottle Grade — Relpet®", to: "/products/pet" },
+  { name: "Polypropylene (PP)", brand: "Repol®", image: ppImg, to: "/products/pp", desc: "Homopolymer, Copolymer & Impact Copolymer" },
+  { name: "Polyethylene (HDPE)", brand: "Relene®", image: peImg, to: "/products/pe", desc: "High-Density Polyethylene" },
+  { name: "Polyethylene (LLDPE/LDPE)", brand: "Relene®", image: peImg, to: "/products/pe", desc: "Linear Low & Low-Density PE" },
+  { name: "PVC Resin", brand: "Reon®", image: pvcImg, to: "/products/pvc", desc: "Suspension Grade PVC Resin" },
+  { name: "PET Bottle Grade", brand: "Relpet®", image: petImg, to: "/products/pet", desc: "Bottle & Packaging Grade PET" },
 ];
 
 const PolymersSection = () => (
@@ -15,18 +19,27 @@ const PolymersSection = () => (
       <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
         <FlaskConical className="w-5 h-5 text-primary" />
       </div>
-      <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive">Reliance Polymers Division</span>
+      <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent">Reliance Polymers Division</span>
     </div>
-    <h2 className="text-3xl font-extrabold text-primary mb-6">Polymer Products</h2>
-    <div className="space-y-3 mb-8">
+    <h2 className="text-3xl font-extrabold text-primary mb-8">Polymer Products</h2>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
       {polymers.map((p) => (
         <Link
           key={p.name}
           to={p.to}
-          className="flex items-center justify-between bg-card border border-brand-gray-200 rounded-xl px-6 py-4 hover:border-primary hover:shadow-md hover:-translate-y-0.5 transition-all group"
+          className="group bg-card border border-brand-gray-200 rounded-xl overflow-hidden hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
         >
-          <span className="text-base font-bold text-foreground group-hover:text-primary transition-colors">{p.name}</span>
-          <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+          <div className="h-44 overflow-hidden bg-secondary">
+            <img src={p.image} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          </div>
+          <div className="p-4">
+            <span className="text-[0.65rem] font-bold uppercase tracking-wider text-accent">{p.brand}</span>
+            <h3 className="text-base font-bold text-foreground mt-1 group-hover:text-primary transition-colors">{p.name}</h3>
+            <p className="text-sm text-muted-foreground mt-1">{p.desc}</p>
+            <span className="inline-flex items-center gap-1 text-sm font-semibold text-primary mt-3">
+              View Details <ArrowRight className="w-3.5 h-3.5" />
+            </span>
+          </div>
         </Link>
       ))}
     </div>
