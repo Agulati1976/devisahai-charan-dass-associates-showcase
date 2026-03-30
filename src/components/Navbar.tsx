@@ -1,4 +1,5 @@
 import { FileText, Menu, X, ChevronDown } from "lucide-react";
+import logoImg from "@/assets/logo-dc.jpeg";
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
@@ -77,9 +78,7 @@ const Navbar = ({ onOpenRFQ }: NavbarProps) => {
     <nav className="bg-background sticky top-0 z-50 shadow-md border-b border-border">
       <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 py-4 no-underline">
-          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center font-extrabold text-primary-foreground text-sm tracking-tighter">
-            DC
-          </div>
+          <img src={logoImg} alt="Devisahai Charan Dass Associates" className="w-10 h-10 rounded-lg object-cover" />
           <div className="text-foreground">
             <strong className="block text-sm font-bold leading-tight">Devisahai Charan Dass</strong>
             <span className="text-[0.7rem] text-muted-foreground font-normal">Authorised DCA – Reliance Industries Ltd.</span>
