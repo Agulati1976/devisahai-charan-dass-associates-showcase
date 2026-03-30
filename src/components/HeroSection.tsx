@@ -61,7 +61,7 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
           <div className="flex gap-4 flex-wrap items-center">
             <button
               onClick={() => onOpenRFQ("General Enquiry", "All Products", "General")}
-              className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:brightness-110 hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:bg-brand-gold-dark hover:-translate-y-0.5 transition-all"
             >
               <FileText className="w-4 h-4" /> Get a Quote
             </button>
