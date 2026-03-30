@@ -93,7 +93,7 @@ const PPProduct = () => {
           </p>
           <button
             onClick={() => openRFQ("Polypropylene (PP)", "Repol® PP", "Polymers")}
-            className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:bg-brand-red-dark hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:bg-brand-gold-dark hover:-translate-y-0.5 transition-all"
           >
             <FileText className="w-4 h-4" /> Request for Quotation
           </button>
@@ -175,7 +175,7 @@ const PPProduct = () => {
           <div className="flex gap-4 justify-center flex-wrap">
             <button
               onClick={() => openRFQ("Polypropylene (PP)", "Repol® PP", "Polymers")}
-              className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg hover:bg-brand-red-dark transition-colors"
+              className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg hover:bg-brand-gold-dark transition-colors"
             >
               <FileText className="w-4 h-4" /> Get a Quote
             </button>

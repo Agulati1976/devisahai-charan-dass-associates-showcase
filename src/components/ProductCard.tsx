@@ -52,7 +52,7 @@ const ProductCard = ({ product, onOpenRFQ }: ProductCardProps) => (
     <div className="border-t border-brand-gray-100 px-5 py-3.5 flex gap-2.5 items-center">
       <button
         onClick={() => onOpenRFQ(product.title, product.subtitle, product.cat)}
-        className="flex-1 bg-destructive text-destructive-foreground text-sm font-bold py-2.5 rounded-md hover:bg-brand-red-dark transition-colors flex items-center justify-center gap-2"
+        className="flex-1 bg-destructive text-destructive-foreground text-sm font-bold py-2.5 rounded-md hover:bg-brand-gold-dark transition-colors flex items-center justify-center gap-2"
       >
         <FileText className="w-3.5 h-3.5" /> Request for Quotation
       </button>

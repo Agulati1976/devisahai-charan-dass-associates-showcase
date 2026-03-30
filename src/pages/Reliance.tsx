@@ -179,7 +179,7 @@ const Reliance = () => (
       <div className="max-w-[800px] mx-auto text-center">
         <h2 className="text-2xl font-extrabold text-primary mb-4">Explore Our Full Range</h2>
         <p className="text-muted-foreground mb-6">View all polymer and textile products with specifications and request quotes instantly.</p>
-        <Link to="/products" className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-6 py-3 rounded-lg hover:bg-brand-red-dark transition-colors">
+        <Link to="/products" className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-6 py-3 rounded-lg hover:bg-brand-gold-dark transition-colors">
           View All Products <ChevronRight className="w-4 h-4" />
         </Link>
       </div>

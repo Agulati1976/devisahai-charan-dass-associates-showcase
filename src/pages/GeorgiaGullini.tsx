@@ -36,7 +36,7 @@ const GeorgiaGullini = () => {
           <p className="text-base max-w-2xl leading-relaxed mb-8 text-primary-foreground/75">
             Engineered for leaders who demand presence and performance — premium 100% polyester suiting fabric delivering a sharp, commanding silhouette with uncompromising durability.
           </p>
-          <button onClick={() => openRFQ("Georgia Gullini", "Premium Suiting", "Textiles")} className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:bg-brand-red-dark hover:-translate-y-0.5 transition-all">
+          <button onClick={() => openRFQ("Georgia Gullini", "Premium Suiting", "Textiles")} className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:bg-brand-gold-dark hover:-translate-y-0.5 transition-all">
             <FileText className="w-4 h-4" /> Request for Quotation
           </button>
         </div>
@@ -101,7 +101,7 @@ const GeorgiaGullini = () => {
           <h2 className="text-3xl font-extrabold text-primary-foreground mb-4">Interested in Georgia Gullini?</h2>
           <p className="text-sm mb-8 text-primary-foreground/70">Premium suiting for corporate, executive, and institutional excellence.</p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <button onClick={() => openRFQ("Georgia Gullini", "Premium Suiting", "Textiles")} className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg hover:bg-brand-red-dark transition-colors">
+            <button onClick={() => openRFQ("Georgia Gullini", "Premium Suiting", "Textiles")} className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg hover:bg-brand-gold-dark transition-colors">
               <FileText className="w-4 h-4" /> Get a Quote
             </button>
             <Link to="/products" className="inline-flex items-center gap-2 border-2 border-primary-foreground/30 text-primary-foreground font-semibold px-6 py-3 rounded-lg hover:bg-primary-foreground/10 transition-colors">

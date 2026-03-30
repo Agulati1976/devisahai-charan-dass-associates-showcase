@@ -190,7 +190,7 @@ const RFQDrawer = ({ open, onClose, product, grade, category }: RFQDrawerProps) 
 
             {/* Footer */}
             <div className="border-t border-brand-gray-200 px-7 py-5 bg-brand-gray-50 flex-shrink-0">
-              <button onClick={handleSubmit} className="w-full bg-destructive text-destructive-foreground font-bold py-3.5 rounded-lg hover:bg-brand-red-dark transition-colors flex items-center justify-center gap-2 text-base">
+              <button onClick={handleSubmit} className="w-full bg-destructive text-destructive-foreground font-bold py-3.5 rounded-lg hover:bg-brand-gold-dark transition-colors flex items-center justify-center gap-2 text-base">
                 <FileText className="w-4 h-4" /> Submit Quotation Request
               </button>
               <p className="text-center text-xs text-muted-foreground mt-2 flex items-center justify-center gap-1">
@@ -211,7 +211,7 @@ const RFQDrawer = ({ open, onClose, product, grade, category }: RFQDrawerProps) 
             <div className="bg-secondary border border-dashed border-primary px-5 py-2.5 rounded-lg text-sm font-bold text-primary">
               RFQ Ref: {refNo}
             </div>
-            <button onClick={handleClose} className="bg-destructive text-destructive-foreground font-bold px-6 py-3 rounded-lg mt-2 hover:bg-brand-red-dark transition-colors">
+            <button onClick={handleClose} className="bg-destructive text-destructive-foreground font-bold px-6 py-3 rounded-lg mt-2 hover:bg-brand-gold-dark transition-colors">
               Close
             </button>
           </div>

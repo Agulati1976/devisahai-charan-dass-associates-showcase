@@ -209,7 +209,7 @@ const About = () => (
         <h2 className="text-2xl font-extrabold text-primary mb-4">Want to Know More?</h2>
         <p className="text-muted-foreground mb-6">Explore our full product range or get in touch with our team.</p>
         <div className="flex gap-4 justify-center flex-wrap">
-          <Link to="/products" className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-6 py-3 rounded-lg hover:bg-brand-red-dark transition-colors">
+          <Link to="/products" className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-6 py-3 rounded-lg hover:bg-brand-gold-dark transition-colors">
             View All Products <ChevronRight className="w-4 h-4" />
           </Link>
           <Link to="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-6 py-3 rounded-lg hover:bg-brand-blue-dark transition-colors">

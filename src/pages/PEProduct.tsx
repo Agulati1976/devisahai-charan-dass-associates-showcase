@@ -70,7 +70,7 @@ const PEProduct = () => {
           </p>
           <button
             onClick={() => openRFQ("Polyethylene (PE)", "Relene® PE", "Polymers")}
-            className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:bg-brand-red-dark hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:bg-brand-gold-dark hover:-translate-y-0.5 transition-all"
           >
             <FileText className="w-4 h-4" /> Request for Quotation
           </button>
@@ -130,7 +130,7 @@ const PEProduct = () => {
           <h2 className="text-3xl font-extrabold text-primary-foreground mb-4">Need Polyethylene for Your Project?</h2>
           <p className="text-sm mb-8" style={{ color: "hsl(0 0% 100% / 0.7)" }}>Get priority pricing and reliable supply for all Relene® PE grades.</p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <button onClick={() => openRFQ("Polyethylene (PE)", "Relene® PE", "Polymers")} className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg hover:bg-brand-red-dark transition-colors">
+            <button onClick={() => openRFQ("Polyethylene (PE)", "Relene® PE", "Polymers")} className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg hover:bg-brand-gold-dark transition-colors">
               <FileText className="w-4 h-4" /> Get a Quote
             </button>
             <Link to="/products" className="inline-flex items-center gap-2 border-2 border-primary-foreground/30 text-primary-foreground font-semibold px-6 py-3 rounded-lg hover:bg-primary-foreground/10 transition-colors">

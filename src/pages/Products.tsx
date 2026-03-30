@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useOutletContext, useSearchParams, Link } from "react-router-dom";
-import { FileText, Info, Search, SlidersHorizontal, ArrowRight } from "lucide-react";
+import { Download, Info, Search, SlidersHorizontal, ArrowRight } from "lucide-react";
+import GradeSheetModal from "@/components/GradeSheetModal";
 import ppImg from "@/assets/pp.jpeg";
 import peImg from "@/assets/pe.jpeg";
 import pvcImg from "@/assets/pvc.jpeg";
@@ -92,6 +93,7 @@ const allProducts: Product[] = [
     category: "Textiles", brand: "Only Vimal®", type: "Gifting",
     specs: [{ label: "Fabric", value: "Poly Viscose / Poly Cotton" }, { label: "Width", value: '37" & 58"' }, { label: "Min. Order", value: "500 Mtr" }],
     gradient: "linear-gradient(135deg, hsl(50 90% 90%), hsl(50 80% 75%))",
+    detailLink: "/textiles/vimal-gifting",
   },
   {
     title: "Georgia Gullini Worsted",
@@ -101,6 +103,7 @@ const allProducts: Product[] = [
     category: "Textiles", brand: "Georgia Gullini®", type: "Suiting",
     specs: [{ label: "Fabric", value: "100% Wool / Wool-Blend" }, { label: "Capacity", value: "10 Mn Mtr" }, { label: "Min. Order", value: "200 Mtr" }],
     gradient: "linear-gradient(135deg, hsl(142 50% 95%), hsl(142 40% 82%))",
+    detailLink: "/textiles/georgia-gullini",
   },
   {
     title: "Uniform & Performance Fabrics",
@@ -110,6 +113,7 @@ const allProducts: Product[] = [
     category: "Textiles", brand: "Only Vimal®", type: "Uniform",
     specs: [{ label: "Capacity", value: "16 Mn Mtr" }, { label: "Finishes", value: "Anti-Microbial, FR, Nano" }, { label: "Min. Order", value: "1000 Mtr" }],
     gradient: "linear-gradient(135deg, hsl(260 50% 95%), hsl(260 40% 82%))",
+    detailLink: "/textiles/uniforms",
   },
 ];
 
@@ -119,6 +123,7 @@ const Products = () => {
   const initialCat = searchParams.get("cat") || "all";
   const [filter, setFilter] = useState(initialCat);
   const [search, setSearch] = useState("");
+  const [gradeSheetProduct, setGradeSheetProduct] = useState<string | null>(null);
 
   const filtered = allProducts.filter((p) => {
     const matchCat = filter === "all" || p.category.toLowerCase() === filter;
@@ -134,7 +139,7 @@ const Products = () => {
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-3">Product Catalogue</span>
           <h1 className="text-4xl font-extrabold text-primary-foreground mb-3">All Products</h1>
           <p className="text-lg max-w-2xl" style={{ color: "hsl(0 0% 100% / 0.8)" }}>
-            Browse our complete range of Reliance Polymers & Textiles. Click any product to request a quotation.
+            Browse our complete range of Reliance Polymers & Textiles.
           </p>
         </div>
       </section>
@@ -215,13 +220,22 @@ const Products = () => {
                   </div>
                 </div>
                 <div className="border-t border-brand-gray-100 px-5 py-3.5 flex gap-2.5 items-center">
-                  <button
-                    onClick={() => openRFQ(product.title, product.subtitle, product.category)}
-                    className="flex-1 bg-destructive text-destructive-foreground text-sm font-bold py-2.5 rounded-md hover:bg-brand-red-dark transition-colors flex items-center justify-center gap-2"
-                  >
-                    <FileText className="w-3.5 h-3.5" /> Request for Quotation
-                  </button>
-                  {product.detailLink ? (
+                  {product.category === "Polymers" ? (
+                    <button
+                      onClick={() => setGradeSheetProduct(product.title)}
+                      className="flex-1 bg-destructive text-destructive-foreground text-sm font-bold py-2.5 rounded-md hover:bg-brand-gold-dark transition-colors flex items-center justify-center gap-2"
+                    >
+                      <Download className="w-3.5 h-3.5" /> Download Grade Sheet
+                    </button>
+                  ) : (
+                    <Link
+                      to={product.detailLink || "/products"}
+                      className="flex-1 bg-destructive text-destructive-foreground text-sm font-bold py-2.5 rounded-md hover:bg-brand-gold-dark transition-colors flex items-center justify-center gap-2"
+                    >
+                      <Info className="w-3.5 h-3.5" /> View Details
+                    </Link>
+                  )}
+                  {product.detailLink && (
                     <Link
                       to={product.detailLink}
                       className="w-9 h-9 border border-brand-gray-200 bg-background rounded-md flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary hover:bg-secondary transition-colors"
@@ -229,10 +243,6 @@ const Products = () => {
                     >
                       <ArrowRight className="w-4 h-4" />
                     </Link>
-                  ) : (
-                    <button className="w-9 h-9 border border-brand-gray-200 bg-background rounded-md flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary hover:bg-secondary transition-colors">
-                      <Info className="w-4 h-4" />
-                    </button>
                   )}
                 </div>
               </div>
@@ -240,6 +250,12 @@ const Products = () => {
           </div>
         )}
       </section>
+
+      <GradeSheetModal
+        open={!!gradeSheetProduct}
+        onClose={() => setGradeSheetProduct(null)}
+        productName={gradeSheetProduct || ""}
+      />
     </div>
   );
 };
