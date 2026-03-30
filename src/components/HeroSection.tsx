@@ -53,7 +53,7 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
             Authorised Del Credere Agent – Reliance Industries Ltd.
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold leading-[1.15] text-white mb-4 text-balance">
-            Partnering with <span className="text-destructive">Reliance Industries</span> since 1972
+            Partnering with <span className="text-destructive font-extrabold">Reliance Industries</span> since 1972
           </h1>
           <p className="text-base text-white/70 leading-relaxed mb-8 max-w-[480px]">
             India's leading B2B distributor of Reliance Polymers & Textiles. Priority supply access, real-time price intelligence, and pan-India logistics — trusted by 500+ industrial buyers.

@@ -1,6 +1,6 @@
 import { useOutletContext, Link } from "react-router-dom";
 import {
-  FileText, CheckCircle2, ChevronRight, Gift, Star, Palette, Package,
+  ArrowRight, CheckCircle2, ChevronRight, Gift, Star, Palette, Package,
   Users, Award, ArrowRight, Heart, Sparkles
 } from "lucide-react";
 
@@ -48,7 +48,7 @@ const VimalGifting = () => {
             onClick={() => openRFQ("Vimal Gifting", "Corporate Gifting", "Textiles")}
             className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:bg-brand-gold-dark hover:-translate-y-0.5 transition-all"
           >
-            <FileText className="w-4 h-4" /> Request for Quotation
+            <ArrowRight className="w-4 h-4" /> Contact Us
           </button>
         </div>
       </section>
@@ -127,8 +127,8 @@ const VimalGifting = () => {
           <h2 className="text-3xl font-extrabold text-primary-foreground mb-4">Need Corporate Gifting Solutions?</h2>
           <p className="text-sm mb-8 text-primary-foreground/70">Connect with us for premium Vimal gifting — curated for your brand and occasions.</p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <button onClick={() => openRFQ("Vimal Gifting", "Corporate Gifting", "Textiles")} className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg hover:bg-brand-gold-dark transition-colors">
-              <FileText className="w-4 h-4" /> Get a Quote
+            contact"/contact"inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg hover:bg-brand-gold-dark transition-colors">
+              <ArrowRight className="w-4 h-4" /> Contact Us
             </button>
             <Link to="/products" className="inline-flex items-center gap-2 border-2 border-primary-foreground/30 text-primary-foreground font-semibold px-6 py-3 rounded-lg hover:bg-primary-foreground/10 transition-colors">
               View All Products <ArrowRight className="w-4 h-4" />
