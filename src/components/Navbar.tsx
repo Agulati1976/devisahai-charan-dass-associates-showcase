@@ -120,8 +120,8 @@ const Navbar = ({ onOpenRFQ }: NavbarProps) => {
             <FileText className="w-4 h-4" />
             Request for Quotation
           </button>
-          <button
-            className="lg:hidden text-primary-foreground p-2"
+           <button
+            className="lg:hidden text-foreground p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -130,30 +130,30 @@ const Navbar = ({ onOpenRFQ }: NavbarProps) => {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden bg-primary border-t border-primary-foreground/10 px-6 pb-4 max-h-[80vh] overflow-y-auto">
-          <Link to="/" className="block text-sm py-2.5 text-primary-foreground/90 hover:text-primary-foreground" onClick={() => setMobileOpen(false)}>Home</Link>
+        <div className="lg:hidden bg-background border-t border-border px-6 pb-4 max-h-[80vh] overflow-y-auto">
+          <Link to="/" className="block text-sm py-2.5 text-foreground/80 hover:text-primary" onClick={() => setMobileOpen(false)}>Home</Link>
           
           <div className="py-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-primary-foreground/50">Polymers</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Polymers</span>
             {polymerLinks.map((link) => (
-              <Link key={link.to} to={link.to} className={`block text-sm py-2 pl-3 transition-colors ${location.pathname === link.to ? "text-primary-foreground font-semibold" : "text-primary-foreground/80 hover:text-primary-foreground"}`} onClick={() => setMobileOpen(false)}>
+              <Link key={link.to} to={link.to} className={`block text-sm py-2 pl-3 transition-colors ${location.pathname === link.to ? "text-primary font-semibold" : "text-foreground/80 hover:text-primary"}`} onClick={() => setMobileOpen(false)}>
                 {link.label}
               </Link>
             ))}
           </div>
 
           <div className="py-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-primary-foreground/50">Textiles</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Textiles</span>
             {textileLinks.map((link) => (
-              <Link key={link.to} to={link.to} className={`block text-sm py-2 pl-3 transition-colors ${location.pathname === link.to ? "text-primary-foreground font-semibold" : "text-primary-foreground/80 hover:text-primary-foreground"}`} onClick={() => setMobileOpen(false)}>
+              <Link key={link.to} to={link.to} className={`block text-sm py-2 pl-3 transition-colors ${location.pathname === link.to ? "text-primary font-semibold" : "text-foreground/80 hover:text-primary"}`} onClick={() => setMobileOpen(false)}>
                 {link.label}
               </Link>
             ))}
           </div>
 
-          <Link to="/products" className="block text-sm py-2.5 text-primary-foreground/90 hover:text-primary-foreground" onClick={() => setMobileOpen(false)}>All Products</Link>
+          <Link to="/products" className="block text-sm py-2.5 text-foreground/80 hover:text-primary" onClick={() => setMobileOpen(false)}>All Products</Link>
           {simpleLinks.filter(l => l.to !== "/").map((link) => (
-            <Link key={link.label} to={link.to} className={`block text-sm py-2.5 transition-colors ${location.pathname === link.to ? "text-primary-foreground font-semibold" : "text-primary-foreground/90 hover:text-primary-foreground"}`} onClick={() => setMobileOpen(false)}>
+            <Link key={link.label} to={link.to} className={`block text-sm py-2.5 transition-colors ${location.pathname === link.to ? "text-primary font-semibold" : "text-foreground/80 hover:text-primary"}`} onClick={() => setMobileOpen(false)}>
               {link.label}
             </Link>
           ))}
