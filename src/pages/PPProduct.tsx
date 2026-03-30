@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Link } from "react-router-dom";
 import {
-  FileText, CheckCircle2, ChevronRight, Package, Layers, Shield,
+  Download, CheckCircle2, ChevronRight, Package, Layers, Shield,
   Droplets, Feather, Coins, Wind, Factory, Users, Cog, Award, ArrowRight
 } from "lucide-react";
+import GradeSheetModal from "@/components/GradeSheetModal";
 import ppImage from "@/assets/pp.jpeg";
 
 interface ContextType {
@@ -14,36 +16,19 @@ const grades = [
   {
     title: "Repol Homopolymer",
     desc: "Available in a broad range of melt flow indices and molecular weight distributions.",
-    apps: [
-      "Flexible packaging (TOPP, BOPP, Cast Films)",
-      "Woven fabrics",
-      "Fibres & filaments",
-      "Extrusion applications",
-      "Blow moulding",
-      "Injection moulding",
-    ],
+    apps: ["Flexible packaging (TOPP, BOPP, Cast Films)", "Woven fabrics", "Fibres & filaments", "Extrusion applications", "Blow moulding", "Injection moulding"],
     note: "Excellent stiffness, strength, and processability — ideal for high-performance packaging and industrial uses.",
   },
   {
     title: "Repol Random Copolymers",
     desc: "Engineered for superior clarity and enhanced strength.",
-    apps: [
-      "Plumbing pipes",
-      "Transparent sheets",
-      "Blow moulding applications",
-    ],
+    apps: ["Plumbing pipes", "Transparent sheets", "Blow moulding applications"],
     note: "Excellent optical properties with improved impact performance.",
   },
   {
     title: "Repol Impact Copolymers",
     desc: "Designed for higher impact resistance and toughness, available in varied melt flows and impact strengths.",
-    apps: [
-      "Injection moulding",
-      "Thermoforming",
-      "Extrusion coating",
-      "Blow moulding",
-      "Compounding",
-    ],
+    apps: ["Injection moulding", "Thermoforming", "Extrusion coating", "Blow moulding", "Compounding"],
     note: "Perfect for demanding structural and automotive applications.",
   },
 ];
@@ -66,6 +51,7 @@ const strengths = [
 
 const PPProduct = () => {
   const { openRFQ } = useOutletContext<ContextType>();
+  const [gradeSheetOpen, setGradeSheetOpen] = useState(false);
 
   return (
     <div>
@@ -92,10 +78,10 @@ const PPProduct = () => {
             A comprehensive portfolio of high-quality Polypropylene (PP) solutions engineered to meet diverse and demanding industrial applications.
           </p>
           <button
-            onClick={() => openRFQ("Polypropylene (PP)", "Repol® PP", "Polymers")}
+            onClick={() => setGradeSheetOpen(true)}
             className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:bg-brand-gold-dark hover:-translate-y-0.5 transition-all"
           >
-            <FileText className="w-4 h-4" /> Request for Quotation
+            <Download className="w-4 h-4" /> Download Grade Sheet
           </button>
         </div>
       </section>
@@ -174,17 +160,19 @@ const PPProduct = () => {
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <button
-              onClick={() => openRFQ("Polypropylene (PP)", "Repol® PP", "Polymers")}
+              onClick={() => setGradeSheetOpen(true)}
               className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg hover:bg-brand-gold-dark transition-colors"
             >
-              <FileText className="w-4 h-4" /> Get a Quote
+              <Download className="w-4 h-4" /> Download Grade Sheet
             </button>
-            <Link to="/products" className="inline-flex items-center gap-2 border-2 border-primary-foreground/30 text-primary-foreground font-semibold px-6 py-3 rounded-lg hover:bg-primary-foreground/10 transition-colors">
-              View All Products <ArrowRight className="w-4 h-4" />
+            <Link to="/contact" className="inline-flex items-center gap-2 border-2 border-primary-foreground/30 text-primary-foreground font-semibold px-6 py-3 rounded-lg hover:bg-primary-foreground/10 transition-colors">
+              Contact Us <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
+
+      <GradeSheetModal open={gradeSheetOpen} onClose={() => setGradeSheetOpen(false)} productName="Polypropylene (PP) — Repol®" />
     </div>
   );
 };
