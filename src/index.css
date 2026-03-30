@@ -27,8 +27,8 @@
     --accent: 224 60% 95%;
     --accent-foreground: 224 100% 30%;
 
-    --destructive: 356 84% 52%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 43 87% 50%;
+    --destructive-foreground: 220 20% 10%;
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
@@ -40,8 +40,8 @@
     --brand-blue: 224 100% 30%;
     --brand-blue-dark: 224 100% 22%;
     --brand-blue-light: 224 60% 95%;
-    --brand-red: 356 84% 52%;
-    --brand-red-dark: 356 84% 44%;
+    --brand-gold: 43 87% 50%;
+    --brand-gold-dark: 43 87% 40%;
     --brand-gray-50: 210 20% 98%;
     --brand-gray-100: 220 14% 96%;
     --brand-gray-200: 220 13% 91%;

@@ -24,17 +24,21 @@ const Footer = () => (
       <div>
         <h5 className="text-primary-foreground font-bold text-sm mb-4">Polymers</h5>
         <ul className="space-y-2">
-          {["Repol® PP", "Relene® HDPE", "Relene® LLDPE", "Reon® PVC", "Relpet® PET", "Relpipe® Pipes"].map((item) => (
-            <li key={item}><Link to="/products?cat=polymers" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">{item}</Link></li>
-          ))}
+          <li><Link to="/products/pp" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">Repol® PP</Link></li>
+          <li><Link to="/products/pe" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">Relene® HDPE</Link></li>
+          <li><Link to="/products/pe" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">Relene® LLDPE</Link></li>
+          <li><Link to="/products/pvc" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">Reon® PVC</Link></li>
+          <li><Link to="/products/pet" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">Relpet® PET</Link></li>
         </ul>
       </div>
       <div>
         <h5 className="text-primary-foreground font-bold text-sm mb-4">Textiles</h5>
         <ul className="space-y-2">
-          {["Only Vimal® Gifting", "Georgia Gullini®", "Uniform Fabrics", "Performance Fabrics", "Worsted Suitings"].map((item) => (
-            <li key={item}><Link to="/products?cat=textiles" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">{item}</Link></li>
-          ))}
+          <li><Link to="/textiles/vimal-gifting" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">Only Vimal® Gifting</Link></li>
+          <li><Link to="/textiles/vimal-suitings" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">Vimal Suitings</Link></li>
+          <li><Link to="/textiles/georgia-gullini" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">Georgia Gullini®</Link></li>
+          <li><Link to="/textiles/uniforms" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">Uniform Fabrics</Link></li>
+          <li><Link to="/textiles/polyester-suiting" className="text-primary-foreground/65 hover:text-primary-foreground transition-colors">Polyester Suiting</Link></li>
         </ul>
       </div>
       <div>
