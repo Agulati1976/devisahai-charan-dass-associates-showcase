@@ -1,4 +1,5 @@
-import { FileText, Phone } from "lucide-react";
+import { Phone, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface Props {
   onOpenRFQ: (product: string, grade: string, cat: string) => void;
@@ -15,12 +16,12 @@ const CTASection = ({ onOpenRFQ }: Props) => (
         Get priority pricing, flexible credit terms, and dedicated account management. Our team responds within 2 business hours.
       </p>
       <div className="flex gap-4 justify-center flex-wrap">
-        <button
-          onClick={() => onOpenRFQ("General Enquiry", "All Products", "General")}
-          className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-8 py-4 rounded-lg shadow-lg shadow-destructive/30 hover:bg-brand-red-dark hover:-translate-y-0.5 transition-all text-base"
+        <Link
+          to="/contact"
+          className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-8 py-4 rounded-lg shadow-lg shadow-destructive/30 hover:bg-brand-gold-dark hover:-translate-y-0.5 transition-all text-base"
         >
-          <FileText className="w-5 h-5" /> Submit RFQ Now
-        </button>
+          Contact Us <ArrowRight className="w-5 h-5" />
+        </Link>
         <a
           href="tel:+919810100045"
           className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-8 py-4 rounded-lg hover:bg-brand-blue-dark transition-all text-base"

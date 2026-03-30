@@ -1,11 +1,7 @@
-import { FileText, Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
 import logoImg from "@/assets/logo-dc.jpeg";
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-
-interface NavbarProps {
-  onOpenRFQ: (product: string, grade: string, cat: string) => void;
-}
 
 const polymerLinks = [
   { label: "Polypropylene (PP)", to: "/products/pp" },
@@ -70,7 +66,7 @@ const DropdownMenu = ({ label, links, location }: { label: string; links: { labe
   );
 };
 
-const Navbar = ({ onOpenRFQ }: NavbarProps) => {
+const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
@@ -112,13 +108,12 @@ const Navbar = ({ onOpenRFQ }: NavbarProps) => {
         </div>
 
         <div className="flex items-center gap-3">
-          <button
-            onClick={() => onOpenRFQ("General Enquiry", "All Products", "General")}
-            className="hidden sm:inline-flex items-center gap-2 bg-destructive text-destructive-foreground text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-brand-red-dark transition-colors"
+          <Link
+            to="/contact"
+            className="hidden sm:inline-flex items-center gap-2 bg-destructive text-destructive-foreground text-sm font-semibold px-5 py-2.5 rounded-md hover:bg-brand-gold-dark transition-colors"
           >
-            <FileText className="w-4 h-4" />
-            Request for Quotation
-          </button>
+            Contact Us <ArrowRight className="w-4 h-4" />
+          </Link>
            <button
             className="lg:hidden text-foreground p-2"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -156,9 +151,9 @@ const Navbar = ({ onOpenRFQ }: NavbarProps) => {
               {link.label}
             </Link>
           ))}
-          <button onClick={() => { onOpenRFQ("General Enquiry", "All Products", "General"); setMobileOpen(false); }} className="mt-2 w-full flex items-center justify-center gap-2 bg-destructive text-destructive-foreground text-sm font-semibold px-5 py-2.5 rounded-md">
-            <FileText className="w-4 h-4" /> Request for Quotation
-          </button>
+          <Link to="/contact" className="mt-2 w-full flex items-center justify-center gap-2 bg-destructive text-destructive-foreground text-sm font-semibold px-5 py-2.5 rounded-md" onClick={() => setMobileOpen(false)}>
+            Contact Us <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       )}
     </nav>

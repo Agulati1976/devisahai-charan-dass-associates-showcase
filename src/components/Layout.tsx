@@ -30,7 +30,7 @@ const Layout = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Topbar />
-      <Navbar onOpenRFQ={openRFQ} />
+      <Navbar />
       <main className="flex-1">
         <Outlet context={{ openRFQ }} />
       </main>

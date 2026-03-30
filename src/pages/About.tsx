@@ -12,6 +12,13 @@ const milestones = [
   { year: "2025", text: "52+ years of continued partnership with Reliance" },
 ];
 
+const teamMembers = [
+  { name: "Partner 1", role: "Managing Partner", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&auto=format" },
+  { name: "Partner 2", role: "Partner – Polymers Division", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&auto=format" },
+  { name: "Partner 3", role: "Partner – Textiles Division", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format" },
+  { name: "Partner 4", role: "Partner – Operations", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&auto=format" },
+];
+
 const About = () => (
   <div>
     {/* Hero Banner */}
@@ -76,8 +83,34 @@ const About = () => (
       </div>
     </section>
 
-    {/* Textile Division */}
+    {/* Know Our Team */}
     <section className="bg-brand-gray-50 py-16">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <div className="text-center mb-12">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-2">Our Leadership</span>
+          <h2 className="text-3xl font-extrabold text-primary mb-2">Know Our Team</h2>
+          <p className="text-muted-foreground text-sm max-w-xl mx-auto">
+            The partners behind Devisahai Charan Dass Associates — driving excellence and building lasting relationships for over five decades.
+          </p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {teamMembers.map((member) => (
+            <div key={member.name} className="bg-background border border-brand-gray-200 rounded-xl overflow-hidden hover:border-primary hover:shadow-lg transition-all text-center">
+              <div className="h-56 overflow-hidden">
+                <img src={member.image} alt={member.name} className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="p-5">
+                <h4 className="text-base font-bold text-foreground mb-1">{member.name}</h4>
+                <p className="text-sm text-primary font-semibold">{member.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Textile Division */}
+    <section className="py-16">
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex items-center gap-3 mb-2">
           <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -89,10 +122,8 @@ const About = () => (
         <p className="text-muted-foreground leading-relaxed max-w-3xl mb-8">
           Appointed as the Authorised Del Credere Agent for Reliance Industries – Textile Division in 1972, 
           we have maintained a strong and progressive association with Reliance for more than 50 years. 
-          Today, we are recognized among the leading DCAs for Textiles in India, reflecting our commitment to 
-          operational excellence and market leadership.
+          Today, we are recognized among the leading DCAs for Textiles in India.
         </p>
-
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {[
             { icon: Calendar, value: "1972", label: "Appointed as Authorised DCA" },
@@ -107,7 +138,6 @@ const About = () => (
             </div>
           ))}
         </div>
-
         <div className="bg-background border border-brand-gray-200 rounded-xl p-6">
           <h4 className="font-bold text-primary mb-3">Our Distribution Network Covers:</h4>
           <div className="flex gap-6 flex-wrap">
@@ -134,69 +164,56 @@ const About = () => (
     </section>
 
     {/* Polymer Division */}
-    <section className="max-w-[1200px] mx-auto py-16 px-6">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-          <FlaskConical className="w-5 h-5 text-primary" />
+    <section className="bg-brand-gray-50 py-16">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+            <FlaskConical className="w-5 h-5 text-primary" />
+          </div>
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive">Polymers Division</span>
         </div>
-        <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive">Polymers Division</span>
-      </div>
-      <h2 className="text-3xl font-extrabold text-primary mb-4">Leading Polymer Distribution Since 2003</h2>
-      <p className="text-muted-foreground leading-relaxed max-w-3xl mb-8">
-        Since 2003, Devi Sahai Charan Dass Associates has been serving as the Authorised Del Credere Agent 
-        for Reliance Industries – Polymer Division. Through strategic coordination with Reliance Industries 
-        and strong customer engagement, we ensure efficient product availability, timely updates on pricing trends, 
-        and structured commercial support.
-      </p>
-
-      <div className="grid sm:grid-cols-2 gap-6 mb-8">
-        <div className="bg-secondary rounded-xl p-6">
-          <h4 className="font-bold text-primary mb-4">Our Polymer Portfolio</h4>
-          <ul className="space-y-2.5">
-            {[
-              "Polypropylene (PP)",
-              "Polyethylene (PE)",
-              "Polyvinyl Chloride (PVC)",
-              "Polyethylene Terephthalate (PET)",
-            ].map((item) => (
-              <li key={item} className="flex items-center gap-2 text-sm font-medium text-foreground">
-                <CheckCircle2 className="w-4 h-4 text-destructive flex-shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
+        <h2 className="text-3xl font-extrabold text-primary mb-4">Leading Polymer Distribution Since 2003</h2>
+        <p className="text-muted-foreground leading-relaxed max-w-3xl mb-8">
+          Since 2003, Devi Sahai Charan Dass Associates has been serving as the Authorised Del Credere Agent 
+          for Reliance Industries – Polymer Division. Through strategic coordination we ensure efficient product availability 
+          and structured commercial support.
+        </p>
+        <div className="grid sm:grid-cols-2 gap-6 mb-8">
+          <div className="bg-background rounded-xl p-6 border border-brand-gray-200">
+            <h4 className="font-bold text-primary mb-4">Our Polymer Portfolio</h4>
+            <ul className="space-y-2.5">
+              {["Polypropylene (PP)", "Polyethylene (PE)", "Polyvinyl Chloride (PVC)", "Polyethylene Terephthalate (PET)"].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-sm font-medium text-foreground">
+                  <CheckCircle2 className="w-4 h-4 text-destructive flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="bg-background rounded-xl p-6 border border-brand-gray-200">
+            <h4 className="font-bold text-primary mb-4">Key Industry Sectors</h4>
+            <ul className="space-y-2.5">
+              {["Hygiene & Healthcare", "Packaging & FMCG", "Pipes & Infrastructure", "Fibre Optic Cables", "Automotive Components", "Beverage & Container Manufacturing"].map((item) => (
+                <li key={item} className="flex items-center gap-2 text-sm font-medium text-foreground">
+                  <ChevronRight className="w-4 h-4 text-primary flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-        <div className="bg-secondary rounded-xl p-6">
-          <h4 className="font-bold text-primary mb-4">Key Industry Sectors</h4>
-          <ul className="space-y-2.5">
-            {[
-              "Hygiene & Healthcare",
-              "Packaging & FMCG",
-              "Pipes & Infrastructure",
-              "Fibre Optic Cables",
-              "Automotive Components",
-              "Beverage & Container Manufacturing",
-            ].map((item) => (
-              <li key={item} className="flex items-center gap-2 text-sm font-medium text-foreground">
-                <ChevronRight className="w-4 h-4 text-primary flex-shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div className="bg-primary rounded-xl p-6 flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <p className="text-primary-foreground font-bold">We are among the leading DCAs under the Delhi Regional Office</p>
-          <p className="text-sm" style={{ color: "hsl(0 0% 100% / 0.7)" }}>In terms of sanctioned limits and total tonnage handled</p>
-        </div>
-        <div className="flex items-center gap-3">
-          <Phone className="w-4 h-4 text-primary-foreground" />
+        <div className="bg-primary rounded-xl p-6 flex flex-wrap items-center justify-between gap-4">
           <div>
-            <span className="text-sm text-primary-foreground/70">For Polymers:</span>
-            <div className="text-primary-foreground font-bold text-sm">
-              <a href="tel:+919910495815" className="hover:underline">99104 95815</a> | <a href="tel:+919810100045" className="hover:underline">98101 00045</a>
+            <p className="text-primary-foreground font-bold">We are among the leading DCAs under the Delhi Regional Office</p>
+            <p className="text-sm" style={{ color: "hsl(0 0% 100% / 0.7)" }}>In terms of sanctioned limits and total tonnage handled</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <Phone className="w-4 h-4 text-primary-foreground" />
+            <div>
+              <span className="text-sm text-primary-foreground/70">For Polymers:</span>
+              <div className="text-primary-foreground font-bold text-sm">
+                <a href="tel:+919910495815" className="hover:underline">99104 95815</a> | <a href="tel:+919810100045" className="hover:underline">98101 00045</a>
+              </div>
             </div>
           </div>
         </div>
@@ -209,7 +226,7 @@ const About = () => (
         <h2 className="text-2xl font-extrabold text-primary mb-4">Want to Know More?</h2>
         <p className="text-muted-foreground mb-6">Explore our full product range or get in touch with our team.</p>
         <div className="flex gap-4 justify-center flex-wrap">
-          <Link to="/products" className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-6 py-3 rounded-lg hover:bg-brand-red-dark transition-colors">
+          <Link to="/products" className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-6 py-3 rounded-lg hover:bg-brand-gold-dark transition-colors">
             View All Products <ChevronRight className="w-4 h-4" />
           </Link>
           <Link to="/contact" className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-6 py-3 rounded-lg hover:bg-brand-blue-dark transition-colors">

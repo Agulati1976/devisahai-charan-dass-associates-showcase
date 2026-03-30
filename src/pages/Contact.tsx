@@ -98,9 +98,9 @@ const Contact = () => {
               <p className="text-sm mb-4" style={{ color: "hsl(0 0% 100% / 0.7)" }}>Submit an RFQ and get a response within 2 hours.</p>
               <button
                 onClick={() => openRFQ("General Enquiry", "All Products", "General")}
-                className="bg-destructive text-destructive-foreground font-bold px-6 py-2.5 rounded-lg text-sm hover:bg-brand-red-dark transition-colors"
+                className="bg-destructive text-destructive-foreground font-bold px-6 py-2.5 rounded-lg text-sm hover:bg-brand-gold-dark transition-colors"
               >
-                Submit RFQ Now
+                Contact Us
               </button>
             </div>
           </div>
@@ -150,7 +150,7 @@ const Contact = () => {
                   </div>
                   <button
                     type="submit"
-                    className="w-full bg-destructive text-destructive-foreground font-bold py-3.5 rounded-lg hover:bg-brand-red-dark transition-colors flex items-center justify-center gap-2"
+                    className="w-full bg-destructive text-destructive-foreground font-bold py-3.5 rounded-lg hover:bg-brand-gold-dark transition-colors flex items-center justify-center gap-2"
                   >
                     <Send className="w-4 h-4" /> Send Message
                   </button>

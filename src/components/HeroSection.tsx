@@ -53,7 +53,7 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
             Authorised Del Credere Agent – Reliance Industries Ltd.
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold leading-[1.15] text-white mb-4 text-balance">
-            Partnering with <span className="text-destructive">Reliance Industries</span> since 1972
+            Partnering with <span className="text-destructive font-extrabold">Reliance Industries</span> since 1972
           </h1>
           <p className="text-base text-white/70 leading-relaxed mb-8 max-w-[480px]">
             India's leading B2B distributor of Reliance Polymers & Textiles. Priority supply access, real-time price intelligence, and pan-India logistics — trusted by 500+ industrial buyers.
@@ -61,7 +61,7 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
           <div className="flex gap-4 flex-wrap items-center">
             <button
               onClick={() => onOpenRFQ("General Enquiry", "All Products", "General")}
-              className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:brightness-110 hover:-translate-y-0.5 transition-all"
+              className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:bg-brand-gold-dark hover:-translate-y-0.5 transition-all"
             >
               <FileText className="w-4 h-4" /> Get a Quote
             </button>
@@ -79,7 +79,7 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
           </div>
         </div>
 
-        {/* Right - Quick RFQ Form */}
+        {/* Right - Quick Enquiry Form */}
         <div className="relative rounded-2xl p-6 shadow-2xl overflow-hidden" style={{
           background: "linear-gradient(135deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.70) 50%, rgba(255,255,255,0.80) 100%)",
           backdropFilter: "blur(24px) saturate(1.6)",
@@ -88,12 +88,12 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
           boxShadow: "0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(255,255,255,0.3), 0 0 0 1px rgba(255,255,255,0.15)",
         }}>
           <div className="flex items-center gap-2 mb-5">
-            <div className="w-9 h-9 rounded-lg bg-destructive/90 flex items-center justify-center">
+            <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center">
               <FileText className="w-4 h-4 text-white" />
             </div>
             <div>
-              <h4 className="text-sm font-bold text-foreground">Quick RFQ</h4>
-              <p className="text-[0.7rem] text-muted-foreground">Get pricing within 2 hours</p>
+              <h4 className="text-sm font-bold text-foreground">Quick Enquiry</h4>
+              <p className="text-[0.7rem] text-muted-foreground">Get in touch within 2 hours</p>
             </div>
           </div>
 
@@ -138,8 +138,8 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
                 <input name="location" value={formData.location} onChange={handleChange} placeholder="Delivery Location" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-muted/50 border border-border text-foreground text-sm placeholder:text-muted-foreground/60 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors" />
               </div>
               <textarea name="message" value={formData.message} onChange={handleChange} rows={2} placeholder="Additional requirements..." className="w-full px-3 py-2.5 rounded-lg bg-muted/50 border border-border text-foreground text-sm placeholder:text-muted-foreground/60 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors resize-none" />
-              <button type="submit" className="w-full bg-destructive text-destructive-foreground font-bold py-3 rounded-lg hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-lg shadow-destructive/30">
-                <Send className="w-4 h-4" /> Submit RFQ
+              <button type="submit" className="w-full bg-destructive text-destructive-foreground font-bold py-3 rounded-lg hover:bg-brand-gold-dark transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-gold/30">
+                <Send className="w-4 h-4" /> Submit Enquiry
               </button>
               <p className="text-[0.65rem] text-muted-foreground text-center">Your data is confidential & used only for quotation</p>
             </form>
@@ -148,7 +148,7 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
               <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-3">
                 <svg className="w-7 h-7 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" /></svg>
               </div>
-              <h4 className="text-foreground font-bold text-lg">RFQ Submitted!</h4>
+              <h4 className="text-foreground font-bold text-lg">Enquiry Submitted!</h4>
               <p className="text-muted-foreground text-sm mt-1">We'll get back within 2 hours</p>
             </div>
           )}
