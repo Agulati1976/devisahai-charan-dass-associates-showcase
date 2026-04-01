@@ -1,6 +1,7 @@
 import {
   Factory, Cog, Microscope, Palette, Shirt, CheckCircle2, ChevronRight,
-  Scissors, Paintbrush, Shield, Droplets, Flame, Sparkles
+  Scissors, Paintbrush, Shield, Droplets, Flame, Sparkles, FlaskConical,
+  Beaker, Pipette, Box, Cylinder
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
