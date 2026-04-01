@@ -6,10 +6,9 @@ interface HeroProps {
 }
 
 const stats = [
-  { value: "52+", label: "Years of Legacy" },
+  { value: "56+", label: "Years of Legacy" },
   { value: "500+", label: "B2B Clients" },
-  { value: "₹200Cr+", label: "Annual Volume" },
-  { value: "#1", label: "Largest DCA – Textiles" },
+  { value: "200K+ MT", label: "Annual Volume" },
 ];
 
 const HeroSection = ({ onOpenRFQ }: HeroProps) => {
