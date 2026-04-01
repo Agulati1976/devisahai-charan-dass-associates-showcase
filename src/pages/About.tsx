@@ -91,7 +91,7 @@ const About = () => (
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="text-center mb-12">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-2">Our Leadership</span>
-          <h2 className="text-3xl font-extrabold text-primary mb-2">Know Our Team</h2>
+          <h2 className="text-3xl font-extrabold text-primary mb-2">Know Our Leadership</h2>
           <p className="text-muted-foreground text-sm max-w-xl mx-auto">
             The partners behind Devisahai Charan Dass Associates — driving excellence and building lasting relationships for over five decades.
           </p>
