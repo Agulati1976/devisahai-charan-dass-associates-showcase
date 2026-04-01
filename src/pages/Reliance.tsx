@@ -29,10 +29,10 @@ const Reliance = () => (
     <section className="bg-primary py-20 px-6 relative overflow-hidden">
       <div className="absolute inset-0 opacity-10" style={{ background: "radial-gradient(ellipse at 70% 50%, hsl(0 0% 100% / 0.3) 0%, transparent 70%)" }} />
       <div className="max-w-[1000px] mx-auto relative z-10 text-center">
-        <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-3">Partner Profile</span>
+        <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent mb-3">Partner Profile</span>
         <h1 className="text-4xl md:text-5xl font-extrabold text-primary-foreground mb-4">About Reliance Industries</h1>
         <p className="text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: "hsl(0 0% 100% / 0.8)" }}>
-          One of the largest integrated fabric manufacturing facilities in India for both Worsted and Synthetic fabrics.
+          India's largest private sector enterprise — a global leader in polymers, petrochemicals, and integrated textile manufacturing.
         </p>
       </div>
     </section>
