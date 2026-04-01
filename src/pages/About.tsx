@@ -12,11 +12,14 @@ const milestones = [
   { year: "2025", text: "52+ years of continued partnership with Reliance" },
 ];
 
+import teamSham from "@/assets/team-sham.jpeg";
+import teamRadhika from "@/assets/team-radhika.jpeg";
+import teamPooja from "@/assets/team-pooja.jpeg";
+
 const teamMembers = [
-  { name: "Partner 1", role: "Managing Partner", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&auto=format" },
-  { name: "Partner 2", role: "Partner – Polymers Division", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&auto=format" },
-  { name: "Partner 3", role: "Partner – Textiles Division", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format" },
-  { name: "Partner 4", role: "Partner – Operations", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&auto=format" },
+  { name: "Sham Chopra", role: "Founder & CEO", image: teamSham },
+  { name: "Radhika Mehta", role: "Managing Partner", image: teamRadhika },
+  { name: "Pooja Mahant", role: "Managing Partner", image: teamPooja },
 ];
 
 const About = () => (
