@@ -1,6 +1,6 @@
-import { ArrowRight, FlaskConical, Download } from "lucide-react";
+import { ArrowRight, FlaskConical, Download, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import GradeSheetModal from "@/components/GradeSheetModal";
 import ppImg from "@/assets/pp.jpeg";
 import peImg from "@/assets/pe.jpeg";
@@ -10,9 +10,9 @@ import petImg from "@/assets/pet.jpg";
 const polymers = [
   {
     title: "PP", subtitle: "Polypropylene — Repol",
-    description: "Homopolymer, random copolymer, and impact copolymer grades. Reliance is among the top 5 global manufacturers of polypropylene, enabling infinite application possibilities.",
+    description: "Homopolymer, random copolymer, and impact copolymer grades. Reliance is among the top 5 global manufacturers of polypropylene.",
     image: ppImg, brand: "Repol®", category: "Polymer",
-    specs: [{ label: "Annual capacity", value: "2.9 MMT" }],
+    specs: [{ label: "Annual Capacity", value: "2.9 MMT" }, { label: "Applications", value: "Packaging, Auto, Furniture" }, { label: "Min. Order", value: "1 MT" }],
     gradient: "linear-gradient(135deg, hsl(224 60% 95%), hsl(224 50% 82%))",
     detailLink: "/products/pp",
   },
@@ -20,23 +20,23 @@ const polymers = [
     title: "PE", subtitle: "Polyethylene — Relene",
     description: "Complete range of HDPE, LLDPE, and LDPE grades. Secure applications ensuring maximum protection across packaging, agriculture, and industrial uses.",
     image: peImg, brand: "Relene®", category: "Polymer",
-    specs: [{ label: "Annual capacity", value: "2.2 MMT" }],
+    specs: [{ label: "Annual Capacity", value: "2.2 MMT" }, { label: "Applications", value: "Pipe, Film, Blow Moulding" }, { label: "Min. Order", value: "1 MT" }],
     gradient: "linear-gradient(135deg, hsl(200 80% 95%), hsl(200 70% 85%))",
     detailLink: "/products/pe",
   },
   {
     title: "PVC", subtitle: "Polyvinyl Chloride — Reon",
-    description: "India's largest manufacturer of suspension-grade PVC. Wide viscosity range for agriculture, construction, and healthcare — the ideal substitute for traditional materials.",
+    description: "India's largest manufacturer of suspension-grade PVC. Wide viscosity range for agriculture, construction, and healthcare.",
     image: pvcImg, brand: "Reon®", category: "Polymer",
-    specs: [{ label: "Annual capacity", value: "750 KT" }],
+    specs: [{ label: "Annual Capacity", value: "750 KT" }, { label: "Applications", value: "Pipes, Cables, Medical" }, { label: "Min. Order", value: "1 MT" }],
     gradient: "linear-gradient(135deg, hsl(142 50% 95%), hsl(142 40% 82%))",
     detailLink: "/products/pvc",
   },
   {
     title: "PET", subtitle: "Polyethylene Terephthalate",
-    description: "High strength with excellent clarity. Consistent IV for reliable processing, strong chemical resistance, food-contact compliant, lightweight and fully recyclable.",
+    description: "High strength with excellent clarity. Food-contact compliant, lightweight and fully recyclable. Ideal for ISBM applications.",
     image: petImg, brand: "Relpet®", category: "Polymer",
-    specs: [{ label: "Ideal for", value: "ISBM applications" }],
+    specs: [{ label: "Ideal for", value: "ISBM Applications" }, { label: "Applications", value: "Beverages, FMCG, Pharma" }, { label: "Min. Order", value: "1 MT" }],
     gradient: "linear-gradient(135deg, hsl(280 50% 97%), hsl(280 40% 88%))",
     detailLink: "/products/pet",
   },
@@ -44,21 +44,77 @@ const polymers = [
 
 const PolymersSection = () => {
   const [gradeSheetProduct, setGradeSheetProduct] = useState<string | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const checkScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 2);
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 2);
+  };
+
+  useEffect(() => {
+    checkScroll();
+    const el = scrollRef.current;
+    if (el) {
+      el.addEventListener("scroll", checkScroll);
+      window.addEventListener("resize", checkScroll);
+      return () => {
+        el.removeEventListener("scroll", checkScroll);
+        window.removeEventListener("resize", checkScroll);
+      };
+    }
+  }, []);
+
+  const scroll = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const cardWidth = el.querySelector<HTMLElement>(":scope > *")?.offsetWidth || 300;
+    el.scrollBy({ left: dir === "left" ? -cardWidth - 24 : cardWidth + 24, behavior: "smooth" });
+  };
 
   return (
     <section id="polymers" className="max-w-[1200px] mx-auto py-16 px-6">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
-          <FlaskConical className="w-5 h-5 text-primary" />
+      <div className="flex items-center justify-between mb-8">
+        <div>
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
+              <FlaskConical className="w-5 h-5 text-primary" />
+            </div>
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent">Reliance Polymers Division</span>
+          </div>
+          <h2 className="text-3xl font-extrabold text-primary">Polymer Products</h2>
         </div>
-        <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent">Reliance Polymers Division</span>
+        {/* Desktop scroll arrows */}
+        <div className="hidden lg:flex items-center gap-2">
+          <button
+            onClick={() => scroll("left")}
+            disabled={!canScrollLeft}
+            className="w-9 h-9 rounded-full border border-brand-gray-200 flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            disabled={!canScrollRight}
+            className="w-9 h-9 rounded-full border border-brand-gray-200 flex items-center justify-center text-muted-foreground hover:border-primary hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
       </div>
-      <h2 className="text-3xl font-extrabold text-primary mb-8">Polymer Products</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+
+      <div
+        ref={scrollRef}
+        className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide mb-8"
+        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+      >
         {polymers.map((product) => (
           <div
             key={product.title}
-            className="bg-card border border-brand-gray-200 rounded-xl overflow-hidden flex flex-col group hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+            className="min-w-[280px] max-w-[300px] flex-shrink-0 snap-start bg-card border border-brand-gray-200 rounded-xl overflow-hidden flex flex-col group hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
           >
             <Link to={product.detailLink} className="relative h-48 overflow-hidden block" style={{ background: product.gradient }}>
               <img src={product.image} alt={product.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
@@ -83,7 +139,7 @@ const PolymersSection = () => {
             <div className="border-t border-brand-gray-100 px-5 py-3.5 flex gap-2.5 items-center">
               <button
                 onClick={() => setGradeSheetProduct(product.title)}
-                className="flex-1 bg-destructive text-destructive-foreground text-sm font-bold py-2.5 rounded-md hover:bg-brand-gold-dark transition-colors flex items-center justify-center gap-2"
+                className="flex-1 bg-accent text-accent-foreground text-sm font-bold py-2.5 rounded-md hover:bg-brand-gold-dark transition-colors flex items-center justify-center gap-2"
               >
                 <Download className="w-3.5 h-3.5" /> Download Grade Sheet
               </button>
