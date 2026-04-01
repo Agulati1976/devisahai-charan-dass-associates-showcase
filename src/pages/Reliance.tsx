@@ -1,6 +1,7 @@
 import {
   Factory, Cog, Microscope, Palette, Shirt, CheckCircle2, ChevronRight,
-  Scissors, Paintbrush, Shield, Droplets, Flame, Sparkles
+  Scissors, Paintbrush, Shield, Droplets, Flame, Sparkles, FlaskConical,
+  Beaker, Pipette, Box, Cylinder
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -28,10 +29,10 @@ const Reliance = () => (
     <section className="bg-primary py-20 px-6 relative overflow-hidden">
       <div className="absolute inset-0 opacity-10" style={{ background: "radial-gradient(ellipse at 70% 50%, hsl(0 0% 100% / 0.3) 0%, transparent 70%)" }} />
       <div className="max-w-[1000px] mx-auto relative z-10 text-center">
-        <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-3">Partner Profile</span>
+        <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent mb-3">Partner Profile</span>
         <h1 className="text-4xl md:text-5xl font-extrabold text-primary-foreground mb-4">About Reliance Industries</h1>
         <p className="text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: "hsl(0 0% 100% / 0.8)" }}>
-          One of the largest integrated fabric manufacturing facilities in India for both Worsted and Synthetic fabrics.
+          India's largest private sector enterprise — a global leader in polymers, petrochemicals, and integrated textile manufacturing.
         </p>
       </div>
     </section>
@@ -47,7 +48,7 @@ const Reliance = () => (
         ].map((s) => (
           <div key={s.label} className="bg-secondary border border-brand-gray-200 rounded-xl p-6 text-center">
             <strong className="text-2xl font-extrabold text-primary">{s.value}</strong>
-            {s.unit && <span className="text-sm font-semibold text-destructive ml-1">{s.unit}</span>}
+            {s.unit && <span className="text-sm font-semibold text-accent ml-1">{s.unit}</span>}
             <p className="text-xs text-muted-foreground mt-1">{s.label}</p>
           </div>
         ))}
@@ -70,13 +71,13 @@ const Reliance = () => (
           <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
             <Factory className="w-5 h-5 text-primary" />
           </div>
-          <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive">Manufacturing</span>
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent">Manufacturing</span>
         </div>
         <h2 className="text-3xl font-extrabold text-primary mb-8">Manufacturing Strengths</h2>
         <div className="grid sm:grid-cols-2 gap-3">
           {manufacturingStrengths.map((s, i) => (
             <div key={i} className="flex items-start gap-3 bg-background border border-brand-gray-200 rounded-lg p-4">
-              <CheckCircle2 className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+              <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
               <p className="text-sm text-foreground font-medium">{s}</p>
             </div>
           ))}
@@ -92,7 +93,7 @@ const Reliance = () => (
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
               <Microscope className="w-5 h-5 text-primary" />
             </div>
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive">R&D</span>
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent">R&D</span>
           </div>
           <h2 className="text-3xl font-extrabold text-primary mb-6">R&D and Quality Control</h2>
           <ul className="space-y-4">
@@ -117,7 +118,7 @@ const Reliance = () => (
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
               <Sparkles className="w-5 h-5 text-primary" />
             </div>
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive">Innovation</span>
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent">Innovation</span>
           </div>
           <h2 className="text-3xl font-extrabold text-primary mb-6">Special Finishes</h2>
           <div className="space-y-4">
@@ -137,16 +138,16 @@ const Reliance = () => (
       </div>
     </section>
 
-    {/* Product Range */}
+    {/* Textile Product Range */}
     <section className="bg-primary py-16">
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex items-center gap-3 mb-2">
           <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: "hsl(0 0% 100% / 0.15)" }}>
             <Palette className="w-5 h-5 text-primary-foreground" />
           </div>
-          <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive">Catalogue</span>
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent">Textiles Catalogue</span>
         </div>
-        <h2 className="text-3xl font-extrabold text-primary-foreground mb-8">Product Range</h2>
+        <h2 className="text-3xl font-extrabold text-primary-foreground mb-8">Textile Product Range</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
             {
@@ -174,12 +175,108 @@ const Reliance = () => (
       </div>
     </section>
 
+    {/* Polymers Division */}
+    <section className="max-w-[1200px] mx-auto py-16 px-6">
+      <div className="flex items-center gap-3 mb-2">
+        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+          <FlaskConical className="w-5 h-5 text-primary" />
+        </div>
+        <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent">Polymers Division</span>
+      </div>
+      <h2 className="text-3xl font-extrabold text-primary mb-4">Reliance Polymers</h2>
+      <p className="text-muted-foreground leading-relaxed max-w-3xl mb-8">
+        Reliance is India's largest producer of polymers with world-class manufacturing facilities using globally licensed technologies. 
+        Products are exported to 30+ countries across diverse applications — packaging, pipes, automotive, healthcare, and construction.
+      </p>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+        {[
+          { value: "2.9", unit: "MMT", label: "PP Capacity" },
+          { value: "1.5", unit: "MMT", label: "PE Capacity" },
+          { value: "750", unit: "KT", label: "PVC Capacity" },
+          { value: "30+", unit: "", label: "Export Countries" },
+        ].map((s) => (
+          <div key={s.label} className="bg-secondary border border-brand-gray-200 rounded-xl p-6 text-center">
+            <strong className="text-2xl font-extrabold text-primary">{s.value}</strong>
+            {s.unit && <span className="text-sm font-semibold text-accent ml-1">{s.unit}</span>}
+            <p className="text-xs text-muted-foreground mt-1">{s.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {[
+          {
+            icon: Box, title: "Polypropylene (PP) — Repol®",
+            desc: "Homopolymer, Copolymer & Impact Copolymer grades manufactured using Spheripol, Adipol (Basell) and Unipol (Dow) technologies.",
+            link: "/products/pp",
+          },
+          {
+            icon: Cylinder, title: "Polyethylene (HDPE) — Relene®",
+            desc: "High-rigidity grades for blow moulding, injection moulding, and pipe applications with Ziegler-Natta catalysts.",
+            link: "/products/pe",
+          },
+          {
+            icon: Beaker, title: "LLDPE / LDPE — Relene®",
+            desc: "Excellent puncture resistance, clarity, and sealing performance for flexible packaging and agricultural films.",
+            link: "/products/pe",
+          },
+          {
+            icon: Pipette, title: "PVC Resin — Reon®",
+            desc: "India's largest manufacturer of suspension grade PVC for pipes, cables, medical devices, and more. K-Value range: 57–70.",
+            link: "/products/pvc",
+          },
+          {
+            icon: FlaskConical, title: "PET Resin — Relpet®",
+            desc: "DuPont technology-based bottle-grade PET resin with excellent clarity for beverages, FMCG, and pharma applications.",
+            link: "/products/pet",
+          },
+        ].map(({ icon: Icon, title, desc, link }) => (
+          <Link to={link} key={title} className="bg-card border border-brand-gray-200 rounded-xl p-6 hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+              <Icon className="w-5 h-5 text-primary" />
+            </div>
+            <h4 className="font-bold text-sm text-foreground mb-2 group-hover:text-primary transition-colors">{title}</h4>
+            <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+          </Link>
+        ))}
+      </div>
+    </section>
+
+    {/* Polymer Manufacturing */}
+    <section className="bg-brand-gray-50 py-16">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+            <Cog className="w-5 h-5 text-primary" />
+          </div>
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent">Technology</span>
+        </div>
+        <h2 className="text-3xl font-extrabold text-primary mb-8">Polymer Manufacturing Excellence</h2>
+        <div className="grid sm:grid-cols-2 gap-3">
+          {[
+            "World-class plants at Jamnagar, Dahej, Nagothane, Hazira & Silvassa",
+            "Globally licensed technologies: Basell Spheripol, Dow Unipol, DuPont PET process",
+            "Integrated petrochemical complex for feedstock security",
+            "Stringent quality control with ISO & BIS certifications",
+            "Dedicated R&D for application development and grade customisation",
+            "Pan-India distribution with warehousing and logistics support",
+          ].map((s, i) => (
+            <div key={i} className="flex items-start gap-3 bg-background border border-brand-gray-200 rounded-lg p-4">
+              <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+              <p className="text-sm text-foreground font-medium">{s}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     {/* CTA */}
     <section className="bg-secondary py-16 px-6">
       <div className="max-w-[800px] mx-auto text-center">
         <h2 className="text-2xl font-extrabold text-primary mb-4">Explore Our Full Range</h2>
         <p className="text-muted-foreground mb-6">View all polymer and textile products with specifications and request quotes instantly.</p>
-        <Link to="/products" className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-6 py-3 rounded-lg hover:bg-brand-gold-dark transition-colors">
+        <Link to="/products" className="inline-flex items-center gap-2 bg-accent text-accent-foreground font-bold px-6 py-3 rounded-lg hover:bg-brand-gold-dark transition-colors">
           View All Products <ChevronRight className="w-4 h-4" />
         </Link>
       </div>
