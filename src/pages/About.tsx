@@ -12,11 +12,14 @@ const milestones = [
   { year: "2025", text: "52+ years of continued partnership with Reliance" },
 ];
 
+import teamSham from "@/assets/team-sham.jpeg";
+import teamRadhika from "@/assets/team-radhika.jpeg";
+import teamPooja from "@/assets/team-pooja.jpeg";
+
 const teamMembers = [
-  { name: "Partner 1", role: "Managing Partner", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&auto=format" },
-  { name: "Partner 2", role: "Partner – Polymers Division", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&auto=format" },
-  { name: "Partner 3", role: "Partner – Textiles Division", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&auto=format" },
-  { name: "Partner 4", role: "Partner – Operations", image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&auto=format" },
+  { name: "Sham Chopra", role: "Founder & CEO", image: teamSham },
+  { name: "Radhika Mehta", role: "Managing Partner", image: teamRadhika },
+  { name: "Pooja Mahant", role: "Managing Partner", image: teamPooja },
 ];
 
 const About = () => (
@@ -88,12 +91,12 @@ const About = () => (
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="text-center mb-12">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-2">Our Leadership</span>
-          <h2 className="text-3xl font-extrabold text-primary mb-2">Know Our Team</h2>
+          <h2 className="text-3xl font-extrabold text-primary mb-2">Know Our Leadership</h2>
           <p className="text-muted-foreground text-sm max-w-xl mx-auto">
             The partners behind Devisahai Charan Dass Associates — driving excellence and building lasting relationships for over five decades.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-3xl mx-auto">
           {teamMembers.map((member) => (
             <div key={member.name} className="bg-background border border-brand-gray-200 rounded-xl overflow-hidden hover:border-primary hover:shadow-lg transition-all text-center">
               <div className="h-56 overflow-hidden">
