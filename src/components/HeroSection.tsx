@@ -6,10 +6,9 @@ interface HeroProps {
 }
 
 const stats = [
-  { value: "52+", label: "Years of Legacy" },
+  { value: "56+", label: "Years of Legacy" },
   { value: "500+", label: "B2B Clients" },
-  { value: "₹200Cr+", label: "Annual Volume" },
-  { value: "#1", label: "Largest DCA – Textiles" },
+  { value: "200K+ MT", label: "Annual Volume" },
 ];
 
 const HeroSection = ({ onOpenRFQ }: HeroProps) => {
@@ -32,12 +31,12 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
   return (
     <section className="relative overflow-hidden min-h-[560px] flex items-center py-16 px-6">
       {/* Background layers */}
-      <div className="absolute inset-0 bg-primary" />
-      <div className="absolute inset-0 opacity-[0.07]" style={{
+      <div className="absolute inset-0" style={{ background: "hsl(224 60% 42%)" }} />
+      <div className="absolute inset-0 opacity-[0.06]" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
       }} />
       <div className="absolute inset-0" style={{
-        background: "radial-gradient(ellipse at 20% 50%, hsl(224 100% 45% / 0.5) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, hsl(0 85% 55% / 0.15) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, hsl(224 100% 25% / 0.6) 0%, transparent 50%)",
+        background: "radial-gradient(ellipse at 20% 50%, hsl(224 70% 55% / 0.4) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, hsl(43 87% 50% / 0.1) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, hsl(224 60% 38% / 0.4) 0%, transparent 50%)",
       }} />
       {/* Floating shapes */}
       <div className="absolute top-16 left-[10%] w-72 h-72 rounded-full bg-white/[0.03] blur-2xl" />
@@ -59,12 +58,6 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
             India's leading B2B distributor of Reliance Polymers & Textiles. Priority supply access, real-time price intelligence, and pan-India logistics — trusted by 500+ industrial buyers.
           </p>
           <div className="flex gap-4 flex-wrap items-center">
-            <button
-              onClick={() => onOpenRFQ("General Enquiry", "All Products", "General")}
-              className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:bg-brand-gold-dark hover:-translate-y-0.5 transition-all"
-            >
-              <FileText className="w-4 h-4" /> Get a Quote
-            </button>
             <a href="#polymers" className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/10 transition-all">
               Explore Products <ArrowRight className="w-4 h-4" />
             </a>
