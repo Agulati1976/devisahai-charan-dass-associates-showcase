@@ -48,7 +48,7 @@ const Reliance = () => (
         ].map((s) => (
           <div key={s.label} className="bg-secondary border border-brand-gray-200 rounded-xl p-6 text-center">
             <strong className="text-2xl font-extrabold text-primary">{s.value}</strong>
-            {s.unit && <span className="text-sm font-semibold text-destructive ml-1">{s.unit}</span>}
+            {s.unit && <span className="text-sm font-semibold text-accent ml-1">{s.unit}</span>}
             <p className="text-xs text-muted-foreground mt-1">{s.label}</p>
           </div>
         ))}
