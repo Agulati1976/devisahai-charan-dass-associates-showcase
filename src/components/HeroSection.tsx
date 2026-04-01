@@ -58,12 +58,6 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
             India's leading B2B distributor of Reliance Polymers & Textiles. Priority supply access, real-time price intelligence, and pan-India logistics — trusted by 500+ industrial buyers.
           </p>
           <div className="flex gap-4 flex-wrap items-center">
-            <button
-              onClick={() => onOpenRFQ("General Enquiry", "All Products", "General")}
-              className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-7 py-3.5 rounded-lg shadow-lg shadow-destructive/35 hover:bg-brand-gold-dark hover:-translate-y-0.5 transition-all"
-            >
-              <FileText className="w-4 h-4" /> Get a Quote
-            </button>
             <a href="#polymers" className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-semibold px-6 py-3 rounded-lg hover:bg-white/10 transition-all">
               Explore Products <ArrowRight className="w-4 h-4" />
             </a>
