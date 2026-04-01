@@ -71,13 +71,13 @@ const Reliance = () => (
           <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
             <Factory className="w-5 h-5 text-primary" />
           </div>
-          <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive">Manufacturing</span>
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent">Manufacturing</span>
         </div>
         <h2 className="text-3xl font-extrabold text-primary mb-8">Manufacturing Strengths</h2>
         <div className="grid sm:grid-cols-2 gap-3">
           {manufacturingStrengths.map((s, i) => (
             <div key={i} className="flex items-start gap-3 bg-background border border-brand-gray-200 rounded-lg p-4">
-              <CheckCircle2 className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
+              <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
               <p className="text-sm text-foreground font-medium">{s}</p>
             </div>
           ))}
@@ -93,7 +93,7 @@ const Reliance = () => (
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
               <Microscope className="w-5 h-5 text-primary" />
             </div>
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive">R&D</span>
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent">R&D</span>
           </div>
           <h2 className="text-3xl font-extrabold text-primary mb-6">R&D and Quality Control</h2>
           <ul className="space-y-4">
@@ -118,7 +118,7 @@ const Reliance = () => (
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
               <Sparkles className="w-5 h-5 text-primary" />
             </div>
-            <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive">Innovation</span>
+            <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent">Innovation</span>
           </div>
           <h2 className="text-3xl font-extrabold text-primary mb-6">Special Finishes</h2>
           <div className="space-y-4">
@@ -276,7 +276,7 @@ const Reliance = () => (
       <div className="max-w-[800px] mx-auto text-center">
         <h2 className="text-2xl font-extrabold text-primary mb-4">Explore Our Full Range</h2>
         <p className="text-muted-foreground mb-6">View all polymer and textile products with specifications and request quotes instantly.</p>
-        <Link to="/products" className="inline-flex items-center gap-2 bg-destructive text-destructive-foreground font-bold px-6 py-3 rounded-lg hover:bg-brand-gold-dark transition-colors">
+        <Link to="/products" className="inline-flex items-center gap-2 bg-accent text-accent-foreground font-bold px-6 py-3 rounded-lg hover:bg-brand-gold-dark transition-colors">
           View All Products <ChevronRight className="w-4 h-4" />
         </Link>
       </div>
