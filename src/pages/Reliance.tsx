@@ -192,7 +192,7 @@ const Reliance = () => (
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
         {[
           { value: "2.9", unit: "MMT", label: "PP Capacity" },
-          { value: "1.5", unit: "MMT", label: "PE Capacity" },
+          { value: "2.2", unit: "MMT", label: "PE Capacity" },
           { value: "750", unit: "KT", label: "PVC Capacity" },
           { value: "30+", unit: "", label: "Export Countries" },
         ].map((s) => (
