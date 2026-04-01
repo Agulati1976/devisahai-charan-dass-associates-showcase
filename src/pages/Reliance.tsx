@@ -204,31 +204,26 @@ const Reliance = () => (
         ))}
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {[
           {
-            icon: Box, title: "Polypropylene (PP) — Repol®",
-            desc: "Homopolymer, Copolymer & Impact Copolymer grades manufactured using Spheripol, Adipol (Basell) and Unipol (Dow) technologies.",
+            icon: Box, title: "PP — Polypropylene",
+            desc: "Homopolymer, random copolymer, and impact copolymer grades. Top 5 global manufacturer. Annual capacity: 2.9 MMT.",
             link: "/products/pp",
           },
           {
-            icon: Cylinder, title: "Polyethylene (HDPE) — Relene®",
-            desc: "High-rigidity grades for blow moulding, injection moulding, and pipe applications with Ziegler-Natta catalysts.",
+            icon: Cylinder, title: "PE — Polyethylene",
+            desc: "Complete range of HDPE, LLDPE, and LDPE grades for packaging, agriculture, and industrial uses. Annual capacity: 2.2 MMT.",
             link: "/products/pe",
           },
           {
-            icon: Beaker, title: "LLDPE / LDPE — Relene®",
-            desc: "Excellent puncture resistance, clarity, and sealing performance for flexible packaging and agricultural films.",
-            link: "/products/pe",
-          },
-          {
-            icon: Pipette, title: "PVC Resin — Reon®",
-            desc: "India's largest manufacturer of suspension grade PVC for pipes, cables, medical devices, and more. K-Value range: 57–70.",
+            icon: Pipette, title: "PVC — Polyvinyl Chloride",
+            desc: "India's largest suspension-grade PVC manufacturer for agriculture, construction, and healthcare. Annual capacity: 750 KT.",
             link: "/products/pvc",
           },
           {
-            icon: FlaskConical, title: "PET Resin — Relpet®",
-            desc: "DuPont technology-based bottle-grade PET resin with excellent clarity for beverages, FMCG, and pharma applications.",
+            icon: FlaskConical, title: "PET — Polyethylene Terephthalate",
+            desc: "High clarity bottle-grade resin. Food-contact compliant, lightweight, and fully recyclable. Ideal for ISBM applications.",
             link: "/products/pet",
           },
         ].map(({ icon: Icon, title, desc, link }) => (
