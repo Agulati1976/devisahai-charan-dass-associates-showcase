@@ -1,7 +1,6 @@
 import { Zap, Package, Banknote, BarChart3, Users } from "lucide-react";
 
 const items = [
-  { icon: Award, label: "India's #1 Textile DCA" },
   { icon: Zap, label: "Priority Supply Access" },
   { icon: Package, label: "Pan-India Delivery" },
   { icon: Banknote, label: "Competitive Credit Terms" },
