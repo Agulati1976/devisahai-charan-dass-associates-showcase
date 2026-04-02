@@ -34,7 +34,7 @@ const textiles = [
   {
     title: "Vimal Suitings", subtitle: "Only Vimal® — Iconic Since 1972",
     description: "Premium poly-viscose and poly-wool blended suitings trusted by generations across India.",
-    image: "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/77982e55d48a51c5729a6bd9c5e642bda6d0711b.jpg",
+    image: vimalFabric,
     brand: "Only Vimal®", category: "Textiles",
     specs: [{ label: "Fabric", value: "Poly Viscose / Poly Wool" }, { label: "Width", value: '58"' }, { label: "Min. Order", value: "500 Mtr" }],
     gradient: "linear-gradient(135deg, hsl(224 60% 95%), hsl(224 50% 85%))",
