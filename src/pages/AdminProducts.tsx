@@ -202,6 +202,10 @@ const AdminProducts = () => {
                 <label className="block text-sm font-semibold mb-1">Detail Link</label>
                 <input className={inputCls} value={editing.detail_link || ""} onChange={(e) => setEditing({ ...editing, detail_link: e.target.value })} placeholder="/products/pp" />
               </div>
+              <div>
+                <label className="block text-sm font-semibold mb-1">Grade Sheet URL</label>
+                <input className={inputCls} value={editing.grade_sheet_url || ""} onChange={(e) => setEditing({ ...editing, grade_sheet_url: e.target.value })} placeholder="https://drive.google.com/..." />
+              </div>
               <div className="flex items-center gap-3">
                 <input type="checkbox" id="isActive" checked={editing.is_active} onChange={(e) => setEditing({ ...editing, is_active: e.target.checked })} className="w-4 h-4 rounded border-brand-gray-200" />
                 <label htmlFor="isActive" className="text-sm font-semibold">Active (visible on website)</label>
