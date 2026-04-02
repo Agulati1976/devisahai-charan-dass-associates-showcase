@@ -26,11 +26,12 @@ const statusColors: Record<string, string> = {
 };
 
 const AdminEnquiries = () => {
+  const [searchParams] = useSearchParams();
   const [enquiries, setEnquiries] = useState<Enquiry[]>([]);
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<Enquiry | null>(null);
   const [statusFilter, setStatusFilter] = useState("all");
-  const [sourceFilter, setSourceFilter] = useState("all");
+  const [sourceFilter, setSourceFilter] = useState(searchParams.get("source") || "all");
 
   const fetchEnquiries = async () => {
     let q = supabase.from("enquiries").select("*").order("created_at", { ascending: false });
