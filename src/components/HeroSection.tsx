@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { FileText, ArrowRight, Send, Building2, User, Phone, Mail, Package, MapPin } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 interface HeroProps {
   onOpenRFQ: (product: string, grade: string, cat: string) => void;
@@ -16,16 +18,34 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
     name: "", company: "", mobile: "", email: "", product: "", location: "", message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setFormData({ name: "", company: "", mobile: "", email: "", product: "", location: "", message: "" });
+    setLoading(true);
+    try {
+      const { error } = await supabase.from("enquiries").insert({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.mobile,
+        company: formData.company,
+        message: `[${formData.product || "General"}] Location: ${formData.location || "N/A"}. ${formData.message}`,
+        product_interest: formData.product,
+        source_type: "contact",
+      });
+      if (error) throw error;
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 4000);
+      setFormData({ name: "", company: "", mobile: "", email: "", product: "", location: "", message: "" });
+    } catch (err: any) {
+      toast.error(err.message || "Failed to submit enquiry");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
