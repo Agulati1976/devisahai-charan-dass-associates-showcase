@@ -106,9 +106,10 @@ const GradeSheetModal = ({ open, onClose, productName }: GradeSheetModalProps) =
               </div>
               <button
                 type="submit"
-                className="w-full bg-destructive text-destructive-foreground font-bold py-3 rounded-lg hover:bg-brand-gold-dark transition-colors flex items-center justify-center gap-2"
+                disabled={loading}
+                className="w-full bg-destructive text-destructive-foreground font-bold py-3 rounded-lg hover:bg-brand-gold-dark transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
               >
-                <Download className="w-4 h-4" /> Download Grade Sheet
+                <Download className="w-4 h-4" /> {loading ? "Submitting…" : "Download Grade Sheet"}
               </button>
               <p className="text-[0.65rem] text-muted-foreground text-center flex items-center justify-center gap-1">
                 <Lock className="w-3 h-3" /> Your information is used only for providing product details
