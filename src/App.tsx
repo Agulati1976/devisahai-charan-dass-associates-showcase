@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Layout from "@/components/Layout";
+import AdminLayout from "@/components/AdminLayout";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Products from "./pages/Products";
@@ -18,6 +19,10 @@ import VimalSuitings from "./pages/VimalSuitings";
 import Uniforms from "./pages/Uniforms";
 import PolyesterSuiting from "./pages/PolyesterSuiting";
 import GeorgiaGullini from "./pages/GeorgiaGullini";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminProducts from "./pages/AdminProducts";
+import AdminEnquiries from "./pages/AdminEnquiries";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +49,12 @@ const App = () => (
             <Route path="/textiles/georgia-gullini" element={<GeorgiaGullini />} />
             <Route path="/reliance" element={<Reliance />} />
             <Route path="/contact" element={<Contact />} />
+          </Route>
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route element={<AdminLayout />}>
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/products" element={<AdminProducts />} />
+            <Route path="/admin/enquiries" element={<AdminEnquiries />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
