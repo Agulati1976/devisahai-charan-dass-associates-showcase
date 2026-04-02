@@ -1,5 +1,6 @@
 import { useOutletContext, Link } from "react-router-dom";
 import { CheckCircle2, ChevronRight, Scissors, Gem, Palette, Shirt, ArrowRight, Award, Sparkles } from "lucide-react";
+import vimalFabric from "@/assets/vimal-suitings-fabric.jpeg";
 
 interface ContextType { openRFQ: (product: string, grade: string, cat: string) => void; }
 
@@ -58,7 +59,7 @@ const VimalSuitings = () => {
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-2">Gallery</span>
           <h2 className="text-3xl font-extrabold text-primary mb-8">Our Fabric Range</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
-            {[{ src: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&auto=format", label: "Poly Viscose Suiting" }, { src: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&auto=format", label: "Poly Wool Blend" }, { src: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format", label: "Poly Cotton Fabric" }, { src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format", label: "Designer Collection" }].map((img) => (
+            {[{ src: vimalFabric, label: "Only Vimal Fabric Collection" }, { src: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&auto=format", label: "Poly Viscose Suiting" }, { src: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&auto=format", label: "Poly Wool Blend" }, { src: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format", label: "Poly Cotton Fabric" }].map((img) => (
               <div key={img.label} className="group rounded-xl overflow-hidden border border-brand-gray-200 bg-background">
                 <div className="h-44 overflow-hidden"><img src={img.src} alt={img.label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div>
                 <div className="p-3"><p className="text-sm font-semibold text-foreground">{img.label}</p></div>
