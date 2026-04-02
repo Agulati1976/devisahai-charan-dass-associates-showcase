@@ -1,5 +1,7 @@
 import { ArrowRight, Shirt, Info } from "lucide-react";
 import { Link } from "react-router-dom";
+import vimalFabric from "@/assets/vimal-suitings-fabric.jpeg";
+import georgiaImg from "@/assets/georgia-gullini-1.jpeg";
 
 const textiles = [
   {
