@@ -26,6 +26,7 @@ const emptyProduct: Omit<Product, "id"> = {
   brand: "",
   image_url: "",
   detail_link: "",
+  grade_sheet_url: "",
   specs: [],
   is_active: true,
   sort_order: 0,
