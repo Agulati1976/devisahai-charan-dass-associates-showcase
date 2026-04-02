@@ -12,6 +12,7 @@ interface Product {
   brand: string | null;
   image_url: string | null;
   detail_link: string | null;
+  grade_sheet_url: string | null;
   specs: any;
   is_active: boolean;
   sort_order: number;
@@ -25,6 +26,7 @@ const emptyProduct: Omit<Product, "id"> = {
   brand: "",
   image_url: "",
   detail_link: "",
+  grade_sheet_url: "",
   specs: [],
   is_active: true,
   sort_order: 0,
@@ -70,6 +72,7 @@ const AdminProducts = () => {
         brand: editing.brand,
         image_url: editing.image_url,
         detail_link: editing.detail_link,
+        grade_sheet_url: editing.grade_sheet_url,
         specs: editing.specs,
         is_active: editing.is_active,
         sort_order: editing.sort_order,
@@ -198,6 +201,10 @@ const AdminProducts = () => {
               <div>
                 <label className="block text-sm font-semibold mb-1">Detail Link</label>
                 <input className={inputCls} value={editing.detail_link || ""} onChange={(e) => setEditing({ ...editing, detail_link: e.target.value })} placeholder="/products/pp" />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold mb-1">Grade Sheet URL</label>
+                <input className={inputCls} value={editing.grade_sheet_url || ""} onChange={(e) => setEditing({ ...editing, grade_sheet_url: e.target.value })} placeholder="https://drive.google.com/..." />
               </div>
               <div className="flex items-center gap-3">
                 <input type="checkbox" id="isActive" checked={editing.is_active} onChange={(e) => setEditing({ ...editing, is_active: e.target.checked })} className="w-4 h-4 rounded border-brand-gray-200" />
