@@ -16,7 +16,7 @@ const textiles = [
   {
     title: "Georgia Gullini Worsted", subtitle: "Premium Italian-Origin Worsted Suiting",
     description: "Luxury worsted suitings crafted at Naroda, blending Indian manufacturing strength with European design language.",
-    image: "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2dfe842e4023b65e62bab4d9afb27580e6086582.jpg",
+    image: georgiaImg,
     brand: "Georgia Gullini®", category: "Textiles",
     specs: [{ label: "Fabric", value: "100% Wool / Wool-Blend" }, { label: "Capacity", value: "10 Mn Mtr" }, { label: "Min. Order", value: "200 Mtr" }],
     gradient: "linear-gradient(135deg, hsl(142 50% 95%), hsl(142 40% 82%))",
