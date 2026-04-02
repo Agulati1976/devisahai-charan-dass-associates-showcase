@@ -1,4 +1,4 @@
-import { Award, Zap, Package, Banknote, BarChart3, Users } from "lucide-react";
+import { Zap, Package, Banknote, BarChart3, Users } from "lucide-react";
 
 const items = [
   { icon: Award, label: "India's #1 Textile DCA" },
