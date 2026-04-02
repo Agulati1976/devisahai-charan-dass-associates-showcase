@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { LayoutDashboard, Package, MessageSquare, FileText, LogOut, Menu, X, Home } from "lucide-react";
+import { LayoutDashboard, Package, MessageSquare, FileText, LogOut, Menu, X, Home, Download } from "lucide-react";
 import { toast } from "sonner";
 
 const navItems = [
@@ -9,6 +9,7 @@ const navItems = [
   { label: "Products", icon: Package, path: "/admin/products" },
   { label: "Enquiries", icon: MessageSquare, path: "/admin/enquiries" },
   { label: "RFQ Submissions", icon: FileText, path: "/admin/enquiries?source=rfq" },
+  { label: "Grade Sheet Leads", icon: Download, path: "/admin/enquiries?source=grade_sheet" },
 ];
 
 const AdminLayout = () => {

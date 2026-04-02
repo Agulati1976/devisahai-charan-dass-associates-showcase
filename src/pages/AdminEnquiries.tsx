@@ -77,6 +77,7 @@ const AdminEnquiries = () => {
           { key: "all", label: "All Enquiries", icon: MessageSquare },
           { key: "contact", label: "Contact Form", icon: Mail },
           { key: "rfq", label: "RFQ Submissions", icon: FileText },
+          { key: "grade_sheet", label: "Grade Sheet", icon: Package },
         ].map((tab) => (
           <button
             key={tab.key}

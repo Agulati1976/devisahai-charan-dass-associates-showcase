@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { X, Mail, Download, Lock } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 interface GradeSheetModalProps {
   open: boolean;
@@ -12,12 +14,27 @@ const GradeSheetModal = ({ open, onClose, productName }: GradeSheetModalProps) =
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Send to backend for lead generation
-    console.log("Lead captured:", { name, email, company, productName });
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const { error } = await supabase.from("enquiries").insert({
+        name,
+        email,
+        company,
+        message: `Grade sheet download request for ${productName}`,
+        product_interest: productName,
+        source_type: "grade_sheet",
+      });
+      if (error) throw error;
+      setSubmitted(true);
+    } catch (err: any) {
+      toast.error(err.message || "Failed to submit");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleClose = () => {
@@ -89,9 +106,10 @@ const GradeSheetModal = ({ open, onClose, productName }: GradeSheetModalProps) =
               </div>
               <button
                 type="submit"
-                className="w-full bg-destructive text-destructive-foreground font-bold py-3 rounded-lg hover:bg-brand-gold-dark transition-colors flex items-center justify-center gap-2"
+                disabled={loading}
+                className="w-full bg-destructive text-destructive-foreground font-bold py-3 rounded-lg hover:bg-brand-gold-dark transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
               >
-                <Download className="w-4 h-4" /> Download Grade Sheet
+                <Download className="w-4 h-4" /> {loading ? "Submitting…" : "Download Grade Sheet"}
               </button>
               <p className="text-[0.65rem] text-muted-foreground text-center flex items-center justify-center gap-1">
                 <Lock className="w-3 h-3" /> Your information is used only for providing product details
