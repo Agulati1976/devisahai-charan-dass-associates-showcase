@@ -1,5 +1,11 @@
 import { useOutletContext, Link } from "react-router-dom";
 import { CheckCircle2, ChevronRight, ArrowRight, Crown } from "lucide-react";
+import gg1 from "@/assets/georgia-gullini-1.jpeg";
+import gg2 from "@/assets/georgia-gullini-2.jpeg";
+import gg3 from "@/assets/georgia-gullini-3.jpeg";
+import gg4 from "@/assets/georgia-gullini-4.jpeg";
+import gg5 from "@/assets/georgia-gullini-5.jpeg";
+import gg6 from "@/assets/georgia-gullini-6.jpeg";
 
 interface ContextType { openRFQ: (product: string, grade: string, cat: string) => void; }
 
