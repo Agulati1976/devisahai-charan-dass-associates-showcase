@@ -12,6 +12,7 @@ interface Product {
   brand: string | null;
   image_url: string | null;
   detail_link: string | null;
+  grade_sheet_url: string | null;
   specs: any;
   is_active: boolean;
   sort_order: number;
