@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { FileText, ArrowRight, Send, Building2, User, Phone, Mail, Package, MapPin } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
 
 interface HeroProps {
   onOpenRFQ: (product: string, grade: string, cat: string) => void;
@@ -16,16 +18,34 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
     name: "", company: "", mobile: "", email: "", product: "", location: "", message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setFormData({ name: "", company: "", mobile: "", email: "", product: "", location: "", message: "" });
+    setLoading(true);
+    try {
+      const { error } = await supabase.from("enquiries").insert({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.mobile,
+        company: formData.company,
+        message: `[${formData.product || "General"}] Location: ${formData.location || "N/A"}. ${formData.message}`,
+        product_interest: formData.product,
+        source_type: "contact",
+      });
+      if (error) throw error;
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 4000);
+      setFormData({ name: "", company: "", mobile: "", email: "", product: "", location: "", message: "" });
+    } catch (err: any) {
+      toast.error(err.message || "Failed to submit enquiry");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -131,8 +151,8 @@ const HeroSection = ({ onOpenRFQ }: HeroProps) => {
                 <input name="location" value={formData.location} onChange={handleChange} placeholder="Delivery Location" className="w-full pl-10 pr-3 py-2.5 rounded-lg bg-muted/50 border border-border text-foreground text-sm placeholder:text-muted-foreground/60 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors" />
               </div>
               <textarea name="message" value={formData.message} onChange={handleChange} rows={2} placeholder="Additional requirements..." className="w-full px-3 py-2.5 rounded-lg bg-muted/50 border border-border text-foreground text-sm placeholder:text-muted-foreground/60 outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors resize-none" />
-              <button type="submit" className="w-full bg-destructive text-destructive-foreground font-bold py-3 rounded-lg hover:bg-brand-gold-dark transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-gold/30">
-                <Send className="w-4 h-4" /> Submit Enquiry
+              <button type="submit" disabled={loading} className="w-full bg-destructive text-destructive-foreground font-bold py-3 rounded-lg hover:bg-brand-gold-dark transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-gold/30 disabled:opacity-50">
+                <Send className="w-4 h-4" /> {loading ? "Submitting…" : "Submit Enquiry"}
               </button>
               <p className="text-[0.65rem] text-muted-foreground text-center">Your data is confidential & used only for quotation</p>
             </form>
