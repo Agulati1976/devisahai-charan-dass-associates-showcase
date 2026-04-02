@@ -43,6 +43,7 @@ const Layout = () => {
         grade={rfqData.grade}
         category={rfqData.category}
       />
+      <WhatsAppButton />
     </div>
   );
 };
