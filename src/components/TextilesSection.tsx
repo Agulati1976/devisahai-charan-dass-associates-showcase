@@ -47,6 +47,15 @@ const textiles = [
     gradient: "linear-gradient(135deg, hsl(200 60% 95%), hsl(200 50% 85%))",
     detailLink: "/textiles/polyester-suiting",
   },
+  {
+    title: "Alok Industries", subtitle: "India's Premier Integrated Textile Manufacturer",
+    description: "Complete range of wovens, knits, yarns, furnishing fabrics, and embroideries from one of India's premier integrated textile manufacturers.",
+    image: "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3b1c27f5d6fc1547bd1b136438775952dc5fa45d.jpg",
+    brand: "Alok Industries®", category: "Textiles",
+    specs: [{ label: "Range", value: "Wovens, Knits, Yarns" }, { label: "Specialty", value: "Furnishing & Embroidery" }, { label: "Min. Order", value: "500 Mtr" }],
+    gradient: "linear-gradient(135deg, hsl(224 50% 95%), hsl(224 40% 82%))",
+    detailLink: "/textiles/alok-industries",
+  },
 ];
 
 const TextilesSection = () => (
