@@ -3,6 +3,7 @@ import Topbar from "@/components/Topbar";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RFQDrawer from "@/components/RFQDrawer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import { Outlet } from "react-router-dom";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -42,6 +43,7 @@ const Layout = () => {
         grade={rfqData.grade}
         category={rfqData.category}
       />
+      <WhatsAppButton />
     </div>
   );
 };
