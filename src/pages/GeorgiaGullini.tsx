@@ -68,9 +68,9 @@ const GeorgiaGullini = () => {
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-2">Gallery</span>
           <h2 className="text-3xl font-extrabold text-primary mb-8">Georgia Gullini Collection</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[{ src: "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2dfe842e4023b65e62bab4d9afb27580e6086582.jpg", label: "Premium Worsted Suiting" }, { src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format", label: "Executive Collection" }, { src: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&auto=format", label: "Corporate Suiting Range" }].map((img) => (
+            {[{ src: gg1, label: "Power Suit Collection" }, { src: gg2, label: "The Essence of Italian Style" }, { src: gg3, label: "Smart Casual Lookbook" }, { src: gg4, label: "Herringbone Fabric Pattern" }, { src: gg5, label: "Wedding Edition Suiting" }, { src: gg6, label: "Classic Italian Suiting" }].map((img) => (
               <div key={img.label} className="group rounded-xl overflow-hidden border border-brand-gray-200 bg-background">
-                <div className="h-52 overflow-hidden"><img src={img.src} alt={img.label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div>
+                <div className="h-64 overflow-hidden"><img src={img.src} alt={img.label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div>
                 <div className="p-4"><p className="text-sm font-semibold text-foreground">{img.label}</p></div>
               </div>
             ))}
