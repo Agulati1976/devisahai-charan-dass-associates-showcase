@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { MessageSquare, Eye, X, Mail, Phone, Building2, Package, FileText } from "lucide-react";
 import { toast } from "sonner";
