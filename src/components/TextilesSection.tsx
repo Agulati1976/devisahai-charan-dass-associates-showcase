@@ -1,5 +1,7 @@
 import { ArrowRight, Shirt, Info } from "lucide-react";
 import { Link } from "react-router-dom";
+import vimalFabric from "@/assets/vimal-suitings-fabric.jpeg";
+import georgiaImg from "@/assets/georgia-gullini-1.jpeg";
 
 const textiles = [
   {
@@ -14,7 +16,7 @@ const textiles = [
   {
     title: "Georgia Gullini Worsted", subtitle: "Premium Italian-Origin Worsted Suiting",
     description: "Luxury worsted suitings crafted at Naroda, blending Indian manufacturing strength with European design language.",
-    image: "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2dfe842e4023b65e62bab4d9afb27580e6086582.jpg",
+    image: georgiaImg,
     brand: "Georgia Gullini®", category: "Textiles",
     specs: [{ label: "Fabric", value: "100% Wool / Wool-Blend" }, { label: "Capacity", value: "10 Mn Mtr" }, { label: "Min. Order", value: "200 Mtr" }],
     gradient: "linear-gradient(135deg, hsl(142 50% 95%), hsl(142 40% 82%))",
@@ -32,7 +34,7 @@ const textiles = [
   {
     title: "Vimal Suitings", subtitle: "Only Vimal® — Iconic Since 1972",
     description: "Premium poly-viscose and poly-wool blended suitings trusted by generations across India.",
-    image: "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/77982e55d48a51c5729a6bd9c5e642bda6d0711b.jpg",
+    image: vimalFabric,
     brand: "Only Vimal®", category: "Textiles",
     specs: [{ label: "Fabric", value: "Poly Viscose / Poly Wool" }, { label: "Width", value: '58"' }, { label: "Min. Order", value: "500 Mtr" }],
     gradient: "linear-gradient(135deg, hsl(224 60% 95%), hsl(224 50% 85%))",
