@@ -72,6 +72,7 @@ const AdminProducts = () => {
         brand: editing.brand,
         image_url: editing.image_url,
         detail_link: editing.detail_link,
+        grade_sheet_url: editing.grade_sheet_url,
         specs: editing.specs,
         is_active: editing.is_active,
         sort_order: editing.sort_order,
