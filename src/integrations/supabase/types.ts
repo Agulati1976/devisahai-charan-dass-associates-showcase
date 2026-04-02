@@ -63,6 +63,7 @@ export type Database = {
           created_at: string
           description: string | null
           detail_link: string | null
+          grade_sheet_url: string | null
           id: string
           image_url: string | null
           is_active: boolean
@@ -78,6 +79,7 @@ export type Database = {
           created_at?: string
           description?: string | null
           detail_link?: string | null
+          grade_sheet_url?: string | null
           id?: string
           image_url?: string | null
           is_active?: boolean
@@ -93,6 +95,7 @@ export type Database = {
           created_at?: string
           description?: string | null
           detail_link?: string | null
+          grade_sheet_url?: string | null
           id?: string
           image_url?: string | null
           is_active?: boolean
