@@ -99,6 +99,7 @@ const Navbar = () => {
           </Link>
           <DropdownMenu label="Polymers" links={polymerLinks} location={location} />
           <DropdownMenu label="Textiles" links={textileLinks} location={location} />
+          <DropdownMenu label="Alok Industries" links={alokLinks} location={location} />
           {simpleLinks.filter(l => l.to !== "/").map((link) => (
             <Link
               key={link.label}
