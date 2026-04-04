@@ -18,6 +18,14 @@ const textileLinks = [
   { label: "Georgia Gullini", to: "/textiles/georgia-gullini" },
 ];
 
+const alokLinks = [
+  { label: "Wovens", to: "/alok/wovens" },
+  { label: "Knits", to: "/alok/knits" },
+  { label: "Yarns", to: "/alok/yarns" },
+  { label: "Furnishing", to: "/alok/furnishing" },
+  { label: "Embroideries", to: "/alok/embroideries" },
+];
+
 const simpleLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
