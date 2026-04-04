@@ -140,7 +140,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          <Link to="/products" className="block text-sm py-2.5 text-foreground/80 hover:text-primary" onClick={() => setMobileOpen(false)}>All Products</Link>
+          
           {simpleLinks.filter(l => l.to !== "/").map((link) => (
             <Link key={link.label} to={link.to} className={`block text-sm py-2.5 transition-colors ${location.pathname === link.to ? "text-primary font-semibold" : "text-foreground/80 hover:text-primary"}`} onClick={() => setMobileOpen(false)}>
               {link.label}
