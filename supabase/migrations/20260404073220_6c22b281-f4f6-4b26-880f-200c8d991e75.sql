@@ -1,0 +1,2 @@
+ALTER TABLE public.enquiries DROP CONSTRAINT enquiries_source_type_check;
+ALTER TABLE public.enquiries ADD CONSTRAINT enquiries_source_type_check CHECK (source_type = ANY (ARRAY['contact'::text, 'rfq'::text, 'grade_sheet'::text]));
