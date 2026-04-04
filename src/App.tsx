@@ -56,6 +56,12 @@ const App = () => (
             <Route path="/textiles/georgia-gullini" element={<GeorgiaGullini />} />
             <Route path="/reliance" element={<Reliance />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/alok" element={<AlokIndustries />} />
+            <Route path="/alok/wovens" element={<AlokWovens />} />
+            <Route path="/alok/knits" element={<AlokKnits />} />
+            <Route path="/alok/yarns" element={<AlokYarns />} />
+            <Route path="/alok/furnishing" element={<AlokFurnishing />} />
+            <Route path="/alok/embroideries" element={<AlokEmbroideries />} />
             <Route path="/contact" element={<Contact />} />
           </Route>
           <Route path="/admin/login" element={<AdminLogin />} />
