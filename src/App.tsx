@@ -24,6 +24,12 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AdminProducts from "./pages/AdminProducts";
 import AdminEnquiries from "./pages/AdminEnquiries";
 import Careers from "./pages/Careers";
+import AlokIndustries from "./pages/AlokIndustries";
+import AlokWovens from "./pages/AlokWovens";
+import AlokKnits from "./pages/AlokKnits";
+import AlokYarns from "./pages/AlokYarns";
+import AlokFurnishing from "./pages/AlokFurnishing";
+import AlokEmbroideries from "./pages/AlokEmbroideries";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
