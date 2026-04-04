@@ -90,12 +90,6 @@ const Navbar = () => {
           </Link>
           <DropdownMenu label="Polymers" links={polymerLinks} location={location} />
           <DropdownMenu label="Textiles" links={textileLinks} location={location} />
-          <Link
-            to="/products"
-            className={`text-foreground/80 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-secondary hover:text-primary ${location.pathname === "/products" ? "bg-secondary text-primary font-semibold" : ""}`}
-          >
-            All Products
-          </Link>
           {simpleLinks.filter(l => l.to !== "/").map((link) => (
             <Link
               key={link.label}
