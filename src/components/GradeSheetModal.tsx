@@ -7,6 +7,7 @@ interface GradeSheetModalProps {
   open: boolean;
   onClose: () => void;
   productName: string;
+  productKey?: string;
 }
 
 const GradeSheetModal = ({ open, onClose, productName }: GradeSheetModalProps) => {
