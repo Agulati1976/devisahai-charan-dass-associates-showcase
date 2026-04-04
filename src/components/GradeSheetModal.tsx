@@ -10,7 +10,7 @@ interface GradeSheetModalProps {
   productKey?: string;
 }
 
-const GradeSheetModal = ({ open, onClose, productName }: GradeSheetModalProps) => {
+const GradeSheetModal = ({ open, onClose, productName, productKey }: GradeSheetModalProps) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
