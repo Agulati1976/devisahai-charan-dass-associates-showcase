@@ -85,7 +85,7 @@ const PVCProduct = () => {
         </div>
       </section>
 
-      <GradeSheetModal open={gradeSheetOpen} onClose={() => setGradeSheetOpen(false)} productName="PVC — Reon®" />
+      <GradeSheetModal open={gradeSheetOpen} onClose={() => setGradeSheetOpen(false)} productName="PVC — Reon®" productKey="PVC" />
     </div>
   );
 };

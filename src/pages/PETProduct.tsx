@@ -119,7 +119,7 @@ const PETProduct = () => {
         </div>
       </section>
 
-      <GradeSheetModal open={gradeSheetOpen} onClose={() => setGradeSheetOpen(false)} productName="PET Resin — Relpet®" />
+      <GradeSheetModal open={gradeSheetOpen} onClose={() => setGradeSheetOpen(false)} productName="PET Resin — Relpet®" productKey="PET" />
     </div>
   );
 };
