@@ -7,9 +7,10 @@ interface GradeSheetModalProps {
   open: boolean;
   onClose: () => void;
   productName: string;
+  productKey?: string;
 }
 
-const GradeSheetModal = ({ open, onClose, productName }: GradeSheetModalProps) => {
+const GradeSheetModal = ({ open, onClose, productName, productKey }: GradeSheetModalProps) => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
@@ -29,6 +30,14 @@ const GradeSheetModal = ({ open, onClose, productName }: GradeSheetModalProps) =
         source_type: "grade_sheet",
       });
       if (error) throw error;
+
+      // Send grade sheet email
+      if (productKey) {
+        await supabase.functions.invoke("send-grade-sheet", {
+          body: { name, email, company, productKey },
+        });
+      }
+
       setSubmitted(true);
     } catch (err: any) {
       toast.error(err.message || "Failed to submit");

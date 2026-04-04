@@ -172,7 +172,7 @@ const PPProduct = () => {
         </div>
       </section>
 
-      <GradeSheetModal open={gradeSheetOpen} onClose={() => setGradeSheetOpen(false)} productName="Polypropylene (PP) — Repol®" />
+      <GradeSheetModal open={gradeSheetOpen} onClose={() => setGradeSheetOpen(false)} productName="Polypropylene (PP) — Repol®" productKey="PP" />
     </div>
   );
 };

@@ -105,7 +105,7 @@ const PEProduct = () => {
         </div>
       </section>
 
-      <GradeSheetModal open={gradeSheetOpen} onClose={() => setGradeSheetOpen(false)} productName="Polyethylene (PE) — Relene®" />
+      <GradeSheetModal open={gradeSheetOpen} onClose={() => setGradeSheetOpen(false)} productName="Polyethylene (PE) — Relene®" productKey="PE" />
     </div>
   );
 };

@@ -235,6 +235,7 @@ const Products = () => {
         open={!!gradeSheetProduct}
         onClose={() => setGradeSheetProduct(null)}
         productName={gradeSheetProduct || ""}
+        productKey={gradeSheetProduct || undefined}
       />
     </div>
   );
