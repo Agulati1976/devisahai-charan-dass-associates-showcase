@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FileText, ArrowRight, Send, Building2, User, Phone, Mail, Package, MapPin } from "lucide-react";
+import heroImg from "@/assets/hero-industry.jpg";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
