@@ -22,6 +22,7 @@ const simpleLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Reliance", to: "/reliance" },
+  { label: "Careers", to: "/careers" },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -90,12 +91,6 @@ const Navbar = () => {
           </Link>
           <DropdownMenu label="Polymers" links={polymerLinks} location={location} />
           <DropdownMenu label="Textiles" links={textileLinks} location={location} />
-          <Link
-            to="/products"
-            className={`text-foreground/80 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-secondary hover:text-primary ${location.pathname === "/products" ? "bg-secondary text-primary font-semibold" : ""}`}
-          >
-            All Products
-          </Link>
           {simpleLinks.filter(l => l.to !== "/").map((link) => (
             <Link
               key={link.label}
@@ -145,7 +140,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          <Link to="/products" className="block text-sm py-2.5 text-foreground/80 hover:text-primary" onClick={() => setMobileOpen(false)}>All Products</Link>
+          
           {simpleLinks.filter(l => l.to !== "/").map((link) => (
             <Link key={link.label} to={link.to} className={`block text-sm py-2.5 transition-colors ${location.pathname === link.to ? "text-primary font-semibold" : "text-foreground/80 hover:text-primary"}`} onClick={() => setMobileOpen(false)}>
               {link.label}
