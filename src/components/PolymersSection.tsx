@@ -106,7 +106,7 @@ const PolymersSection = () => {
           Explore All Polymers <ArrowRight className="w-4 h-4" />
         </Link>
 
-        <GradeSheetModal open={!!gradeSheetProduct} onClose={() => setGradeSheetProduct(null)} productName={gradeSheetProduct || ""} />
+        <GradeSheetModal open={!!gradeSheetProduct} onClose={() => setGradeSheetProduct(null)} productName={gradeSheetProduct || ""} productKey={gradeSheetProduct || undefined} />
       </div>
     </section>
   );
