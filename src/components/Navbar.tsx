@@ -34,10 +34,10 @@ const simpleLinks = [
   { label: "Contact", to: "/contact" },
 ];
 
-const DropdownMenu = ({ label, links, location }: { label: string; links: { label: string; to: string }[]; location: ReturnType<typeof useLocation> }) => {
+const DropdownMenu = ({ label, links, location, overviewLink }: { label: string; links: { label: string; to: string }[]; location: ReturnType<typeof useLocation>; overviewLink?: string }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const isActive = links.some((l) => location.pathname === l.to);
+  const isActive = links.some((l) => location.pathname === l.to) || (overviewLink && location.pathname === overviewLink);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -57,6 +57,17 @@ const DropdownMenu = ({ label, links, location }: { label: string; links: { labe
       </button>
       {open && (
         <div className="absolute top-full left-0 mt-1 bg-background border border-brand-gray-200 rounded-lg shadow-xl py-2 min-w-[220px] z-50">
+          {overviewLink && (
+            <Link
+              to={overviewLink}
+              onClick={() => setOpen(false)}
+              className={`block px-4 py-2.5 text-sm font-semibold transition-colors hover:bg-secondary border-b border-brand-gray-200 mb-1 ${
+                location.pathname === overviewLink ? "text-primary bg-secondary" : "text-foreground"
+              }`}
+            >
+              Overview
+            </Link>
+          )}
           {links.map((link) => (
             <Link
               key={link.to}
