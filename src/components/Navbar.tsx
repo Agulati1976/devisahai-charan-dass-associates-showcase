@@ -149,7 +149,16 @@ const Navbar = () => {
             ))}
           </div>
 
-          
+          <div className="py-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Alok Industries</span>
+            {alokLinks.map((link) => (
+              <Link key={link.to} to={link.to} className={`block text-sm py-2 pl-3 transition-colors ${location.pathname === link.to ? "text-primary font-semibold" : "text-foreground/80 hover:text-primary"}`} onClick={() => setMobileOpen(false)}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+
           {simpleLinks.filter(l => l.to !== "/").map((link) => (
             <Link key={link.label} to={link.to} className={`block text-sm py-2.5 transition-colors ${location.pathname === link.to ? "text-primary font-semibold" : "text-foreground/80 hover:text-primary"}`} onClick={() => setMobileOpen(false)}>
               {link.label}
