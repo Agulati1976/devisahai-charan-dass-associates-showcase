@@ -18,6 +18,14 @@ const textileLinks = [
   { label: "Georgia Gullini", to: "/textiles/georgia-gullini" },
 ];
 
+const alokLinks = [
+  { label: "Wovens", to: "/alok/wovens" },
+  { label: "Knits", to: "/alok/knits" },
+  { label: "Yarns", to: "/alok/yarns" },
+  { label: "Furnishing", to: "/alok/furnishing" },
+  { label: "Embroideries", to: "/alok/embroideries" },
+];
+
 const simpleLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
@@ -91,6 +99,7 @@ const Navbar = () => {
           </Link>
           <DropdownMenu label="Polymers" links={polymerLinks} location={location} />
           <DropdownMenu label="Textiles" links={textileLinks} location={location} />
+          <DropdownMenu label="Alok Industries" links={alokLinks} location={location} />
           {simpleLinks.filter(l => l.to !== "/").map((link) => (
             <Link
               key={link.label}
@@ -140,7 +149,16 @@ const Navbar = () => {
             ))}
           </div>
 
-          
+          <div className="py-2">
+            <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Alok Industries</span>
+            {alokLinks.map((link) => (
+              <Link key={link.to} to={link.to} className={`block text-sm py-2 pl-3 transition-colors ${location.pathname === link.to ? "text-primary font-semibold" : "text-foreground/80 hover:text-primary"}`} onClick={() => setMobileOpen(false)}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+
           {simpleLinks.filter(l => l.to !== "/").map((link) => (
             <Link key={link.label} to={link.to} className={`block text-sm py-2.5 transition-colors ${location.pathname === link.to ? "text-primary font-semibold" : "text-foreground/80 hover:text-primary"}`} onClick={() => setMobileOpen(false)}>
               {link.label}
