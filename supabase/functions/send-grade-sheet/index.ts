@@ -141,7 +141,7 @@ serve(async (req) => {
         "X-Connection-Api-Key": RESEND_API_KEY,
       },
       body: JSON.stringify({
-        from: "Devisahai Charan Dass Associates <info@devisahaicharandass.com>",
+        from: "Devisahai Charan Dass Associates <no-reply@devisahaicharandass.com>",
         to: [email],
         subject: `${product.label} — Grade Sheet Download`,
         html,
