@@ -30,6 +30,14 @@ const GradeSheetModal = ({ open, onClose, productName, productKey }: GradeSheetM
         source_type: "grade_sheet",
       });
       if (error) throw error;
+
+      // Send grade sheet email
+      if (productKey) {
+        await supabase.functions.invoke("send-grade-sheet", {
+          body: { name, email, company, productKey },
+        });
+      }
+
       setSubmitted(true);
     } catch (err: any) {
       toast.error(err.message || "Failed to submit");
