@@ -22,6 +22,7 @@ const simpleLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Reliance", to: "/reliance" },
+  { label: "Careers", to: "/careers" },
   { label: "Contact", to: "/contact" },
 ];
 
