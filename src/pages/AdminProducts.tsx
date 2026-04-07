@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
-import { Plus, Pencil, Trash2, X, Save } from "lucide-react";
+import { Plus, Pencil, Trash2, X, Save, Upload, Image } from "lucide-react";
 import { toast } from "sonner";
 
 interface Product {
@@ -19,17 +19,8 @@ interface Product {
 }
 
 const emptyProduct: Omit<Product, "id"> = {
-  name: "",
-  description: "",
-  category: "polymers",
-  subcategory: "",
-  brand: "",
-  image_url: "",
-  detail_link: "",
-  grade_sheet_url: "",
-  specs: [],
-  is_active: true,
-  sort_order: 0,
+  name: "", description: "", category: "polymers", subcategory: "", brand: "",
+  image_url: "", detail_link: "", grade_sheet_url: "", specs: [], is_active: true, sort_order: 0,
 };
 
 const AdminProducts = () => {
@@ -38,6 +29,7 @@ const AdminProducts = () => {
   const [editing, setEditing] = useState<Product | null>(null);
   const [isNew, setIsNew] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
 
   const fetchProducts = async () => {
     const { data, error } = await supabase.from("products").select("*").order("sort_order");
@@ -47,37 +39,47 @@ const AdminProducts = () => {
 
   useEffect(() => { fetchProducts(); }, []);
 
-  const openNew = () => {
-    setEditing({ id: "", ...emptyProduct } as Product);
-    setIsNew(true);
-  };
+  const openNew = () => { setEditing({ id: "", ...emptyProduct } as Product); setIsNew(true); };
+  const openEdit = (p: Product) => { setEditing({ ...p }); setIsNew(false); };
 
-  const openEdit = (p: Product) => {
-    setEditing({ ...p });
-    setIsNew(false);
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !editing) return;
+
+    const maxSize = 5 * 1024 * 1024;
+    if (file.size > maxSize) { toast.error("Image must be under 5MB"); return; }
+
+    setUploading(true);
+    try {
+      const ext = file.name.split(".").pop() || "jpg";
+      const fileName = `${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`;
+
+      const { error: uploadErr } = await supabase.storage
+        .from("product-images")
+        .upload(fileName, file, { cacheControl: "3600", upsert: false });
+
+      if (uploadErr) throw uploadErr;
+
+      const { data: { publicUrl } } = supabase.storage.from("product-images").getPublicUrl(fileName);
+      setEditing({ ...editing, image_url: publicUrl });
+      toast.success("Image uploaded");
+    } catch (err: any) {
+      toast.error(err.message || "Upload failed");
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleSave = async () => {
-    if (!editing || !editing.name.trim()) {
-      toast.error("Product name is required");
-      return;
-    }
+    if (!editing || !editing.name.trim()) { toast.error("Product name is required"); return; }
     setSaving(true);
     try {
       const payload = {
-        name: editing.name,
-        description: editing.description,
-        category: editing.category,
-        subcategory: editing.subcategory,
-        brand: editing.brand,
-        image_url: editing.image_url,
-        detail_link: editing.detail_link,
-        grade_sheet_url: editing.grade_sheet_url,
-        specs: editing.specs,
-        is_active: editing.is_active,
-        sort_order: editing.sort_order,
+        name: editing.name, description: editing.description, category: editing.category,
+        subcategory: editing.subcategory, brand: editing.brand, image_url: editing.image_url,
+        detail_link: editing.detail_link, grade_sheet_url: editing.grade_sheet_url,
+        specs: editing.specs, is_active: editing.is_active, sort_order: editing.sort_order,
       };
-
       if (isNew) {
         const { error } = await supabase.from("products").insert(payload);
         if (error) throw error;
@@ -89,21 +91,14 @@ const AdminProducts = () => {
       }
       setEditing(null);
       fetchProducts();
-    } catch (err: any) {
-      toast.error(err.message);
-    } finally {
-      setSaving(false);
-    }
+    } catch (err: any) { toast.error(err.message); } finally { setSaving(false); }
   };
 
   const handleDelete = async (id: string) => {
     if (!confirm("Delete this product?")) return;
     const { error } = await supabase.from("products").delete().eq("id", id);
     if (error) toast.error(error.message);
-    else {
-      toast.success("Product deleted");
-      fetchProducts();
-    }
+    else { toast.success("Product deleted"); fetchProducts(); }
   };
 
   const inputCls = "w-full px-3 py-2 border border-brand-gray-200 rounded-lg text-sm bg-background outline-none focus:border-primary focus:ring-2 focus:ring-primary/10";
@@ -114,16 +109,16 @@ const AdminProducts = () => {
     <div>
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-extrabold text-foreground">Products</h1>
-        <button onClick={openNew} className="flex items-center gap-2 bg-primary text-primary-foreground font-bold px-5 py-2.5 rounded-lg text-sm hover:opacity-90 transition-opacity">
+        <button onClick={openNew} className="flex items-center gap-2 bg-primary text-primary-foreground font-bold px-5 py-2.5 rounded-lg text-sm hover:opacity-90">
           <Plus className="w-4 h-4" /> Add Product
         </button>
       </div>
 
-      {/* Product List */}
       <div className="bg-card border border-brand-gray-200 rounded-xl overflow-hidden">
         <table className="w-full text-sm">
           <thead className="bg-brand-gray-50 border-b border-brand-gray-200">
             <tr>
+              <th className="text-left px-4 py-3 font-semibold text-muted-foreground">Image</th>
               <th className="text-left px-4 py-3 font-semibold text-muted-foreground">Name</th>
               <th className="text-left px-4 py-3 font-semibold text-muted-foreground hidden sm:table-cell">Category</th>
               <th className="text-left px-4 py-3 font-semibold text-muted-foreground hidden md:table-cell">Brand</th>
@@ -133,9 +128,16 @@ const AdminProducts = () => {
           </thead>
           <tbody>
             {products.length === 0 ? (
-              <tr><td colSpan={5} className="text-center py-12 text-muted-foreground">No products yet. Click "Add Product" to get started.</td></tr>
+              <tr><td colSpan={6} className="text-center py-12 text-muted-foreground">No products yet.</td></tr>
             ) : products.map((p) => (
               <tr key={p.id} className="border-b border-brand-gray-100 hover:bg-brand-gray-50/50">
+                <td className="px-4 py-3">
+                  {p.image_url ? (
+                    <img src={p.image_url} alt={p.name} className="w-12 h-12 rounded-lg object-cover" />
+                  ) : (
+                    <div className="w-12 h-12 rounded-lg bg-brand-gray-100 flex items-center justify-center"><Image className="w-5 h-5 text-muted-foreground" /></div>
+                  )}
+                </td>
                 <td className="px-4 py-3 font-semibold text-foreground">{p.name}</td>
                 <td className="px-4 py-3 text-muted-foreground capitalize hidden sm:table-cell">{p.category}</td>
                 <td className="px-4 py-3 text-muted-foreground hidden md:table-cell">{p.brand || "—"}</td>
@@ -163,6 +165,28 @@ const AdminProducts = () => {
               <button onClick={() => setEditing(null)} className="text-muted-foreground hover:text-foreground"><X className="w-5 h-5" /></button>
             </div>
             <div className="px-6 py-5 space-y-4">
+              {/* Image Upload */}
+              <div>
+                <label className="block text-sm font-semibold mb-2">Product Image</label>
+                <div className="flex items-start gap-4">
+                  {editing.image_url ? (
+                    <img src={editing.image_url} alt="Preview" className="w-24 h-24 rounded-lg object-cover border border-brand-gray-200" />
+                  ) : (
+                    <div className="w-24 h-24 rounded-lg bg-brand-gray-100 flex items-center justify-center border border-dashed border-brand-gray-300">
+                      <Image className="w-8 h-8 text-muted-foreground" />
+                    </div>
+                  )}
+                  <div className="flex-1 space-y-2">
+                    <label className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold cursor-pointer transition-colors ${uploading ? "bg-brand-gray-100 text-muted-foreground" : "bg-primary text-primary-foreground hover:opacity-90"}`}>
+                      <Upload className="w-4 h-4" /> {uploading ? "Uploading…" : "Upload Image"}
+                      <input type="file" accept="image/*" onChange={handleImageUpload} className="hidden" disabled={uploading} />
+                    </label>
+                    <p className="text-xs text-muted-foreground">JPG, PNG, WebP. Max 5MB.</p>
+                    <input className={inputCls} value={editing.image_url || ""} onChange={(e) => setEditing({ ...editing, image_url: e.target.value })} placeholder="Or paste image URL" />
+                  </div>
+                </div>
+              </div>
+
               <div>
                 <label className="block text-sm font-semibold mb-1">Name *</label>
                 <input className={inputCls} value={editing.name} onChange={(e) => setEditing({ ...editing, name: e.target.value })} />
@@ -195,10 +219,6 @@ const AdminProducts = () => {
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-semibold mb-1">Image URL</label>
-                <input className={inputCls} value={editing.image_url || ""} onChange={(e) => setEditing({ ...editing, image_url: e.target.value })} />
-              </div>
-              <div>
                 <label className="block text-sm font-semibold mb-1">Detail Link</label>
                 <input className={inputCls} value={editing.detail_link || ""} onChange={(e) => setEditing({ ...editing, detail_link: e.target.value })} placeholder="/products/pp" />
               </div>
@@ -208,15 +228,15 @@ const AdminProducts = () => {
               </div>
               <div>
                 <label className="block text-sm font-semibold mb-1">Specs (Key-Value Pairs)</label>
-                <p className="text-xs text-muted-foreground mb-2">e.g. Annual Capacity → 2.2 MMT, Applications → Pipe, Film</p>
+                <p className="text-xs text-muted-foreground mb-2">e.g. Annual Capacity → 2.2 MMT</p>
                 {(Array.isArray(editing.specs) ? editing.specs : []).map((spec: any, idx: number) => (
                   <div key={idx} className="flex gap-2 mb-2">
-                    <input className={`${inputCls} flex-1`} placeholder="Label (e.g. Annual Capacity)" value={spec.label || ""} onChange={(e) => {
+                    <input className={`${inputCls} flex-1`} placeholder="Label" value={spec.label || ""} onChange={(e) => {
                       const newSpecs = [...(editing.specs as any[])];
                       newSpecs[idx] = { ...newSpecs[idx], label: e.target.value };
                       setEditing({ ...editing, specs: newSpecs });
                     }} />
-                    <input className={`${inputCls} flex-1`} placeholder="Value (e.g. 2.2 MMT)" value={spec.value || ""} onChange={(e) => {
+                    <input className={`${inputCls} flex-1`} placeholder="Value" value={spec.value || ""} onChange={(e) => {
                       const newSpecs = [...(editing.specs as any[])];
                       newSpecs[idx] = { ...newSpecs[idx], value: e.target.value };
                       setEditing({ ...editing, specs: newSpecs });
@@ -240,7 +260,7 @@ const AdminProducts = () => {
               </div>
             </div>
             <div className="px-6 py-4 border-t border-brand-gray-200 flex justify-end gap-3">
-              <button onClick={() => setEditing(null)} className="px-5 py-2.5 text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">Cancel</button>
+              <button onClick={() => setEditing(null)} className="px-5 py-2.5 text-sm font-semibold text-muted-foreground hover:text-foreground">Cancel</button>
               <button onClick={handleSave} disabled={saving} className="flex items-center gap-2 bg-primary text-primary-foreground font-bold px-6 py-2.5 rounded-lg text-sm hover:opacity-90 disabled:opacity-50">
                 <Save className="w-4 h-4" /> {saving ? "Saving…" : "Save"}
               </button>
