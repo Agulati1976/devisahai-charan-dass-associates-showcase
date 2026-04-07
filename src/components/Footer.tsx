@@ -3,6 +3,19 @@ import { Link } from "react-router-dom";
 
 const Footer = () => (
   <footer className="bg-brand-gray-900 text-primary-foreground/75 text-sm">
+    <div className="w-full">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.5!2d77.2!3d28.64!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b741d057%3A0xcdee88e47393c3f1!2sDevisahai%20Charan%20Dass%20Associates!5e0!3m2!1sen!2sin!4v1700000000000"
+        width="100%"
+        height="300"
+        style={{ border: 0 }}
+        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Devisahai Charan Dass Associates Location"
+        className="grayscale hover:grayscale-0 transition-all duration-500"
+      />
+    </div>
     <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-6 py-12">
       <div>
         <strong className="block text-primary-foreground text-base mb-1">Devisahai Charan Dass Associates</strong>
