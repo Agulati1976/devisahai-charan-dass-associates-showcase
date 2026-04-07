@@ -66,7 +66,7 @@ const AdminLayout = () => {
         </div>
         <nav className="flex-1 px-3 py-4 space-y-1">
           {navItems.map((item) => {
-            const active = location.pathname === item.path;
+            const active = location.pathname + location.search === item.path || (item.path === "/admin" && location.pathname === "/admin" && !location.search);
             return (
               <Link
                 key={item.path}
