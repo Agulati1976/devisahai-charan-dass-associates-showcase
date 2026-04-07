@@ -21,10 +21,10 @@ const textiles = [
     detailLink: "/textiles/vimal-gifting",
   },
   {
-    title: "Georgia Gullini Worsted",
-    subtitle: "Premium Italian-Origin Worsted Suiting",
+    title: "Georgia Gullini",
+    subtitle: "Premium Italian-Origin Suiting",
     description:
-      "Luxury worsted suitings crafted at Naroda, blending Indian manufacturing strength with European design language.",
+      "Luxury suitings crafted at Naroda, blending Indian manufacturing strength with European design language.",
     image: georgiaImg,
     brand: "Georgia Gullini®",
     category: "Textiles",
