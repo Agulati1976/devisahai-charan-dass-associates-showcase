@@ -16,12 +16,14 @@ export type Database = {
     Tables: {
       enquiries: {
         Row: {
+          assigned_to: string | null
           company: string | null
           created_at: string
           email: string
           id: string
           message: string | null
           name: string
+          notes: string | null
           phone: string | null
           product_interest: string | null
           source_type: string
@@ -29,12 +31,14 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          assigned_to?: string | null
           company?: string | null
           created_at?: string
           email: string
           id?: string
           message?: string | null
           name: string
+          notes?: string | null
           phone?: string | null
           product_interest?: string | null
           source_type?: string
@@ -42,12 +46,14 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          assigned_to?: string | null
           company?: string | null
           created_at?: string
           email?: string
           id?: string
           message?: string | null
           name?: string
+          notes?: string | null
           phone?: string | null
           product_interest?: string | null
           source_type?: string
@@ -104,6 +110,30 @@ export type Database = {
           specs?: Json | null
           subcategory?: string | null
           updated_at?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          full_name: string | null
+          id: string
+          phone: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          user_id?: string
         }
         Relationships: []
       }

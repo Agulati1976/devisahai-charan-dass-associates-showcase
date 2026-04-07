@@ -23,6 +23,10 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminProducts from "./pages/AdminProducts";
 import AdminEnquiries from "./pages/AdminEnquiries";
+import AdminUsers from "./pages/AdminUsers";
+import UserLogin from "./pages/UserLogin";
+import UserLayout from "./components/UserLayout";
+import UserDashboard from "./pages/UserDashboard";
 import Careers from "./pages/Careers";
 import AlokIndustries from "./pages/AlokIndustries";
 import AlokWovens from "./pages/AlokWovens";
@@ -65,10 +69,15 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
           </Route>
           <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/login" element={<UserLogin />} />
           <Route element={<AdminLayout />}>
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/admin/products" element={<AdminProducts />} />
             <Route path="/admin/enquiries" element={<AdminEnquiries />} />
+            <Route path="/admin/users" element={<AdminUsers />} />
+          </Route>
+          <Route element={<UserLayout />}>
+            <Route path="/dashboard" element={<UserDashboard />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

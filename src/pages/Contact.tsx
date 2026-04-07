@@ -28,6 +28,10 @@ const Contact = () => {
         source_type: "contact",
       });
       if (error) throw error;
+      // Notify admin
+      supabase.functions.invoke("notify-admin", {
+        body: { type: "contact", name: form.name, email: form.email, phone: form.phone, company: form.company, message: form.message, product_interest: form.subject },
+      });
       setSubmitted(true);
     } catch (err: any) {
       toast.error(err.message || "Failed to submit");

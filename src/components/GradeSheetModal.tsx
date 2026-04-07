@@ -31,6 +31,11 @@ const GradeSheetModal = ({ open, onClose, productName, productKey }: GradeSheetM
       });
       if (error) throw error;
 
+      // Notify admin
+      supabase.functions.invoke("notify-admin", {
+        body: { type: "grade_sheet", name, email, company, product_interest: productName },
+      });
+
       // Send grade sheet email
       if (productKey) {
         await supabase.functions.invoke("send-grade-sheet", {
