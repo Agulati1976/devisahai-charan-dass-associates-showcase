@@ -1,4 +1,5 @@
 import AlokDivisionPage from "@/components/AlokDivisionPage";
+import alokWovensImg from "@/assets/alok-wovens.jpg";
 
 const AlokWovens = () => (
   <AlokDivisionPage
@@ -16,6 +17,7 @@ const AlokWovens = () => (
       "Fashion and lifestyle garments",
       "Industrial textile applications",
     ]}
+    image={alokWovensImg}
   />
 );
 

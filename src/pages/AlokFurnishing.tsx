@@ -1,4 +1,5 @@
 import AlokDivisionPage from "@/components/AlokDivisionPage";
+import alokFurnishingImg from "@/assets/alok-furnishing.jpg";
 
 const AlokFurnishing = () => (
   <AlokDivisionPage
@@ -16,6 +17,7 @@ const AlokFurnishing = () => (
       "Cushion and decorative fabrics",
       "Interior décor and home textiles",
     ]}
+    image={alokFurnishingImg}
   />
 );
 

@@ -6,9 +6,10 @@ interface AlokDivisionPageProps {
   description: string;
   features: string[];
   applications: string[];
+  image?: string;
 }
 
-const AlokDivisionPage = ({ title, description, features, applications }: AlokDivisionPageProps) => (
+const AlokDivisionPage = ({ title, description, features, applications, image }: AlokDivisionPageProps) => (
   <div>
     {/* Hero */}
     <section className="bg-primary py-20 px-6 relative overflow-hidden">
@@ -26,10 +27,11 @@ const AlokDivisionPage = ({ title, description, features, applications }: AlokDi
     {/* Content */}
     <section className="max-w-[1200px] mx-auto py-16 px-6">
       <div className="grid lg:grid-cols-2 gap-12">
+        {/* Left: Description + Features + Applications */}
         <div>
           <h2 className="text-3xl font-extrabold text-primary mb-4">{title}</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">{description}</p>
-          <div className="bg-brand-gray-50 rounded-xl p-6 border border-brand-gray-200">
+          <div className="bg-brand-gray-50 rounded-xl p-6 border border-brand-gray-200 mb-6">
             <h3 className="font-bold text-primary mb-4">Key Features</h3>
             <ul className="space-y-3">
               {features.map((f) => (
@@ -40,9 +42,7 @@ const AlokDivisionPage = ({ title, description, features, applications }: AlokDi
               ))}
             </ul>
           </div>
-        </div>
-        <div>
-          <div className="bg-brand-gray-50 rounded-xl p-6 border border-brand-gray-200 mb-6">
+          <div className="bg-brand-gray-50 rounded-xl p-6 border border-brand-gray-200">
             <h3 className="font-bold text-primary mb-4">Applications</h3>
             <ul className="space-y-3">
               {applications.map((a) => (
@@ -53,6 +53,15 @@ const AlokDivisionPage = ({ title, description, features, applications }: AlokDi
               ))}
             </ul>
           </div>
+        </div>
+
+        {/* Right: Image + CTA */}
+        <div>
+          {image && (
+            <div className="rounded-xl overflow-hidden mb-6 border border-brand-gray-200">
+              <img src={image} alt={title} className="w-full h-auto object-cover" />
+            </div>
+          )}
           <div className="bg-primary rounded-xl p-6 text-center">
             <p className="text-primary-foreground font-bold mb-2">Interested in our {title.toLowerCase()}?</p>
             <p className="text-sm mb-4" style={{ color: "hsl(0 0% 100% / 0.7)" }}>Get in touch with our team for samples and pricing.</p>

@@ -1,4 +1,5 @@
 import AlokDivisionPage from "@/components/AlokDivisionPage";
+import alokKnitsImg from "@/assets/alok-knits.webp";
 
 const AlokKnits = () => (
   <AlokDivisionPage
@@ -16,6 +17,7 @@ const AlokKnits = () => (
       "Fashion garments",
       "Comfortable everyday clothing",
     ]}
+    image={alokKnitsImg}
   />
 );
 

@@ -1,4 +1,5 @@
 import AlokDivisionPage from "@/components/AlokDivisionPage";
+import alokEmbroideriesImg from "@/assets/alok-embroideries.webp";
 
 const AlokEmbroideries = () => (
   <AlokDivisionPage
@@ -16,6 +17,7 @@ const AlokEmbroideries = () => (
       "Decorative home textiles",
       "Premium fabric embellishments",
     ]}
+    image={alokEmbroideriesImg}
   />
 );
 
