@@ -79,6 +79,7 @@ const RFQDrawer = ({ open, onClose, product, grade, category }: RFQDrawerProps) 
       supabase.functions.invoke("notify-admin", {
         body: { type: "rfq", name: values.contactName, email: values.email, phone: values.mobile, company: values.companyName, message, product_interest: `${product} - ${values.gradeReq}` },
       });
+      const ref = `DSCD-${new Date().getFullYear()}-${String(Math.floor(Math.random() * 90000) + 10000)}`;
       setRefNo(ref);
       setSubmitted(true);
     } catch (err: any) {
