@@ -121,7 +121,7 @@ const About = () => (
           </div>
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive">Textile Division</span>
         </div>
-        <h2 className="text-3xl font-extrabold text-primary mb-4">A Legacy of 50+ Years in Textiles</h2>
+        <h2 className="text-3xl font-extrabold text-primary mb-4">A Legacy of 56+ Years in Textiles</h2>
         <p className="text-muted-foreground leading-relaxed max-w-3xl mb-8">
           Appointed as the Authorised Del Credere Agent for Reliance Industries – Textile Division in 1972, 
           we have maintained a strong and progressive association with Reliance for more than 50 years. 
@@ -130,7 +130,7 @@ const About = () => (
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {[
             { icon: Calendar, value: "1972", label: "Appointed as Authorised DCA" },
-            { icon: Award, value: "50+ Years", label: "Strong Association with Reliance" },
+            { icon: Award, value: "56+ Years", label: "Strong Association with Reliance" },
             { icon: MapPin, value: "Pan India", label: "Market Presence & Expansion" },
             { icon: Users, value: "Extensive", label: "Distribution Network" },
           ].map(({ icon: Icon, value, label }) => (

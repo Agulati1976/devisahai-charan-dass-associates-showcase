@@ -1,7 +1,7 @@
 import { Medal, Zap, BarChart3, Truck, CreditCard, Headphones } from "lucide-react";
 
 const cards = [
-  { icon: Medal, title: "52+ Years of Trust", desc: "Associated with Reliance Industries since 1972 for textiles and 2003 for polymers. Decades of reliable supply and market expertise." },
+  { icon: Medal, title: "56+ Years of Trust", desc: "Associated with Reliance Industries since 1972 for textiles and 2003 for polymers. Decades of reliable supply and market expertise." },
   { icon: Zap, title: "Priority Allocation", desc: "Authorised DCA status ensures priority supply during demand peaks, tight allocations, and force-majeure situations — giving your plant continuity." },
   { icon: BarChart3, title: "Price Intelligence", desc: "Real-time market data and first-mover advantage on price revisions. Our clients consistently pay optimal rates, protecting their margins." },
   { icon: Truck, title: "Pan-India Logistics", desc: "Robust distribution network across Northern India with FTL, LTL, and express options. Guaranteed delivery timelines with digital tracking." },
