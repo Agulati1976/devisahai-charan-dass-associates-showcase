@@ -206,6 +206,34 @@ const AdminProducts = () => {
                 <label className="block text-sm font-semibold mb-1">Grade Sheet URL</label>
                 <input className={inputCls} value={editing.grade_sheet_url || ""} onChange={(e) => setEditing({ ...editing, grade_sheet_url: e.target.value })} placeholder="https://drive.google.com/..." />
               </div>
+              <div>
+                <label className="block text-sm font-semibold mb-1">Specs (Key-Value Pairs)</label>
+                <p className="text-xs text-muted-foreground mb-2">e.g. Annual Capacity → 2.2 MMT, Applications → Pipe, Film</p>
+                {(Array.isArray(editing.specs) ? editing.specs : []).map((spec: any, idx: number) => (
+                  <div key={idx} className="flex gap-2 mb-2">
+                    <input className={`${inputCls} flex-1`} placeholder="Label (e.g. Annual Capacity)" value={spec.label || ""} onChange={(e) => {
+                      const newSpecs = [...(editing.specs as any[])];
+                      newSpecs[idx] = { ...newSpecs[idx], label: e.target.value };
+                      setEditing({ ...editing, specs: newSpecs });
+                    }} />
+                    <input className={`${inputCls} flex-1`} placeholder="Value (e.g. 2.2 MMT)" value={spec.value || ""} onChange={(e) => {
+                      const newSpecs = [...(editing.specs as any[])];
+                      newSpecs[idx] = { ...newSpecs[idx], value: e.target.value };
+                      setEditing({ ...editing, specs: newSpecs });
+                    }} />
+                    <button type="button" onClick={() => {
+                      const newSpecs = (editing.specs as any[]).filter((_, i) => i !== idx);
+                      setEditing({ ...editing, specs: newSpecs });
+                    }} className="text-red-500 hover:text-red-700 px-2"><Trash2 className="w-4 h-4" /></button>
+                  </div>
+                ))}
+                <button type="button" onClick={() => {
+                  const newSpecs = [...(Array.isArray(editing.specs) ? editing.specs : []), { label: "", value: "" }];
+                  setEditing({ ...editing, specs: newSpecs });
+                }} className="text-xs font-semibold text-primary hover:underline flex items-center gap-1 mt-1">
+                  <Plus className="w-3 h-3" /> Add Spec
+                </button>
+              </div>
               <div className="flex items-center gap-3">
                 <input type="checkbox" id="isActive" checked={editing.is_active} onChange={(e) => setEditing({ ...editing, is_active: e.target.checked })} className="w-4 h-4 rounded border-brand-gray-200" />
                 <label htmlFor="isActive" className="text-sm font-semibold">Active (visible on website)</label>
