@@ -133,6 +133,7 @@ serve(async (req) => {
 </body>
 </html>`;
 
+    // Send to user
     const response = await fetch(`${GATEWAY_URL}/emails`, {
       method: "POST",
       headers: {
@@ -143,6 +144,7 @@ serve(async (req) => {
       body: JSON.stringify({
         from: "Devisahai Charan Dass Associates <no-reply@devisahaicharandass.com>",
         to: [email],
+        bcc: ["info@devisahaicharandass.com"],
         subject: `${product.label} — Grade Sheet Download`,
         html,
       }),
