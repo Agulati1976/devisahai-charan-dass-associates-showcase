@@ -5,7 +5,7 @@ const Footer = () => (
   <footer className="bg-brand-gray-900 text-primary-foreground/75 text-sm">
     <div className="w-full">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.5!2d77.2!3d28.64!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b741d057%3A0xcdee88e47393c3f1!2sDevisahai%20Charan%20Dass%20Associates!5e0!3m2!1sen!2sin!4v1700000000000"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=1A+1st+Floor+Sagar+Apartments+6+Tilak+Marg+New+Delhi+110001"
         width="100%"
         height="300"
         style={{ border: 0 }}
