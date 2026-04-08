@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle, Linkedin } from "lucide-react";
 
 const Topbar = () => (
   <div className="bg-brand-blue-dark text-primary-foreground/80 text-xs py-1.5 px-6 flex justify-between items-center">
@@ -15,6 +15,11 @@ const Topbar = () => (
       <span className="flex items-center gap-1.5">
         <MapPin className="w-3 h-3" /> New Delhi, India
       </span>
+    </div>
+    <div className="flex items-center gap-3">
+      <a href="https://www.linkedin.com/company/devi-sahai-charan-dass-associates/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">
+        <Linkedin className="w-3.5 h-3.5" />
+      </a>
     </div>
   </div>
 );
