@@ -119,7 +119,7 @@ const GiftSlider = () => {
   );
 };
 
-
+const VimalGifting = () => {
   const { openRFQ } = useOutletContext<ContextType>();
   return (
     <div>
