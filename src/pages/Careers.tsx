@@ -1,7 +1,7 @@
 import { Users, Heart, Lightbulb, Target, Handshake, Mail, ChevronRight, CheckCircle2, Briefcase, Building2 } from "lucide-react";
 
 const values = [
-  { icon: Building2, title: "Company", desc: "55+ years of trusted partnership with Reliance Industries as Authorised Del Credere Agent" },
+  { icon: Building2, title: "Company First", desc: "Prioritizing the company's success in every decision." },
   { icon: CheckCircle2, title: "Integrity", desc: "Acting with honesty and accountability" },
   { icon: Target, title: "Excellence", desc: "Delivering high standards in every task" },
   { icon: Users, title: "Collaboration", desc: "Working together to achieve shared success" },
