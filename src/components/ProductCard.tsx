@@ -20,7 +20,7 @@ interface ProductCardProps {
 const ProductCard = ({ product, onOpenRFQ }: ProductCardProps) => (
   <div className="bg-card border border-brand-gray-200 rounded-xl overflow-hidden flex flex-col group hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
     <div
-      className="relative h-48 overflow-hidden"
+      className="relative aspect-[4/3] overflow-hidden"
       style={{ background: product.gradient || "linear-gradient(135deg, hsl(224 60% 95%), hsl(224 50% 82%))" }}
     >
       <img
