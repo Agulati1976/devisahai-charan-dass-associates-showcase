@@ -70,7 +70,9 @@ const Reliance = () => (
         </div>
         <div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-primary">Textiles Division</h2>
-          <p className="text-sm text-muted-foreground">Vertically integrated textile manufacturing — spinning, weaving, processing & finishing</p>
+          <p className="text-sm text-muted-foreground">
+            Vertically integrated textile manufacturing — spinning, weaving, processing & finishing
+          </p>
         </div>
       </div>
     </section>
@@ -239,7 +241,9 @@ const Reliance = () => (
         </div>
         <div>
           <h2 className="text-2xl md:text-3xl font-extrabold text-primary">Polymers Division</h2>
-          <p className="text-sm text-muted-foreground">India's largest polymer producer — PP, PE, PVC & PET across 30+ export countries</p>
+          <p className="text-sm text-muted-foreground">
+            India's largest polymer producer — PP, PE, PVC & PET across 30+ export countries
+          </p>
         </div>
       </div>
     </section>
@@ -257,7 +261,7 @@ const Reliance = () => (
           { value: "2.9", unit: "MMT", label: "PP Capacity" },
           { value: "2.2", unit: "MMT", label: "PE Capacity" },
           { value: "750", unit: "KT", label: "PVC Capacity" },
-          { value: "30+", unit: "", label: "Export Countries" },
+          { value: "60+", unit: "", label: "Export Countries" },
         ].map((s) => (
           <div key={s.label} className="bg-secondary border border-brand-gray-200 rounded-xl p-6 text-center">
             <strong className="text-2xl font-extrabold text-primary">{s.value}</strong>
