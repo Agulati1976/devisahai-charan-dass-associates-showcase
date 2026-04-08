@@ -1,4 +1,5 @@
 import { useOutletContext, Link } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
 import {
   CheckCircle2,
   ChevronRight,
@@ -11,7 +12,26 @@ import {
   ArrowRight,
   Heart,
   Sparkles,
+  ChevronLeft,
 } from "lucide-react";
+
+import gift1 from "@/assets/vimal-gifting/gift-1.jpg";
+import gift2 from "@/assets/vimal-gifting/gift-2.jpg";
+import gift3 from "@/assets/vimal-gifting/gift-3.jpg";
+import gift4 from "@/assets/vimal-gifting/gift-4.jpg";
+import gift5 from "@/assets/vimal-gifting/gift-5.jpg";
+import gift6 from "@/assets/vimal-gifting/gift-6.jpg";
+import gift7 from "@/assets/vimal-gifting/gift-7.jpg";
+import gift8 from "@/assets/vimal-gifting/gift-8.jpg";
+import gift9 from "@/assets/vimal-gifting/gift-9.jpg";
+import gift10 from "@/assets/vimal-gifting/gift-10.jpg";
+import gift11 from "@/assets/vimal-gifting/gift-11.jpg";
+import gift12 from "@/assets/vimal-gifting/gift-12.jpg";
+import gift13 from "@/assets/vimal-gifting/gift-13.jpg";
+import gift14 from "@/assets/vimal-gifting/gift-14.jpg";
+import gift15 from "@/assets/vimal-gifting/gift-15.jpg";
+
+const giftImages = [gift1, gift2, gift3, gift4, gift5, gift6, gift7, gift8, gift9, gift10, gift11, gift12, gift13, gift14, gift15];
 
 interface ContextType {
   openRFQ: (product: string, grade: string, cat: string) => void;
@@ -35,6 +55,69 @@ const solutions = [
   "Festive & Occasion-Based Hampers",
   "Fully Customized Corporate Gifts",
 ];
+
+const GiftSlider = () => {
+  const [current, setCurrent] = useState(0);
+  const visibleCount = 3;
+  const maxIndex = giftImages.length - visibleCount;
+
+  const next = useCallback(() => setCurrent((c) => Math.min(c + 1, maxIndex)), [maxIndex]);
+  const prev = useCallback(() => setCurrent((c) => Math.max(c - 1, 0)), []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((c) => (c >= maxIndex ? 0 : c + 1));
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [maxIndex]);
+
+  return (
+    <div className="relative">
+      <div className="overflow-hidden rounded-xl">
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${current * (100 / visibleCount)}%)` }}
+        >
+          {giftImages.map((src, i) => (
+            <div key={i} className="min-w-[33.333%] px-2">
+              <div className="rounded-xl overflow-hidden border border-brand-gray-200 bg-background">
+                <img
+                  src={src}
+                  alt={`Vimal Gift Collection ${i + 1}`}
+                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <button
+        onClick={prev}
+        disabled={current === 0}
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-background border border-brand-gray-200 rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-secondary disabled:opacity-30 transition-all"
+      >
+        <ChevronLeft className="w-5 h-5 text-foreground" />
+      </button>
+      <button
+        onClick={next}
+        disabled={current >= maxIndex}
+        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-background border border-brand-gray-200 rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-secondary disabled:opacity-30 transition-all"
+      >
+        <ChevronRight className="w-5 h-5 text-foreground" />
+      </button>
+      <div className="flex justify-center gap-1.5 mt-6">
+        {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`w-2 h-2 rounded-full transition-all ${i === current ? "bg-primary w-6" : "bg-brand-gray-200"}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const VimalGifting = () => {
   const { openRFQ } = useOutletContext<ContextType>();
@@ -140,6 +223,16 @@ const VimalGifting = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-2">
+            Collection
+          </span>
+          <h2 className="text-3xl font-extrabold text-primary mb-8">Gift Gallery</h2>
+          <GiftSlider />
         </div>
       </section>
 
