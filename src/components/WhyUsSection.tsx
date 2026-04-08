@@ -3,7 +3,7 @@ import { Medal, Zap, BarChart3, Truck, CreditCard, Headphones } from "lucide-rea
 const cards = [
   {
     icon: Medal,
-    title: "56+ Years of Trust",
+    title: "55+ Years of Trust",
     desc: "Associated with Reliance Industries since 1972 for textiles and 2003 for polymers. Decades of reliable supply and market expertise.",
   },
   {
