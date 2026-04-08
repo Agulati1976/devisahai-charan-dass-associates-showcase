@@ -57,7 +57,7 @@ const Uniforms = () => {
         <div className="max-w-[1200px] mx-auto px-6">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-2">Gallery</span>
           <h2 className="text-3xl font-extrabold text-primary mb-8">Uniform Fabric Samples</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
             {[{ src: uniformsIndustrial, label: "Industrial, Hotel & Aviation Uniforms" }, { src: uniformsHospital, label: "Hospital & Security Uniforms" }, { src: uniformsSchool, label: "School & Corporate Uniforms" }].map((img) => (
               <div key={img.label} className="group rounded-xl overflow-hidden border border-brand-gray-200 bg-background">
                 <div className="overflow-hidden"><img src={img.src} alt={img.label} className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div>
