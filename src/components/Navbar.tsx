@@ -34,6 +34,8 @@ const simpleLinks = [
   { label: "Contact", to: "/contact" },
 ];
 
+const desktopOrder = ["Home", "About", "Polymers", "Textiles", "Alok Industries", "Reliance", "Careers", "Contact"];
+
 const DropdownMenu = ({ label, links, location, overviewLink }: { label: string; links: { label: string; to: string }[]; location: ReturnType<typeof useLocation>; overviewLink?: string }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
