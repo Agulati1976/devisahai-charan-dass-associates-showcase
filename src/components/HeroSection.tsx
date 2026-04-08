@@ -9,7 +9,7 @@ interface HeroProps {
 }
 
 const stats = [
-  { value: "56+", label: "Years of Legacy" },
+  { value: "55+", label: "Years of Legacy" },
   { value: "500+", label: "B2B Clients" },
   { value: "200K+ MT", label: "Annual Volume" },
 ];
