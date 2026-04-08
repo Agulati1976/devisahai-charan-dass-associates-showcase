@@ -1,4 +1,4 @@
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => (
@@ -31,6 +31,9 @@ const Footer = () => (
           </a>
           <a href="tel:+919810100045" className="flex items-center gap-2 text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
             <Phone className="w-3.5 h-3.5" /> +91 98101 00045
+          </a>
+          <a href="https://www.linkedin.com/company/devi-sahai-charan-dass-associates/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary-foreground/70 hover:text-primary-foreground transition-colors text-sm">
+            <Linkedin className="w-3.5 h-3.5" /> LinkedIn
           </a>
         </div>
       </div>
