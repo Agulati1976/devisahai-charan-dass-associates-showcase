@@ -246,13 +246,6 @@ const Reliance = () => (
 
     {/* Polymers Detail */}
     <section className="max-w-[1200px] mx-auto py-16 px-6">
-      <div className="flex items-center gap-3 mb-2">
-        <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-          <FlaskConical className="w-5 h-5 text-primary" />
-        </div>
-        <span className="inline-block text-xs font-bold uppercase tracking-widest text-accent">Polymers Division</span>
-      </div>
-      <h2 className="text-3xl font-extrabold text-primary mb-4">Reliance Polymers</h2>
       <p className="text-muted-foreground leading-relaxed max-w-3xl mb-8">
         Reliance is India's largest producer of polymers with world-class manufacturing facilities using globally
         licensed technologies. Products are exported to 30+ countries across diverse applications — packaging, pipes,
