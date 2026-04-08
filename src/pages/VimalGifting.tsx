@@ -80,11 +80,11 @@ const GiftSlider = () => {
         >
           {giftImages.map((src, i) => (
             <div key={i} className="min-w-[33.333%] px-2">
-              <div className="rounded-xl overflow-hidden border border-brand-gray-200 bg-background">
+              <div className="rounded-xl overflow-hidden border border-brand-gray-200 bg-background aspect-[4/3]">
                 <img
                   src={src}
                   alt={`Vimal Gift Collection ${i + 1}`}
-                  className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain bg-background hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
