@@ -62,6 +62,19 @@ const Reliance = () => (
       </div>
     </section>
 
+    {/* Textiles Division Header */}
+    <section className="bg-secondary border-b border-brand-gray-200 py-10 px-6">
+      <div className="max-w-[1200px] mx-auto flex items-center gap-4">
+        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+          <Shirt className="w-6 h-6 text-primary" />
+        </div>
+        <div>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-primary">Textiles Division</h2>
+          <p className="text-sm text-muted-foreground">Vertically integrated textile manufacturing — spinning, weaving, processing & finishing</p>
+        </div>
+      </div>
+    </section>
+
     {/* Capacity Overview */}
     <section className="max-w-[1200px] mx-auto py-16 px-6">
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
@@ -218,7 +231,20 @@ const Reliance = () => (
       </div>
     </section>
 
-    {/* Polymers Division */}
+    {/* Polymers Division Header */}
+    <section className="bg-secondary border-b border-brand-gray-200 py-10 px-6">
+      <div className="max-w-[1200px] mx-auto flex items-center gap-4">
+        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+          <FlaskConical className="w-6 h-6 text-primary" />
+        </div>
+        <div>
+          <h2 className="text-2xl md:text-3xl font-extrabold text-primary">Polymers Division</h2>
+          <p className="text-sm text-muted-foreground">India's largest polymer producer — PP, PE, PVC & PET across 30+ export countries</p>
+        </div>
+      </div>
+    </section>
+
+    {/* Polymers Detail */}
     <section className="max-w-[1200px] mx-auto py-16 px-6">
       <div className="flex items-center gap-3 mb-2">
         <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
