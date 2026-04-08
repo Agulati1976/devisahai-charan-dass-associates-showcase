@@ -104,8 +104,7 @@ const VimalSuitings = () => {
           <h2 className="text-3xl font-extrabold text-primary mb-8">Our Fabric Range</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
             {[
-              { src: vimalFabric, label: "Only Vimal Fabric Collection" },
-              { src: vimalFabric2, label: "Only Vimal Premium Range" },
+              { src: vimalFabric2, label: "Only Vimal Fabric Collection" },
               {
                 src: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&auto=format",
                 label: "Marvel Collection Terreyon",
