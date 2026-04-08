@@ -212,7 +212,7 @@ const VimalGifting = () => {
                 key={img.label}
                 className="group rounded-xl overflow-hidden border border-brand-gray-200 bg-background"
               >
-                <div className="h-52 overflow-hidden">
+                <div className="h-80 overflow-hidden">
                   <img
                     src={img.src}
                     alt={img.label}
