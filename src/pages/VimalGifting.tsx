@@ -165,6 +165,16 @@ const VimalGifting = () => {
 
       <section className="py-16">
         <div className="max-w-[1200px] mx-auto px-6">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-2">
+            Collection
+          </span>
+          <h2 className="text-3xl font-extrabold text-primary mb-8">Gift Gallery</h2>
+          <GiftSlider />
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="max-w-[1200px] mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-2">
