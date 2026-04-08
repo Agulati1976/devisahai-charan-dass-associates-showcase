@@ -2,6 +2,7 @@ import { useOutletContext, Link } from "react-router-dom";
 import { CheckCircle2, ChevronRight, Scissors, Gem, Palette, Shirt, ArrowRight, Award, Sparkles } from "lucide-react";
 import vimalFabric from "@/assets/vimal-suitings-fabric.jpeg";
 import vimalFabric2 from "@/assets/vimal-suitings-fabric2.jpeg";
+import marvelCollection from "@/assets/marvel-collection.jpeg";
 
 interface ContextType {
   openRFQ: (product: string, grade: string, cat: string) => void;
@@ -106,8 +107,8 @@ const VimalSuitings = () => {
             {[
               { src: vimalFabric2, label: "Only Vimal Fabric Collection" },
               {
-                src: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&auto=format",
-                label: "Marvel Collection Terreyon",
+                src: marvelCollection,
+                label: "Marvel Collection",
               },
               {
                 src: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&auto=format",
