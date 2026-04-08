@@ -19,8 +19,8 @@ const whyChoose = [
   },
   {
     icon: Scissors,
-    label: "Custom Tailoring",
-    desc: "Option of custom tailoring to create bespoke suits that fit perfectly and reflect individuality.",
+    label: "Special Finishes",
+    desc: "Premium finishing options to enhance the look, feel, and durability of your suiting fabrics.",
   },
   {
     icon: Gem,
