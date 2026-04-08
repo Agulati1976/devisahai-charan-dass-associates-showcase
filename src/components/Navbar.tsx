@@ -110,10 +110,16 @@ const Navbar = () => {
           >
             Home
           </Link>
+          <Link
+            to="/about"
+            className={`text-foreground/80 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-secondary hover:text-primary ${location.pathname === "/about" ? "bg-secondary text-primary font-semibold" : ""}`}
+          >
+            About
+          </Link>
           <DropdownMenu label="Polymers" links={polymerLinks} location={location} />
           <DropdownMenu label="Textiles" links={textileLinks} location={location} />
           <DropdownMenu label="Alok Industries" links={alokLinks} location={location} overviewLink="/alok" />
-          {simpleLinks.filter(l => l.to !== "/").map((link) => (
+          {simpleLinks.filter(l => l.to !== "/" && l.to !== "/about").map((link) => (
             <Link
               key={link.label}
               to={link.to}
