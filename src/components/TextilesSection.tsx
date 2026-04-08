@@ -57,7 +57,7 @@ const TextilesSection = () => {
                 key={product.id}
                 className="bg-background border border-brand-gray-200 rounded-xl overflow-hidden flex flex-col group hover:border-primary hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <Link to={product.detail_link || "#"} className="relative h-48 overflow-hidden block" style={{ background: gradients[idx % gradients.length] }}>
+                <Link to={product.detail_link || "#"} className="relative h-64 overflow-hidden block" style={{ background: gradients[idx % gradients.length] }}>
                   {product.image_url && (
                     <img src={product.image_url} alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
                   )}
