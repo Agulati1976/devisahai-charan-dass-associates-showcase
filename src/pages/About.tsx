@@ -130,7 +130,7 @@ const About = () => (
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
           {[
             { icon: Calendar, value: "1972", label: "Appointed as Authorised DCA" },
-            { icon: Award, value: "55+ Years", label: "Strong Association with Reliance" }, "Strong Association with Reliance" },
+            { icon: Award, value: "55+ Years", label: "Strong Association with Reliance" },
             { icon: MapPin, value: "Pan India", label: "Market Presence & Expansion" },
             { icon: Users, value: "Extensive", label: "Distribution Network" },
           ].map(({ icon: Icon, value, label }) => (
