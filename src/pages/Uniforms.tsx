@@ -1,6 +1,8 @@
 import { useOutletContext, Link } from "react-router-dom";
 import { CheckCircle2, ChevronRight, Shield, Palette, Award, Users, ArrowRight, Building2, Heart, HardHat, GraduationCap, Hotel } from "lucide-react";
-
+import uniformsIndustrial from "@/assets/uniforms-industrial.jpeg";
+import uniformsHospital from "@/assets/uniforms-hospital-security.jpeg";
+import uniformsSchool from "@/assets/uniforms-school-corporate.jpeg";
 interface ContextType { openRFQ: (product: string, grade: string, cat: string) => void; }
 
 const whyChoose = [
