@@ -33,6 +33,7 @@ import gift14 from "@/assets/vimal-gifting/gift-14.jpg";
 import gift15 from "@/assets/vimal-gifting/gift-15.jpg";
 import premiumSafari from "@/assets/premium-safari-gifting.jpeg";
 import insigniaSuiting from "@/assets/insignia-suiting-gift.jpeg";
+import premiumPantShirt from "@/assets/premium-pant-shirt-gifting.jpeg";
 
 const giftImages = [gift1, gift2, gift3, gift4, gift5, gift6, gift7, gift8, gift9, gift10, gift11, gift12, gift13, gift14, gift15];
 
@@ -196,7 +197,7 @@ const VimalGifting = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                src: "https://pplx-res.cloudinary.com/image/upload/pplx_search_images/77982e55d48a51c5729a6bd9c5e642bda6d0711b.jpg",
+                src: premiumPantShirt,
                 label: "Premium Pant Shirt Gift Collection",
               },
               {
