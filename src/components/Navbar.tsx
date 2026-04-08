@@ -96,8 +96,8 @@ const Navbar = () => {
         <Link to="/" className="flex items-center gap-3 py-4 no-underline">
           <img src={logoImg} alt="Devisahai Charan Dass Associates" className="w-10 h-10 rounded-lg object-cover" />
           <div className="text-foreground">
-            <strong className="block text-sm font-bold leading-tight">Devisahai Charan Dass</strong>
-            <span className="text-[0.7rem] text-muted-foreground font-normal">Authorised DCA – Reliance Industries Ltd.</span>
+            <strong className="block text-sm font-bold leading-tight">Devi Sahai Charan Dass Associates</strong>
+            <span className="text-[0.65rem] text-muted-foreground font-normal leading-tight block">Authorized Del Credere Agent of Reliance Industries Ltd.</span>
           </div>
         </Link>
 
