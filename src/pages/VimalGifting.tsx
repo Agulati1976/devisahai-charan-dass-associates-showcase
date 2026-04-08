@@ -32,6 +32,7 @@ import gift13 from "@/assets/vimal-gifting/gift-13.jpg";
 import gift14 from "@/assets/vimal-gifting/gift-14.jpg";
 import gift15 from "@/assets/vimal-gifting/gift-15.jpg";
 import premiumSafari from "@/assets/premium-safari-gifting.jpeg";
+import insigniaSuiting from "@/assets/insignia-suiting-gift.jpeg";
 
 const giftImages = [gift1, gift2, gift3, gift4, gift5, gift6, gift7, gift8, gift9, gift10, gift11, gift12, gift13, gift14, gift15];
 
@@ -203,7 +204,7 @@ const VimalGifting = () => {
                 label: "Premium Safari Suit Gift Collection",
               },
               {
-                src: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format",
+                src: insigniaSuiting,
                 label: "Premium Suit Length Gift Collection",
               },
             ].map((img) => (
