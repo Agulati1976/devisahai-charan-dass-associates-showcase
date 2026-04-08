@@ -1,6 +1,7 @@
 import { useOutletContext, Link } from "react-router-dom";
 import { CheckCircle2, ChevronRight, Scissors, Gem, Palette, Shirt, ArrowRight, Award, Sparkles } from "lucide-react";
 import vimalFabric from "@/assets/vimal-suitings-fabric.jpeg";
+import vimalFabric2 from "@/assets/vimal-suitings-fabric2.jpeg";
 
 interface ContextType {
   openRFQ: (product: string, grade: string, cat: string) => void;
