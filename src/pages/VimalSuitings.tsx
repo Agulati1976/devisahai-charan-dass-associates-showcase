@@ -107,8 +107,8 @@ const VimalSuitings = () => {
             {[
               { src: vimalFabric2, label: "Only Vimal Fabric Collection" },
               {
-                src: "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&auto=format",
-                label: "Marvel Collection Terreyon",
+                src: marvelCollection,
+                label: "Marvel Collection",
               },
               {
                 src: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=600&auto=format",
