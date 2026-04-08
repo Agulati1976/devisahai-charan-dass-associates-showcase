@@ -1,4 +1,5 @@
 import { useOutletContext, Link } from "react-router-dom";
+import { useState, useEffect, useCallback } from "react";
 import {
   CheckCircle2,
   ChevronRight,
@@ -11,7 +12,26 @@ import {
   ArrowRight,
   Heart,
   Sparkles,
+  ChevronLeft,
 } from "lucide-react";
+
+import gift1 from "@/assets/vimal-gifting/gift-1.jpg";
+import gift2 from "@/assets/vimal-gifting/gift-2.jpg";
+import gift3 from "@/assets/vimal-gifting/gift-3.jpg";
+import gift4 from "@/assets/vimal-gifting/gift-4.jpg";
+import gift5 from "@/assets/vimal-gifting/gift-5.jpg";
+import gift6 from "@/assets/vimal-gifting/gift-6.jpg";
+import gift7 from "@/assets/vimal-gifting/gift-7.jpg";
+import gift8 from "@/assets/vimal-gifting/gift-8.jpg";
+import gift9 from "@/assets/vimal-gifting/gift-9.jpg";
+import gift10 from "@/assets/vimal-gifting/gift-10.jpg";
+import gift11 from "@/assets/vimal-gifting/gift-11.jpg";
+import gift12 from "@/assets/vimal-gifting/gift-12.jpg";
+import gift13 from "@/assets/vimal-gifting/gift-13.jpg";
+import gift14 from "@/assets/vimal-gifting/gift-14.jpg";
+import gift15 from "@/assets/vimal-gifting/gift-15.jpg";
+
+const giftImages = [gift1, gift2, gift3, gift4, gift5, gift6, gift7, gift8, gift9, gift10, gift11, gift12, gift13, gift14, gift15];
 
 interface ContextType {
   openRFQ: (product: string, grade: string, cat: string) => void;
