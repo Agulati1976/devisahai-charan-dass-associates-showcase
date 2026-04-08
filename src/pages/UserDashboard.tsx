@@ -52,7 +52,7 @@ const UserDashboard = () => {
 
   const updateEnquiry = async (id: string, updates: Record<string, any>) => {
     setSaving(true);
-    const { error } = await supabase.from("enquiries").update(updates).eq("id", id);
+    const { error } = await supabase.from("enquiries").update(updates as any).eq("id", id);
     if (error) toast.error(error.message);
     else {
       toast.success("Updated successfully");
