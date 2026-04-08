@@ -99,7 +99,7 @@ const About = () => (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-3xl mx-auto">
           {teamMembers.map((member) => (
             <div key={member.name} className="bg-background border border-brand-gray-200 rounded-xl overflow-hidden hover:border-primary hover:shadow-lg transition-all text-center">
-              <div className="aspect-[3/4] overflow-hidden">
+              <div className="aspect-square overflow-hidden">
                 <img src={member.image} alt={member.name} className="w-full h-full object-cover object-top" loading="lazy" />
               </div>
               <div className="p-5">
