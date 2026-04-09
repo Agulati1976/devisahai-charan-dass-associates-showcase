@@ -3,6 +3,7 @@ import { CheckCircle2, ChevronRight, Scissors, Gem, Palette, Shirt, ArrowRight, 
 import vimalFabric from "@/assets/vimal-suitings-fabric.jpeg";
 import vimalFabric2 from "@/assets/vimal-suitings-fabric2.jpeg";
 import marvelCollection from "@/assets/marvel-collection.jpeg";
+import vimalPolyrich from "@/assets/vimal-polyrich-suiting.jpeg";
 
 interface ContextType {
   openRFQ: (product: string, grade: string, cat: string) => void;
