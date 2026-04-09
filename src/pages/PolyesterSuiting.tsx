@@ -2,6 +2,7 @@ import { useOutletContext, Link } from "react-router-dom";
 import { CheckCircle2, ChevronRight, ArrowRight } from "lucide-react";
 import polyesterFormalSuiting from "@/assets/polyester-formal-suiting.jpeg";
 import polyesterSuitingFabric from "@/assets/polyester-suiting-fabric.jpeg";
+import polyesterCorporateWear from "@/assets/polyester-corporate-wear.jpeg";
 
 interface ContextType { openRFQ: (product: string, grade: string, cat: string) => void; }
 
@@ -53,7 +54,7 @@ const PolyesterSuiting = () => {
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-2">Gallery</span>
           <h2 className="text-3xl font-extrabold text-primary mb-8">100% Polyester Fabric Range</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[{ src: polyesterSuitingFabric, label: "Polyester Suiting Fabric" }, { src: polyesterFormalSuiting, label: "Formal Suiting Collection" }, { src: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format", label: "Corporate Wear Fabric" }].map((img) => (
+            {[{ src: polyesterSuitingFabric, label: "Polyester Suiting Fabric" }, { src: polyesterFormalSuiting, label: "Formal Suiting Collection" }, { src: polyesterCorporateWear, label: "Corporate Wear Fabric" }].map((img) => (
               <div key={img.label} className="group rounded-xl overflow-hidden border border-brand-gray-200 bg-background">
                 <div className="h-52 overflow-hidden"><img src={img.src} alt={img.label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" /></div>
                 <div className="p-4"><p className="text-sm font-semibold text-foreground">{img.label}</p></div>
