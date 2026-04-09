@@ -1,6 +1,7 @@
 import { useOutletContext, Link } from "react-router-dom";
 import { CheckCircle2, ChevronRight, ArrowRight } from "lucide-react";
 import polyesterFormalSuiting from "@/assets/polyester-formal-suiting.jpeg";
+import polyesterSuitingFabric from "@/assets/polyester-suiting-fabric.jpeg";
 
 interface ContextType { openRFQ: (product: string, grade: string, cat: string) => void; }
 
