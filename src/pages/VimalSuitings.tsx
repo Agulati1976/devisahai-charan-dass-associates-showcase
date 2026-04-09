@@ -116,7 +116,7 @@ const VimalSuitings = () => {
                 label: "Ember Collection",
               },
               {
-                src: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format",
+                src: vimalPolyrich,
                 label: "Polyrich Suitings",
               },
             ].map((img) => (
