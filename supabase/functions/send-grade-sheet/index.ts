@@ -111,7 +111,7 @@ serve(async (req) => {
 
               <p style="margin:0;color:#333333;font-size:14px;font-weight:600;">Best Regards,</p>
               <p style="margin:4px 0 0;color:#555555;font-size:13px;">Team DCDA — Polymers Division</p>
-              <p style="margin:4px 0 0;color:#777777;font-size:12px;">+91 92175 85619 · info@devisahaicharandass.com</p>
+              <p style="margin:4px 0 0;color:#777777;font-size:12px;">+91 98101 00045 · info@devisahaicharandass.com</p>
             </td>
           </tr>
 
