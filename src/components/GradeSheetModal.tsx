@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, Mail, Download, Lock } from "lucide-react";
+import { X, Mail, Phone, Download, Lock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
@@ -14,6 +14,7 @@ const GradeSheetModal = ({ open, onClose, productName, productKey }: GradeSheetM
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
+  const [phone, setPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -24,6 +25,7 @@ const GradeSheetModal = ({ open, onClose, productName, productKey }: GradeSheetM
       const { error } = await supabase.from("enquiries").insert({
         name,
         email,
+        phone,
         company,
         message: `Grade sheet download request for ${productName}`,
         product_interest: productName,
@@ -33,13 +35,13 @@ const GradeSheetModal = ({ open, onClose, productName, productKey }: GradeSheetM
 
       // Notify admin
       supabase.functions.invoke("notify-admin", {
-        body: { type: "grade_sheet", name, email, company, product_interest: productName },
+        body: { type: "grade_sheet", name, email, phone, company, product_interest: productName },
       });
 
       // Send grade sheet email
       if (productKey) {
         await supabase.functions.invoke("send-grade-sheet", {
-          body: { name, email, company, productKey },
+          body: { name, email, phone, company, productKey },
         });
       }
 
@@ -56,6 +58,7 @@ const GradeSheetModal = ({ open, onClose, productName, productKey }: GradeSheetM
     setEmail("");
     setName("");
     setCompany("");
+    setPhone("");
     onClose();
   };
 
@@ -104,6 +107,20 @@ const GradeSheetModal = ({ open, onClose, productName, productKey }: GradeSheetM
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     placeholder="you@company.com"
+                    className="w-full pl-10 pr-3.5 py-2.5 border border-brand-gray-200 rounded-lg text-sm bg-background text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-foreground mb-1">Phone Number <span className="text-destructive">*</span></label>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                    placeholder="+91 98XXXXXXXX"
                     className="w-full pl-10 pr-3.5 py-2.5 border border-brand-gray-200 rounded-lg text-sm bg-background text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all"
                   />
                 </div>
