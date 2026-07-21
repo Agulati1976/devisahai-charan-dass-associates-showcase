@@ -112,6 +112,20 @@ const GradeSheetModal = ({ open, onClose, productName, productKey }: GradeSheetM
                 </div>
               </div>
               <div>
+                <label className="block text-sm font-semibold text-foreground mb-1">Phone Number <span className="text-destructive">*</span></label>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
+                  <input
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                    placeholder="+91 98XXXXXXXX"
+                    className="w-full pl-10 pr-3.5 py-2.5 border border-brand-gray-200 rounded-lg text-sm bg-background text-foreground outline-none focus:border-primary focus:ring-2 focus:ring-primary/10 transition-all"
+                  />
+                </div>
+              </div>
+              <div>
                 <label className="block text-sm font-semibold text-foreground mb-1">Company Name</label>
                 <input
                   type="text"
