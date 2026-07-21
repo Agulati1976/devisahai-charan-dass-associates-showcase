@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { X, Mail, Download, Lock } from "lucide-react";
+import { X, Mail, Phone, Download, Lock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
@@ -14,6 +14,7 @@ const GradeSheetModal = ({ open, onClose, productName, productKey }: GradeSheetM
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [company, setCompany] = useState("");
+  const [phone, setPhone] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
