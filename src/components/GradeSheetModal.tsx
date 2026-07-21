@@ -25,6 +25,7 @@ const GradeSheetModal = ({ open, onClose, productName, productKey }: GradeSheetM
       const { error } = await supabase.from("enquiries").insert({
         name,
         email,
+        phone,
         company,
         message: `Grade sheet download request for ${productName}`,
         product_interest: productName,
@@ -34,13 +35,13 @@ const GradeSheetModal = ({ open, onClose, productName, productKey }: GradeSheetM
 
       // Notify admin
       supabase.functions.invoke("notify-admin", {
-        body: { type: "grade_sheet", name, email, company, product_interest: productName },
+        body: { type: "grade_sheet", name, email, phone, company, product_interest: productName },
       });
 
       // Send grade sheet email
       if (productKey) {
         await supabase.functions.invoke("send-grade-sheet", {
-          body: { name, email, company, productKey },
+          body: { name, email, phone, company, productKey },
         });
       }
 
@@ -57,6 +58,7 @@ const GradeSheetModal = ({ open, onClose, productName, productKey }: GradeSheetM
     setEmail("");
     setName("");
     setCompany("");
+    setPhone("");
     onClose();
   };
 
