@@ -172,6 +172,17 @@ const Footer = () => (
       </span>
       <span>Privacy Policy · Terms of Use</span>
     </div>
+    <div className="border-t border-primary-foreground/10 px-6 py-3 text-center text-xs">
+      Website Developed by{" "}
+      <a
+        href="https://ehub.co.in"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-semibold text-primary-foreground hover:text-accent transition-colors"
+      >
+        EHUB IT WEB SOLUTION
+      </a>
+    </div>
   </footer>
 );
 
