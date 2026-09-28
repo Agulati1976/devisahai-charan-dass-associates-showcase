@@ -12,13 +12,13 @@ const Footer = () => (
         allowFullScreen
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        title="Devisahai Charan Dass Associates Location"
+        title="Devi Sahai Charan Dass Associates Location"
         className="grayscale hover:grayscale-0 transition-all duration-500"
       />
     </div>
     <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-6 py-12">
       <div>
-        <strong className="block text-primary-foreground text-base mb-1">Devisahai Charan Dass Associates</strong>
+        <strong className="block text-primary-foreground text-base mb-1">Devi Sahai Charan Dass Associates</strong>
         <span className="inline-block bg-destructive text-destructive-foreground text-[0.68rem] font-bold px-2 py-0.5 rounded mb-3">
           Authorised DCA – Reliance Industries Ltd.
         </span>
@@ -166,7 +166,7 @@ const Footer = () => (
       </div>
     </div>
     <div className="border-t border-primary-foreground/10 max-w-[1200px] mx-auto px-6 py-4 flex justify-between items-center flex-wrap gap-3 text-xs">
-      <span>© 2026 Devisahai Charan Dass Associates. All Rights Reserved.</span>
+      <span>© 2026 Devi Sahai Charan Dass Associates. All Rights Reserved.</span>
       <span className="bg-destructive text-destructive-foreground text-[0.72rem] font-bold px-2.5 py-1 rounded">
         Reliance Industries – Authorised DCA since 1972
       </span>

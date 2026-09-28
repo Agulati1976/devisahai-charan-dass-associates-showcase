@@ -1,8 +1,21 @@
+# Apache / LiteSpeed (Hostinger): deploy with the built site's files.
+# Merge with any existing hosting rules; preserve unrelated server settings.
 <IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+RewriteEngine On
+RewriteBase /
+
+# Permanently retire the known theme-demo URL instead of returning a soft 404.
+RewriteRule ^fixed-removable-prosthesis(?:/.*)?$ - [G,L,NC]
+
+# Serve real assets directly.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Only supported app routes receive the SPA entry point.
+RewriteRule ^(?:about|products(?:/(?:pp|pe|pvc|pet))?|textiles/(?:vimal-gifting|vimal-suitings|uniforms|polyester-suiting|georgia-gullini)|reliance|careers|alok(?:/(?:wovens|knits|yarns|furnishing|embroideries))?|contact|login|dashboard|admin(?:/(?:login|products|enquiries|users))?)/?$ index.html [L]
+
+# Unknown URLs have a real HTTP 404, with the app's not-found screen.
+ErrorDocument 404 /index.html
+RewriteRule ^ - [R=404,L]
 </IfModule>

@@ -96,7 +96,7 @@ const Navbar = () => {
     <nav className="bg-background sticky top-0 z-50 shadow-md border-b border-border">
       <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 py-4 no-underline">
-          <img src={logoImg} alt="Devisahai Charan Dass Associates" className="w-10 h-10 rounded-lg object-cover" />
+          <img src={logoImg} alt="Devi Sahai Charan Dass Associates" className="w-10 h-10 rounded-lg object-cover" />
           <div className="text-foreground">
             <strong className="block text-sm font-bold leading-tight">Devi Sahai Charan Dass Associates</strong>
             <span className="text-[0.65rem] text-muted-foreground font-normal leading-tight block">Authorized Del Credere Agent of Reliance Industries Ltd.</span>

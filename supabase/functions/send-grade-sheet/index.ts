@@ -71,7 +71,7 @@ serve(async (req) => {
           <tr>
             <td style="background-color:#003399;padding:30px 40px;text-align:center;">
               <h1 style="margin:0;color:#ffffff;font-size:22px;font-weight:700;letter-spacing:0.5px;">
-                Devisahai Charan Dass Associates
+                Devi Sahai Charan Dass Associates
               </h1>
               <p style="margin:6px 0 0;color:rgba(255,255,255,0.7);font-size:13px;">
                 Authorised DCA of Reliance Industries Ltd.
@@ -119,7 +119,7 @@ serve(async (req) => {
           <tr>
             <td style="background-color:#f9fafb;padding:20px 40px;text-align:center;border-top:1px solid #eeeeee;">
               <p style="margin:0;color:#999999;font-size:11px;line-height:1.5;">
-                Devisahai Charan Dass Associates<br/>
+                Devi Sahai Charan Dass Associates<br/>
                 Authorised DCA of Reliance Industries Ltd. since 1972<br/>
                 www.devisahaicharandass.com
               </p>
@@ -142,7 +142,7 @@ serve(async (req) => {
         "X-Connection-Api-Key": RESEND_API_KEY,
       },
       body: JSON.stringify({
-        from: "Devisahai Charan Dass Associates <no-reply@devisahaicharandass.com>",
+        from: "Devi Sahai Charan Dass Associates <no-reply@devisahaicharandass.com>",
         to: [email],
         bcc: ["info@devisahaicharandass.com"],
         subject: `${product.label} — Grade Sheet Download`,

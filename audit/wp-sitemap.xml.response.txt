@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="3Zd3yC8jVX0yAFDWRbUzTSiGqEMPq8Q_VcgxdyJU-Fw" />
     <title>Devi Sahai Charan Dass Associates | Authorised DCA of Reliance Industries – Polymers & Textiles</title>
     <meta name="description" content="Devi Sahai Charan Dass Associates – Authorised Del Credere Agent (DCA) of Reliance Industries Limited for Polymers (PP, PE, PVC, PET) and Textiles (Vimal Suitings, Uniforms, Georgia Gullini). Trusted B2B partner since 1972." />
     <meta name="author" content="Devi Sahai Charan Dass Associates" />
-    <meta name="keywords" content="Reliance Polymers, Reliance Textiles, Polypropylene, Polyethylene, PVC, PET, Vimal Suitings, Georgia Gullini, Uniforms, DCA, B2B, Devi Sahai Charan Dass Associates" />
+    <meta name="keywords" content="Reliance Polymers, Reliance Textiles, Polypropylene, Polyethylene, PVC, PET, Vimal Suitings, Georgia Gullini, Uniforms, DCA, B2B, Devi Sahai Charan Dass" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://devisahaicharandass.com/" />
+    <link rel="canonical" href="https://devisahai.com/" />
 
     <meta property="og:title" content="Devi Sahai Charan Dass Associates | Authorised DCA – Reliance Polymers & Textiles" />
     <meta property="og:description" content="Trusted Authorised Del Credere Agent of Reliance Industries for Polymers and Textiles since 1972. Premium PP, PE, PVC, PET, Vimal Suitings & more." />
@@ -19,10 +18,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Devi Sahai Charan Dass Associates | Reliance Polymers & Textiles" />
     <meta name="twitter:description" content="Authorised DCA of Reliance Industries – Premium Polymers & Textiles solutions for B2B clients." />
+    <script type="module" crossorigin src="/assets/index-D-Ic6bx_.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BpjVHlRz.css">
   </head>
 
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

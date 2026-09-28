@@ -35,6 +35,7 @@ import AlokYarns from "./pages/AlokYarns";
 import AlokFurnishing from "./pages/AlokFurnishing";
 import AlokEmbroideries from "./pages/AlokEmbroideries";
 import NotFound from "./pages/NotFound";
+import PageMetadata from "./components/PageMetadata";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +45,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <PageMetadata />
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Index />} />

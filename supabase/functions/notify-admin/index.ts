@@ -60,7 +60,7 @@ serve(async (req) => {
         "X-Connection-Api-Key": RESEND_API_KEY,
       },
       body: JSON.stringify({
-        from: "DSCD Website <no-reply@devisahaicharandass.com>",
+        from: "Devi Sahai Charan Dass Associates <no-reply@devisahaicharandass.com>",
         to: ["info@devisahaicharandass.com"],
         subject: `New ${sourceLabel}: ${name || "Unknown"}`,
         html,

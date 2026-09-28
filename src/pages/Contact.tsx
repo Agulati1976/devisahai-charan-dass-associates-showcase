@@ -58,7 +58,7 @@ const Contact = () => {
         <div className="grid lg:grid-cols-5 gap-10">
           <div className="lg:col-span-2 space-y-6">
             <div>
-              <h3 className="text-xl font-extrabold text-primary mb-6">Devisahai Charan Dass Associates</h3>
+              <h3 className="text-xl font-extrabold text-primary mb-6">Devi Sahai Charan Dass Associates</h3>
               <div className="space-y-5">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center flex-shrink-0"><MapPin className="w-5 h-5 text-primary" /></div>

@@ -56,7 +56,7 @@ const AdminLogin = () => {
             Access the internal management dashboard to update product listings, track customer enquiries, and monitor business performance.
           </p>
         </div>
-        <p className="text-primary-foreground/40 text-xs">© {new Date().getFullYear()} Devisahai Charan Dass Associates. All rights reserved.</p>
+        <p className="text-primary-foreground/40 text-xs">© {new Date().getFullYear()} Devi Sahai Charan Dass Associates. All rights reserved.</p>
       </div>
 
       {/* Right side - form */}

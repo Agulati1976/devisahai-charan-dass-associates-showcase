@@ -43,7 +43,7 @@ const About = () => (
       <div className="max-w-[1000px] mx-auto relative z-10 text-center">
         <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-3">About Us</span>
         <h1 className="text-4xl md:text-5xl font-extrabold text-primary-foreground mb-4 text-balance">
-          Devisahai Charan Dass Associates
+          Devi Sahai Charan Dass Associates
         </h1>
         <p className="text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: "hsl(0 0% 100% / 0.8)" }}>
           A well-established and trusted Authorised Del Credere Agent (DCA) of Reliance Industries Limited, representing
@@ -110,7 +110,7 @@ const About = () => (
           </span>
           <h2 className="text-3xl font-extrabold text-primary mb-2">Know Our Leadership</h2>
           <p className="text-muted-foreground text-sm max-w-xl mx-auto">
-            The partners behind Devisahai Charan Dass Associates — driving excellence and building lasting relationships
+            The partners behind Devi Sahai Charan Dass Associates — driving excellence and building lasting relationships
             for over five decades.
           </p>
         </div>
@@ -215,7 +215,9 @@ const About = () => (
         <p className="text-muted-foreground leading-relaxed max-w-3xl mb-8">
           Since 2003, Devi Sahai Charan Dass Associates has been serving as the Authorised Del Credere Agent for
           Reliance Industries – Polymer Division. Through strategic coordination we ensure efficient product
-          availability and structured commercial support.
+          availability and structured commercial support. Our range includes Polypropylene (PP), Polyethylene (PE),
+          Polyvinyl Chloride (PVC), and bottle-grade Polyethylene Terephthalate (PET), all supplied under the same
+          DCA arrangement. We are actively expanding our bottle-grade PET business.
         </p>
         <div className="grid sm:grid-cols-2 gap-6 mb-8">
           <div className="bg-background rounded-xl p-6 border border-brand-gray-200">
@@ -225,7 +227,7 @@ const About = () => (
                 "Polypropylene (PP)",
                 "Polyethylene (PE)",
                 "Polyvinyl Chloride (PVC)",
-                "Polyethylene Terephthalate (PET)",
+                "Polyethylene Terephthalate (PET) – Bottle Grade",
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2 text-sm font-medium text-foreground">
                   <CheckCircle2 className="w-4 h-4 text-destructive flex-shrink-0" />

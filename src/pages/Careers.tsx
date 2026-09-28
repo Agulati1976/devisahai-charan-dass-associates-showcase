@@ -46,7 +46,7 @@ const Careers = () => (
       <div className="grid lg:grid-cols-2 gap-12 items-start">
         <div>
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-destructive mb-2">Work With Us</span>
-          <h2 className="text-3xl font-extrabold text-primary mb-4">Life at Devi Sahai</h2>
+          <h2 className="text-3xl font-extrabold text-primary mb-4">Life at Devi Sahai Charan Dass Associates</h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
             Life at Devi Sahai Charan Dass Associates is defined by teamwork, innovation, and professional development. We foster a workplace where individuals are empowered to share ideas, develop new skills, and contribute meaningfully to the organization's success.
           </p>
