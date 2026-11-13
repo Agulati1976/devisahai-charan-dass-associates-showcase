@@ -76,24 +76,32 @@ export default function PriceFinder({ dataUrl = "/prices.json", quoteHref = "/co
 
   return (
     <section className="pf" aria-label="Polymer price finder">
-      <h2>Check polymer price</h2>
+      <div className="pf-heading">
+        <span className="pf-eyebrow"><span className="pf-dot" /> RELIANCE POLYMERS</span>
+        <h2>Find your polymer price</h2>
+        <p>Choose your product and supply details to see the listed price per metric tonne.</p>
+      </div>
       {error && <p className="pf-error" role="status">The latest price file could not be refreshed. Please confirm any displayed rate with our team.</p>}
 
+      <p className="pf-group-label">01 <span>Product</span></p>
       <div className="pf-tabs" aria-label="Product">
         {Object.entries(PRODUCTS).map(([k, label]) => (
           <button key={k} type="button" aria-pressed={product === k} className={product === k ? "on" : ""}
                   onClick={() => { setProduct(k); resetBelow(); }}>{label}</button>
         ))}
       </div>
-      <div className="pf-tabs" aria-label="Supply type" style={{ marginTop: 8 }}>
+      <p className="pf-group-label">02 <span>Supply type</span></p>
+      <div className="pf-tabs" aria-label="Supply type">
         {Object.entries(MODES).map(([k, label]) => (
           <button key={k} type="button" aria-pressed={mode === k} className={mode === k ? "on" : ""}
                   onClick={() => { setMode(k); resetBelow(); }}>{label}</button>
         ))}
       </div>
 
+      <p className="pf-group-label">03 <span>Price details</span></p>
+      <div className="pf-fields">
       {multi && (
-        <label>Type
+        <label className="pf-field">Type
           <select value={polymer} onChange={(e) => { setPolymer(e.target.value); setPlant(""); setFilter(""); setGradeIdx(""); setLocation(""); }}>
             <option value="">Select type…</option>
             {polymers.map((p) => <option key={p}>{p}</option>)}
@@ -102,7 +110,7 @@ export default function PriceFinder({ dataUrl = "/prices.json", quoteHref = "/co
       )}
 
       {plantChoice && (!multi || polymer) && (
-        <label>Plant
+        <label className="pf-field">Plant
           <select value={plant} onChange={(e) => { setPlant(e.target.value); setFilter(""); setGradeIdx(""); setLocation(""); }}>
             <option value="">Select plant…</option>
             {plants.map(([p, n]) => <option key={p} value={p}>{p}  ({n} grades)</option>)}
@@ -110,7 +118,7 @@ export default function PriceFinder({ dataUrl = "/prices.json", quoteHref = "/co
         </label>
       )}
 
-      <label>Grade <small>({grades.length} available)</small>
+      <label className="pf-field">Grade <small>({grades.length} available)</small>
         <input type="search" placeholder="Type to filter grades" value={filter} disabled={multi && !polymer}
                onChange={(e) => { setFilter(e.target.value); setGradeIdx(""); setLocation(""); }} />
         <select value={gradeIdx} disabled={!ready}
@@ -120,15 +128,17 @@ export default function PriceFinder({ dataUrl = "/prices.json", quoteHref = "/co
         </select>
       </label>
 
-      <label>{mode === "Domestic" ? "Delivery location" : "Depot"}
+      <label className="pf-field">{mode === "Domestic" ? "Delivery location" : "Depot"}
         <select value={location} disabled={!selected} onChange={(e) => setLocation(e.target.value)}>
           <option value="">Select location…</option>
           {locations.map(([name, state]) => <option key={name} value={name}>{name}{state ? `, ${state}` : ""}</option>)}
         </select>
       </label>
+      </div>
 
       {hit && (
         <div className="pf-result" aria-live="polite">
+          <div className="pf-result-eyebrow">LISTED PRICE</div>
           <div className="pf-price">{inr(hit[2])} <span>per MT</span></div>
           <div className="pf-sub">{PRODUCTS[product]} · {selected.grade} · {activePlant} · {hit[0]}</div>
           <div className="pf-note">

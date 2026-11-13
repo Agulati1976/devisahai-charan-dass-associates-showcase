@@ -29,13 +29,12 @@ const alokLinks = [
 const simpleLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
-  { label: "Check Prices", to: "/prices" },
   { label: "Reliance", to: "/reliance" },
   { label: "Careers", to: "/careers" },
   { label: "Contact", to: "/contact" },
 ];
 
-const desktopOrder = ["Home", "About", "Check Prices", "Polymers", "Textiles", "Alok Industries", "Reliance", "Careers", "Contact"];
+const desktopOrder = ["Home", "About", "Polymers", "Check Prices", "Textiles", "Alok Industries", "Reliance", "Careers", "Contact"];
 
 const DropdownMenu = ({ label, links, location, overviewLink }: { label: string; links: { label: string; to: string }[]; location: ReturnType<typeof useLocation>; overviewLink?: string }) => {
   const [open, setOpen] = useState(false);
@@ -151,6 +150,7 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="lg:hidden bg-background border-t border-border px-6 pb-4 max-h-[80vh] overflow-y-auto">
           <Link to="/" className="block text-sm py-2.5 text-foreground/80 hover:text-primary" onClick={() => setMobileOpen(false)}>Home</Link>
+          <Link to="/prices" className={`block text-sm py-2.5 ${location.pathname === "/prices" ? "text-primary font-semibold" : "text-foreground/80 hover:text-primary"}`} onClick={() => setMobileOpen(false)}>Check Prices</Link>
           
           <div className="py-2">
             <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Polymers</span>

@@ -21,7 +21,7 @@ describe("Price Finder", () => {
       </Route>
     </Routes></MemoryRouter>);
 
-    await screen.findByText("Check polymer price");
+    await screen.findByText("Find your polymer price");
     fireEvent.change(screen.getByLabelText("Type"), { target: { value: "HDPE" } });
     fireEvent.change(screen.getByLabelText("Plant"), { target: { value: "Hazira" } });
     fireEvent.change(screen.getByPlaceholderText("Type to filter grades"), { target: { value: "46GP009" } });
