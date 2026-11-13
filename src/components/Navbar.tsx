@@ -29,12 +29,13 @@ const alokLinks = [
 const simpleLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
+  { label: "Check Prices", to: "/prices" },
   { label: "Reliance", to: "/reliance" },
   { label: "Careers", to: "/careers" },
   { label: "Contact", to: "/contact" },
 ];
 
-const desktopOrder = ["Home", "About", "Polymers", "Textiles", "Alok Industries", "Reliance", "Careers", "Contact"];
+const desktopOrder = ["Home", "About", "Check Prices", "Polymers", "Textiles", "Alok Industries", "Reliance", "Careers", "Contact"];
 
 const DropdownMenu = ({ label, links, location, overviewLink }: { label: string; links: { label: string; to: string }[]; location: ReturnType<typeof useLocation>; overviewLink?: string }) => {
   const [open, setOpen] = useState(false);
@@ -117,6 +118,7 @@ const Navbar = () => {
             About
           </Link>
           <DropdownMenu label="Polymers" links={polymerLinks} location={location} />
+          <Link to="/prices" className={`text-foreground/80 text-sm px-3.5 py-2 rounded-md transition-colors hover:bg-secondary hover:text-primary ${location.pathname === "/prices" ? "bg-secondary text-primary font-semibold" : ""}`}>Check Prices</Link>
           <DropdownMenu label="Textiles" links={textileLinks} location={location} />
           <DropdownMenu label="Alok Industries" links={alokLinks} location={location} overviewLink="/alok" />
           {simpleLinks.filter(l => l.to !== "/" && l.to !== "/about").map((link) => (

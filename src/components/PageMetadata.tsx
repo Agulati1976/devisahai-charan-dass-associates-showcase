@@ -7,6 +7,7 @@ const pages: Record<string, string> = {
   "/": "Authorised Del Credere Agent of Reliance Industries – Polymers & Textiles",
   "/about": "About Us",
   "/products": "Polymer Products – PP, PE, PVC & Bottle Grade PET",
+  "/prices": "Polymer Price Finder – PE, PP & PVC",
   "/products/pp": "Polypropylene (PP)",
   "/products/pe": "Polyethylene (PE)",
   "/products/pvc": "Polyvinyl Chloride (PVC)",

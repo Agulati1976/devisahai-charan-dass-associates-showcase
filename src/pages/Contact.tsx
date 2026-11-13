@@ -1,6 +1,6 @@
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 
@@ -10,9 +10,11 @@ interface ContextType {
 
 const Contact = () => {
   const { openRFQ } = useOutletContext<ContextType>();
+  const [searchParams] = useSearchParams();
+  const priceEnquiry = (searchParams.get("q") || "").slice(0, 1000);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", subject: "", message: "" });
+  const [form, setForm] = useState({ name: "", company: "", email: "", phone: "", subject: priceEnquiry ? "Pricing & Availability" : "", message: priceEnquiry });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,8 +35,8 @@ const Contact = () => {
         body: { type: "contact", name: form.name, email: form.email, phone: form.phone, company: form.company, message: form.message, product_interest: form.subject },
       });
       setSubmitted(true);
-    } catch (err: any) {
-      toast.error(err.message || "Failed to submit");
+    } catch (err: unknown) {
+      toast.error(err instanceof Error ? err.message : "Failed to submit");
     } finally {
       setLoading(false);
     }

@@ -8,6 +8,7 @@ import AdminLayout from "@/components/AdminLayout";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Products from "./pages/Products";
+import Prices from "./pages/Prices";
 import Reliance from "./pages/Reliance";
 import Contact from "./pages/Contact";
 import PPProduct from "./pages/PPProduct";
@@ -51,6 +52,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/prices" element={<Prices />} />
             <Route path="/products/pp" element={<PPProduct />} />
             <Route path="/products/pe" element={<PEProduct />} />
             <Route path="/products/pvc" element={<PVCProduct />} />

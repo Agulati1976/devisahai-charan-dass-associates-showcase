@@ -1,0 +1,21 @@
+.pf{max-width:520px;margin:2rem auto;padding:1.25rem;border:1px solid #d9dde3;border-radius:12px;font-family:inherit;background:#fff;color:#111}
+.pf h2{margin:0 0 .75rem;font-size:1.25rem}
+.pf label{display:block;margin:.75rem 0 0;font-size:.85rem;font-weight:600}
+.pf select{display:block;width:100%;margin-top:.25rem;padding:.6rem;font-size:1rem;border:1px solid #b9c0ca;border-radius:8px;background:#fff}
+.pf select:disabled{background:#f2f4f7;color:#888}
+.pf-tabs{display:flex;gap:.5rem;flex-wrap:wrap}
+.pf-tabs button{flex:1;padding:.55rem;border:1px solid #b9c0ca;border-radius:8px;background:#f7f8fa;cursor:pointer;font-size:.85rem}
+.pf-tabs button.on{background:#0b3d91;color:#fff;border-color:#0b3d91}
+.pf-result{margin-top:1.25rem;padding:1rem;border-radius:10px;background:#eef4ff}
+.pf-price{font-size:2rem;font-weight:700;color:#0b3d91}
+.pf-price span{font-size:.9rem;font-weight:400;color:#444}
+.pf-sub{margin-top:.25rem;font-size:.9rem}
+.pf-note{margin-top:.6rem;font-size:.75rem;color:#555;line-height:1.4}
+.pf-actions{display:flex;gap:.5rem;margin-top:.9rem}
+.pf-btn{padding:.6rem 1rem;border-radius:8px;background:#0b3d91;color:#fff;text-decoration:none;font-weight:600;font-size:.9rem}
+.pf-btn.alt{background:#1a9c4b}
+.pf-error{color:#a40000}
+@media (prefers-color-scheme:dark){.pf{background:#161a20;color:#eee;border-color:#333}.pf select{background:#1f242c;color:#eee;border-color:#444}.pf-result{background:#1b2a44}.pf-price{color:#9cc2ff}.pf-note,.pf-price span{color:#aab}}
+.pf input[type=search]{display:block;width:100%;margin:.25rem 0 .4rem;padding:.55rem;font-size:.95rem;border:1px solid #b9c0ca;border-radius:8px;background:#fff;color:inherit}
+.pf label small{font-weight:400;color:#666}
+@media(max-width:520px){.pf{margin:1rem auto;padding:1rem}.pf-tabs button{min-width:100px}.pf-actions{flex-wrap:wrap}}
