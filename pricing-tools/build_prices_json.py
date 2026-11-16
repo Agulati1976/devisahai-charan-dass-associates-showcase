@@ -25,24 +25,26 @@ dst, srcs = args[0], args[1:]
 
 groups, sources = collections.OrderedDict(), {}
 for src in srcs:
-    seen = {}
     for r in csv.DictReader(open(src, encoding="utf-8")):
         if r["sale_type"] not in types: continue
-        sources[r["product"]] = {"effective_from": r["effective_from"], "circular_ref": r["circular_ref"]}
+        meta = {"effective_from": r["effective_from"], "circular_ref": r["circular_ref"]}
+        if sources.setdefault(r["product"], meta) != meta:
+            raise ValueError(f'Mixed circulars for {r["product"]}')
         key = (r["product"], r["sale_type"], r["polymer"], r["plant"], r["grade"])
-        loc = r["location"] if r["sale_type"] != "Ex-Depot" else f'{r["location"]} - {r["sub_location"]}'
+        loc = r["location"]
+        if r["sale_type"] == "Ex-Depot" and r["sub_location"]:
+            loc += " - " + r["sub_location"]
         price = float(r["price_inr_per_mt"]); price = int(price) if price.is_integer() else price
-        k2 = key + (loc,)
-        if k2 in seen:
-            if seen[k2] == price: continue          # exact duplicate row in the PDF
-            n = sum(1 for x in seen if x[:-1] == key and x[-1].startswith(loc))
-            loc = f"{loc} (#{n + 1})"; k2 = key + (loc,)
-        seen[k2] = price
-        groups.setdefault(key, []).append([loc, r["state"], price])
+        locs = groups.setdefault(key, {})
+        if locs.setdefault((loc, r["state"]), price) != price:
+            raise ValueError(f"Conflicting prices for {key} at {loc}, {r['state']}")
 
 # merge plants whose price lists for a grade are identical
 merged = collections.OrderedDict()
-for (prod, st, poly, plant, grade), locs in groups.items():
+for (prod, st, poly, plant, grade), locations in groups.items():
+    counts = collections.Counter(loc for loc, _ in locations)
+    locs = [[loc, state, price] if counts[loc] == 1 else [f"{loc} ({state})", "", price]
+            for (loc, state), price in locations.items()]
     sig = (prod, st, poly, grade, json.dumps(locs))
     if sig in merged: merged[sig]["plants"].append(plant)
     else: merged[sig] = {"product": prod, "sale_type": st, "polymer": poly,

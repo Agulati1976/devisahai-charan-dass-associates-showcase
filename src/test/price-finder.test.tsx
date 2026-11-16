@@ -27,10 +27,11 @@ describe("Price Finder", () => {
     fireEvent.change(screen.getByPlaceholderText("Type to filter grades"), { target: { value: "46GP009" } });
     fireEvent.change(screen.getAllByRole("combobox")[2], { target: { value: "46GP009" } });
     fireEvent.change(screen.getByLabelText("Delivery location"), { target: { value: "DELHI" } });
-    expect(screen.getByText(/Rs 1,33,314/)).toBeTruthy();
+    expect(screen.getByText(/Rs 1,46,331/)).toBeTruthy();
+    expect(screen.getByText(/PE\/2026-27\/027, effective November 01, 2026/)).toBeTruthy();
     fireEvent.click(screen.getByRole("link", { name: "Request quote" }));
     await waitFor(() => expect((screen.getByPlaceholderText("How can we help you?") as HTMLTextAreaElement).value).toContain("46GP009"));
     expect((screen.getByPlaceholderText("How can we help you?") as HTMLTextAreaElement).value).toContain("DELHI");
-    expect((screen.getByPlaceholderText("How can we help you?") as HTMLTextAreaElement).value).toContain("1,33,314");
+    expect((screen.getByPlaceholderText("How can we help you?") as HTMLTextAreaElement).value).toContain("1,46,331");
   });
 });

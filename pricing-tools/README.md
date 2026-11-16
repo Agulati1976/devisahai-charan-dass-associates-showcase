@@ -1,6 +1,6 @@
 # Updating the Price Finder
 
-The website reads `/prices.json` when the page opens and refreshes it every 10 minutes. Updating that single file in the website's document root updates prices without a React build. The supplied starting file contains PE prices effective **1 September 2026** and PP/PVC prices effective **1 October 2026**. Check for newer Reliance circulars before treating these as current.
+The website reads `/prices.json` when the page opens and refreshes it every 10 minutes. Updating that single file in the website's document root updates prices without a React build. The current file uses the Reliance PE, PP and PVC circulars effective **1 November 2026**.
 
 1. Save the latest Reliance PDF for each changed product. Keep the unchanged CSVs in this folder.
 2. From this folder, run the parser for each changed circular. It requires Python 3 and Poppler's `pdftotext` command:
@@ -13,7 +13,7 @@ The website reads `/prices.json` when the page opens and refreshes it every 10 m
 
    Run only the lines for products whose PDF changed. If the circular layout has changed, stop and review the parser output before publishing.
 
-3. Review each changed `prices_*_rejects.csv`. The supplied PE circular has 70 skipped prices with no location label; do not guess the location. Build the combined file with **all three** CSVs:
+3. Review each changed `prices_*_rejects.csv`. The November PE circular has 70 prices with no location label; do not guess the location. Build the combined file with **all three** CSVs:
 
    ```text
    python build_prices_json.py prices.json prices_PE.csv prices_PP.csv prices_PVC.csv
@@ -25,4 +25,4 @@ The website reads `/prices.json` when the page opens and refreshes it every 10 m
 
 For a full site deployment, `public/prices.json` is copied into `dist/prices.json` by Vite. A later full build from this repository will overwrite the server file with the repository version, so commit the newly approved JSON here as well before the next full deployment. Routine price-only updates can be uploaded to the server directly without a build.
 
-The PDF parser and builder came from the supplied developer package. They were reviewed as source but were not executed during this integration. If any sample fails checks, resolve it with the PDF or Reliance before upload.
+The extractor handles Domestic and Ex-Depot rupee tables. If the parser stops or any sample fails checks, resolve it with the PDF or Reliance before upload.
