@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Outlet, Link, useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { LayoutDashboard, Package, MessageSquare, FileText, LogOut, Menu, X, Home, Download, Users } from "lucide-react";
+import { LayoutDashboard, Package, MessageSquare, FileText, LogOut, Menu, Home, Download, Users, Tags } from "lucide-react";
 import { toast } from "sonner";
 
 const navItems = [
   { label: "Dashboard", icon: LayoutDashboard, path: "/admin" },
   { label: "Products", icon: Package, path: "/admin/products" },
+  { label: "Pricing", icon: Tags, path: "/admin/pricing" },
   { label: "Enquiries", icon: MessageSquare, path: "/admin/enquiries" },
   { label: "RFQ Submissions", icon: FileText, path: "/admin/enquiries?source=rfq" },
   { label: "Grade Sheet Leads", icon: Download, path: "/admin/enquiries?source=grade_sheet" },

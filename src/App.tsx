@@ -23,6 +23,7 @@ import GeorgiaGullini from "./pages/GeorgiaGullini";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminProducts from "./pages/AdminProducts";
+import AdminPricing from "./pages/AdminPricing";
 import AdminEnquiries from "./pages/AdminEnquiries";
 import AdminUsers from "./pages/AdminUsers";
 import UserLogin from "./pages/UserLogin";
@@ -77,6 +78,7 @@ const App = () => (
           <Route element={<AdminLayout />}>
             <Route path="/admin" element={<AdminDashboard />} />
             <Route path="/admin/products" element={<AdminProducts />} />
+            <Route path="/admin/pricing" element={<AdminPricing />} />
             <Route path="/admin/enquiries" element={<AdminEnquiries />} />
             <Route path="/admin/users" element={<AdminUsers />} />
           </Route>

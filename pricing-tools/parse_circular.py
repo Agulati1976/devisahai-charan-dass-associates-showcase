@@ -82,6 +82,10 @@ def parse(product, txt):
         raise ValueError("Missing circular reference or effective date")
     date = re.sub(r"\s*,\s*", ", ", eff[1])
     ref = re.sub(r"\s+", "", ref_match[1])
+    ref_pattern = (r"\d{4}-\d{2}/PP/DTA/\d+" if product == "PP"
+                   else rf"{product}/\d{{4}}-\d{{2}}/\d+")
+    if not re.fullmatch(ref_pattern, ref):
+        raise ValueError(f"The circular reference does not match {product}")
     rows, rejects = [], []
     for page_no, page in enumerate(pages, 1):
         lines = [line for line in page.splitlines() if line.strip()]

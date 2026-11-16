@@ -13,13 +13,18 @@ RewriteBase /
 # Permanently retire the known theme-demo URL instead of returning a soft 404.
 RewriteRule ^fixed-removable-prosthesis(?:/.*)?$ - [G,L,NC]
 
+# Use prices published through admin when the Hostinger endpoint is installed.
+RewriteCond %{DOCUMENT_ROOT}/dscda-api/public-prices.php -f
+RewriteRule ^prices\.json$ dscda-api/public-prices.php [L]
+RewriteRule ^dscda-api/prices-admin\.php$ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
 # Serve real assets directly.
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
 # Only supported app routes receive the SPA entry point.
-RewriteRule ^(?:about|prices|products(?:/(?:pp|pe|pvc|pet))?|textiles/(?:vimal-gifting|vimal-suitings|uniforms|polyester-suiting|georgia-gullini)|reliance|careers|alok(?:/(?:wovens|knits|yarns|furnishing|embroideries))?|contact|login|dashboard|admin(?:/(?:login|products|enquiries|users))?)/?$ index.html [L]
+RewriteRule ^(?:about|prices|products(?:/(?:pp|pe|pvc|pet))?|textiles/(?:vimal-gifting|vimal-suitings|uniforms|polyester-suiting|georgia-gullini)|reliance|careers|alok(?:/(?:wovens|knits|yarns|furnishing|embroideries))?|contact|login|dashboard|admin(?:/(?:login|products|pricing|enquiries|users))?)/?$ index.html [L]
 
 # Unknown URLs have a real HTTP 404, with the app's not-found screen.
 ErrorDocument 404 /index.html
