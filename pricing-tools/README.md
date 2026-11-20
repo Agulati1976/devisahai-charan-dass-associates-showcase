@@ -2,7 +2,7 @@
 
 To update prices on the live site, sign in to **Admin → Pricing**, select PE, PP or PVC, and upload the corresponding Reliance price circular. Click **Preview prices**, review the effective date, sample prices and skipped entries, then click **Publish**. Repeat for each product that has a new circular.
 
-The Price Finder loads `/prices.json` when the page opens and refreshes it every 10 minutes. The bundled file uses the circulars effective **1 November 2026**. On Hostinger, the live route prefers the file published through Admin, which is stored outside the website folder so it survives frontend deploys.
+The Price Finder loads `/prices.json` when the page opens and refreshes it every 10 minutes. The bundled file uses PP prices effective **19 November 2026** and PE/PVC prices effective **1 November 2026**. On Hostinger, the live route prefers the file published through Admin, which is stored outside the website folder so it survives frontend deploys.
 
 ## Manual preparation
 
